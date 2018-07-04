@@ -1,0 +1,223 @@
+@font-face
+{
+    font-family : 'Tahu';
+    src : url('../fonts/Tahu.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face
+{
+    font-family : 'cookies&milk-regular';
+    src : url('../fonts/cookies&milk-regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face
+{
+    font-family : 'cookies&milk-Italic';
+    src : url('../fonts/cookies&milk-Italic.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face
+{
+    font-family : 'Matiz';
+    src : url('../fonts/Matiz.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face
+{
+    font-family : 'Asgalt-Regular';
+    src : url('../fonts/Asgalt-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+/***** General ******/
+
+html, body {
+    height: 100%;
+    width: 100%;
+    line-height: 1;
+}
+
+/**** Nav bar ****/
+.navbar-brand {
+    font-family: tahu;
+    font-size:2em;
+    color : white;
+    text-shadow: black 5px 5px 6px ;
+}
+li{
+    font-family: Matiz;
+
+    color:white;
+}
+.navbar-dark .navbar-nav .nav-link{
+    color:white;
+    padding: 10px;
+}
+
+
+.bg-dark{
+    background-color: #008585 !important;
+    border:none;
+
+
+}
+
+/***** Banière Home *****/
+
+.landing{
+    background: url("../images/bg.jpg") no-repeat center center fixed;
+    display:table;
+    height: 100%;
+    position: relative;
+    width: 100%;
+    background-size: cover;
+
+}
+.inner{
+
+    display :table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+p.title-start{
+    font-family: cookies\&milk-regular;
+    font-size: 150px;
+    color:white;
+    text-shadow: black 5px 5px 6px ;
+
+}
+
+p.title-end {
+    font-family: tahu;
+    font-size: 150px;
+    color: white;
+    text-shadow: black 5px 5px 6px;
+}
+
+/***** Derniers posts home ***/
+
+.padding{
+    padding: 80px 0;
+
+}
+
+.card-text {
+    font-family: Asgalt-Regular;
+    font-size: 1.3em;
+    text-align: justify;
+    color : #007a7a;
+    background-color: rgba(247,247,247, 0.5);
+    background-size: 300px;
+    border-radius:20px/10px;
+    padding:20px;
+
+}
+.title {
+    font-family: Tahu;
+    font-size: 3em;
+    text-align: center;
+    color:#007a7a;
+}
+
+hr{
+    width:50%;
+    border : 1.5px solid #007a7a;
+}
+
+.card {
+    height:20%;
+    width:100%;
+    margin-bottom: 35px;
+    position: relative;
+    perspective: 500px;
+
+}
+
+.card-img-overlay h4{
+    display:flex;
+    justify-content: flex-end;
+    font-family: Tahu;
+    Font-size: 1.5em;
+    color:white;
+    
+}
+
+.card:hover .front {
+
+    -webkit-transform: rotateY(-180deg);
+
+}
+.card:hover .back{
+
+    -webkit-transform: rotateY(0deg);
+
+}
+
+.btn-outline-info{
+    color:white !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border-color: white !important;
+}
+.btn-outline-info:hover {
+    color:#007a7a !important;
+    background-color: white !important;
+    border-color: white !important;
+}
+.face {
+
+     height: 100%;
+     width: 100%;
+     top: 0;
+     left:0;
+    position:absolute;
+     backface-visibility: hidden;
+     transition: 1s;
+
+ }
+.front{
+
+
+}
+.back{
+   -webkit-transform: rotateY(180deg);
+    background-color: #007a7a;
+    font-family:Asgalt-Regular;
+    font-size:1.2em;
+    color:white;
+
+}
+
+@media only screen and (max-width: 500px) {
+
+    .card {
+        width: 100%;
+        height:304%;
+    }
+    .back {
+        width: 100%;
+    }
+    .front {
+        width: 100%;
+    }
+}
+
+/****Formulaires****/
+
+form{
+
+    margin:200px;
+    align-items: center;
+}
+
+.col-sm-8{
+    float: none;
+    margin: 0 auto;}
