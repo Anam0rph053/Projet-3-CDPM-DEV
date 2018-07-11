@@ -1,28 +1,39 @@
-<?php require('_header.php'); ?>
 
-<div class="padding">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <form>
-                    <p class="h4 text-center mb-4">Contact</p>
-                    <div class="form-group">
-                        <label for="name"></label>
-                        <input type="text" id="name" placeholder="Votre Nom et prénom" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="email"></label>
-                        <input type="text" id="email" placeholder="Votre adresse de messageri" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="message"></label>
-                        <input type="text" id="message" placeholder="Votre message" class="form-control">
-                    </div>
-                    <button type="submit" id="Envoyer" class="btn btn-default">Envoyer</button>
-                </form>
-            </div>
-        </div>
+<!-- Material form contact -->
+<form>
+    <p class="h4 text-center mb-4">Contactez-Moi</p>
+
+    <!-- Material input text -->
+    <div class="md-form">
+        <i class="fa fa-user prefix grey-text"></i>
+        <input type="text" id="materialFormContactNameEx" class="form-control"placeholder="Nom et Prénom">
+        <label for="materialFormContactNameEx"</label>
     </div>
-</div>
 
-<?php require('_footer.php'); ?>
+    <!-- Material input email -->
+    <div class="md-form">
+        <i class="fa fa-envelope prefix grey-text"></i>
+        <input type="email" id="materialFormContactEmailEx" class="form-control" placeholder="Adresse Electronique">
+        <label for="materialFormContactEmailEx"</label>
+    </div>
+
+    <!-- Material input subject -->
+    <div class="md-form">
+        <i class="fa fa-tag prefix grey-text"></i>
+        <input type="text" id="materialFormContactSubjectEx" class="form-control" placeholder="Objet du Message">
+        <label for="materialFormContactSubjectEx"</label>
+    </div>
+
+    <!-- Material textarea message -->
+    <div class="md-form">
+        <i class="fa fa-pencil prefix grey-text"></i>
+        <textarea type="text" id="materialFormContactMessageEx" class="form-control md-textarea" rows="3" placeholder="Message"></textarea>
+        <label for="materialFormContactMessageEx"</label>
+    </div>
+
+    <div class="text-center mt-4">
+        <button class="btn btn-outline-btn btn-default waves-effect waves-light" type="submit">Envoyer</button>
+    </div>
+</form>
+
+<!-- Material form contact -->

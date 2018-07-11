@@ -18,8 +18,6 @@ class MyAutoload
 
         define('HOST', 'http://'.$host.'/Projet-3-CDPM-DEV/');
         define('ROOT', $root.'/Projet-3-CDPM-DEV/');
-
-
         define('CONTROLLER', ROOT.'controller/');
         define('VIEW', ROOT.'view/');
         define('MODEL', ROOT.'model/');

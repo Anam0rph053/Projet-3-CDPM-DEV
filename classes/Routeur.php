@@ -6,12 +6,16 @@ class Routeur
     private $request;
     private $routes = [
 
-        "home"                   =>["controller" => 'Frontend', "method" => 'showHome'],
-        "contact"                =>["controller" => 'Frontend', "method" => 'showContact']
+        "home"                   =>["controller" => 'Frontcontroller', "method" => 'showHome'],
+        "contact"                =>["controller" => 'Frontcontroller', "method" => 'showContact'],
+        "posts"                  =>["controller" => 'Frontcontroller', "method" => 'listPosts'],
+        "post"                   =>["controller" => 'Frontcontroller', "method" => 'singlePost'],
+        "login"                  =>["controller" => 'UserController',  "method" => 'login'],
+        "register"               =>["controller" => 'UserController',  "method" => 'newUser'],
+        "about"                  =>["controller" => 'Frontcontroller', "method" => 'showAbout'],
+        "commentEditView"        =>["controller" => 'Frontcontroller', "method" => 'addComment'],
 
-];
-
-
+    ];
 
     public function __construct($request)
     {
@@ -29,8 +33,11 @@ class Routeur
     {
         $params = array();
         // extract GET params
-        $elements = explode('/', $this->request);
-        unset($elements[0]);
+        $elements = explode('/', $this->request);//request parametre initiaux en get.
+
+
+
+        unset($elements[0]); //supprime la variable post garde id et 1
 
         for($i = 1; $i<count($elements); $i++)
         {

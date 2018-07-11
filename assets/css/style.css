@@ -42,39 +42,46 @@ html, body {
     height: 100%;
     width: 100%;
     line-height: 1;
-}
+    background-color: #e9ecef;
 
+}
+.padding{
+    padding: 80px 0;
+
+}
 /**** Nav bar ****/
 .navbar-brand {
     font-family: tahu;
     font-size:2em;
-    color : white;
+    color : white !important;
     text-shadow: black 5px 5px 6px ;
 }
 li{
     font-family: Matiz;
 
-    color:white;
-}
-.navbar-dark .navbar-nav .nav-link{
-    color:white;
-    padding: 10px;
 }
 
-
-.bg-dark{
-    background-color: #008585 !important;
-    border:none;
-
-
+.navbar-expand-lg .navbar-collapse{
+    padding-left:30%!important;
+ }
+.dropdown-menu {
+    background-color:#22a99a!important ;
+    color:white!important;
 }
-
+.navbar .dropdown-menu a {
+    color:white!important;
+}
+.dropdown-item:hover{
+    background-color: #73cdc4!important;
+}
 /***** Banière Home *****/
 
 .landing{
     background: url("../images/bg.jpg") no-repeat center center fixed;
     display:table;
     height: 100%;
+    top:0;
+    left:0;
     position: relative;
     width: 100%;
     background-size: cover;
@@ -104,16 +111,13 @@ p.title-end {
 
 /***** Derniers posts home ***/
 
-.padding{
-    padding: 80px 0;
 
-}
 
 .card-text {
     font-family: Asgalt-Regular;
     font-size: 1.3em;
     text-align: justify;
-    color : #007a7a;
+    color : #26b2a4;
     background-color: rgba(247,247,247, 0.5);
     background-size: 300px;
     border-radius:20px/10px;
@@ -124,12 +128,12 @@ p.title-end {
     font-family: Tahu;
     font-size: 3em;
     text-align: center;
-    color:#007a7a;
+    color:#26b2a4;
 }
 
 hr{
     width:50%;
-    border : 1.5px solid #007a7a;
+    border : 1.5px solid #26b2a4;
 }
 
 .card {
@@ -139,6 +143,7 @@ hr{
     position: relative;
     perspective: 500px;
 
+
 }
 
 .card-img-overlay h4{
@@ -147,12 +152,13 @@ hr{
     font-family: Tahu;
     Font-size: 1.5em;
     color:white;
-    
+
 }
 
 .card:hover .front {
 
     -webkit-transform: rotateY(-180deg);
+
 
 }
 .card:hover .back{
@@ -161,17 +167,6 @@ hr{
 
 }
 
-.btn-outline-info{
-    color:white !important;
-    background-color: transparent !important;
-    background-image: none !important;
-    border-color: white !important;
-}
-.btn-outline-info:hover {
-    color:#007a7a !important;
-    background-color: white !important;
-    border-color: white !important;
-}
 .face {
 
      height: 100%;
@@ -189,11 +184,17 @@ hr{
 }
 .back{
    -webkit-transform: rotateY(180deg);
-    background-color: #007a7a;
+    background-color: #26b2a4;
     font-family:Asgalt-Regular;
-    font-size:1.2em;
-    color:white;
+    font-size:1.5em;
+    color:  white;
 
+}
+.btn-outline-info {
+    color: white !important;
+    background-color: transparent!important;
+    background-image: none!important;
+    border-color: white!important;
 }
 
 @media only screen and (max-width: 500px) {
@@ -208,6 +209,9 @@ hr{
     .front {
         width: 100%;
     }
+
+
+
 }
 
 /****Formulaires****/
@@ -221,3 +225,28 @@ form{
 .col-sm-8{
     float: none;
     margin: 0 auto;}
+
+
+ .container{
+     width:65%;
+     padding-right:15px;
+     padding-left:15px;
+     margin-right:auto;
+     margin-left:auto;
+ }
+h1.card-title{
+    font-size:2.5rem;
+}
+img.img-fluid{
+    border-radius:5px;
+}
+
+.card .card-body .card-text{
+    font-size: 1.5em !important;
+;
+}
+/***Comments***/
+
+
+
+
