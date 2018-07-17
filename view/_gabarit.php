@@ -58,9 +58,9 @@
                         <i class="fa fa-user"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item waves-effect waves-light" href="<?=HOST;?>login"">Connexion</a>
-                        <a class="dropdown-item waves-effect waves-light" href="<?=HOST;?>register"">Inscription</a>
-                        <a class="dropdown-item waves-effect waves-light" href="logout">Deconnexion</a>
+                        <a class="dropdown-item waves-effect waves-light" href="<?=HOST;?>login">Connexion</a>
+                        <a class="dropdown-item waves-effect waves-light" href="<?=HOST;?>register">Inscription</a>
+                        <a class="dropdown-item waves-effect waves-light" href="<?=HOST;?>logOut">Deconnexion</a>
                     </div>
                 </li>
             </ul>

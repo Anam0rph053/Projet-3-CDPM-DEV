@@ -8,88 +8,108 @@ class UserController
     {
         $erreur = [];
 
-        if(!empty($_POST)){
+        if (!empty($_POST)) {
 
-            if(isset($_POST['pseudo']) && isset($_POST['pass']) && isset($_POST['email']) && !empty($_POST['pseudo']) && !empty($_POST['pass']) && !empty($_POST['email'])) {
+            if (isset($_POST['pseudo']) && isset($_POST['pass']) && isset($_POST['email']) && !empty($_POST['pseudo']) && !empty($_POST['pass']) && !empty($_POST['email'])) {
 
                 if ($_POST['pass'] == $_POST['pass2']) {
-                    $pass_hache = password_hash($_POST['pass'], PASSWORD_DEFAULT);
-                }
-                else {
+                    $pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+                } else {
                     $erreur['errorPass'] = 'Vos mot de passe ne sont pas identiques';
                 }
 
                 if (strlen($_POST['pseudo']) <= 32) {
                     $pseudo = strtolower(htmlspecialchars($_POST['pseudo']));
                 } else {
-                    $erreur['errorPseudo'] =' Votre pseudo est trop long ou contient des majuscules' ;
+                    $erreur['errorPseudo'] = ' Votre pseudo est trop long ou contient des majuscules';
                 }
 
                 if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
                     $email = htmlspecialchars($_POST['email']);
-                }
-                else {
+                } else {
                     $erreur['errorEmail'] = 'Votre email n\'est pas au bon format ou ne sont pas identiques';
                 }
-            }
-            else {
+            } else {
                 $erreur['errorForm'] = 'Un élément manque pour vous inscrire';
             }
-                if(!empty($erreur)){
+            if (!empty($erreur)) {
 
-                    $_SESSION['alertes']['submit_error'] = 'problème on ne peut pas vous enregistrer';
+                $_SESSION['alertes']['submit_error'] = 'problème on ne peut pas vous enregistrer';
 
-                    $myView = new View();
-                   $myView->redirect('register');
-
-
-                }else{
-
-                    $userManager = new UserManager();
-                    $userManager->addMembersdb($_POST);
-
-                    $_SESSION['alertes']['submit_success'] = 'Super bienvenue parmis nous';
-
-                    $myView= new View('home');
-                    $myView->render();
+                $myView = new View();
+                $myView->redirect('register');
 
 
-                }
+            } else {
+
+                $userManager = new UserManager();
+                $userManager->addMembersdb($_POST);
+
+                $_SESSION['alertes']['submit_success'] = 'Super bienvenue parmis nous';
+
+                $myView = new View('profil');
+                $myView->render();
+
+
             }
+        }
 
-        $myView= new View('register');
+        $myView = new View('register');
         $myView->render();
     }
 
-   public function login($values)
-   {
-       if (!empty($_POST)) {
+    public function userLogin()
+    {
+        if (!empty($_POST)) {
+            if (isset($_POST['pseudo']) AND isset($_POST['pass'])) {
+                $pseudo = htmlspecialchars($_POST['pseudo']);
+                $pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+                $UserManager = new UserManager();
+                $result = $UserManager->getMembersdb($_POST);
+            }
+            if ($result == null ) {
+                $_SESSION['alertes']['submit_error'] = 'Mauvais identifiant ou mauvais mot de passe';
 
-           $pseudo = htmlspecialchars($_POST['pseudo']);
+                $myView = new View();
+                $myView->redirect('login');
+            } else {
 
-           $userManager = new UserManager();
-           $result = $userManager->getMembersdb($values);
+                $_SESSION['pseudo'] = $pseudo;
+                $_SESSION['alertes']['submit_success'] = 'Super bienvenue parmis nous';
+                if (isset($_POST ['exist'])) {
+                    setcookie('pseudo', $_POST['pseudo']);
+                    setcookie('pass', $_POST['pass']);
+                }
 
+                $myView = new View();
+                $myView->redirect('profil');
 
-           if ($result == null) {
-               $_SESSION['alertes']['submit_error'] = 'Mauvais identifiant ou mauvais mot de passe';
-               $myView = new View('login');
-               $myView->render();
+            }
 
-           } //Sinon, on enregistre l'utilisateur en session et on ajouter les cookies, et on redirige
-           else {
-               $_SESSION['id'] = $result['id'];
-               $_SESSION['pseudo'] = $pseudo;
+        }
+        $myView = new View('login');
+        $myView->render();
+    }
 
+    public function showProfil(){
+        $myView = new View('profil');
+        $myView->render();
+    }
 
-               if (isset($_POST ['exist'])) {
-                   setcookie('login', $pseudo);
-                   setcookie('pass', $pass);
-               }
-               $myView = new View('login');
-               $myView->render();
-           }
+    public function logOut(){
+        if (isset($_GET['logOut']))
+        {
+            session_destroy();
+            header('Location : .');
+            exit();
+        }
+        session_destroy();
 
-       }
-   }
+// Suppression des cookies de connexion automatique
+        setcookie('pseudo', '');
+        setcookie('pass', '');
+        $_SESSION['alertes']['submit_success'] = 'tu es bien déconnecté';
+        $myView = new View();
+        $myView->redirect('logOut');
+    }
 }

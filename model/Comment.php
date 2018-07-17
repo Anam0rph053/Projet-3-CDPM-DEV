@@ -1,11 +1,12 @@
 <?php
 
-class Comments
+class Comment
 {
 
     private $id;
     private $post_id;
-    private $author;
+    private $pseudo;
+    private $parent_id;
     private $comment;
     private $comment_date;
 
@@ -34,27 +35,28 @@ class Comments
     }
 
     /**
-     * @param mixed $post_id
+     * @return mixed
      */
-    public function setPostId($post_id)
+    public function getParentId()
     {
-        $this->post_id = $post_id;
+        return $this->parent_id;
     }
+
 
     /**
      * @return mixed
      */
-    public function getAuthor()
+    public function getPseudo()
     {
-        return $this->author;
+        return $this->pseudo;
     }
 
     /**
      * @param mixed $author
      */
-    public function setAuthor($author)
+    public function setPseudo($pseudo)
     {
-        $this->author = $author;
+        $this->author = $pseudo;
     }
 
     /**

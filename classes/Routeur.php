@@ -10,10 +10,14 @@ class Routeur
         "contact"                =>["controller" => 'Frontcontroller', "method" => 'showContact'],
         "posts"                  =>["controller" => 'Frontcontroller', "method" => 'listPosts'],
         "post"                   =>["controller" => 'Frontcontroller', "method" => 'singlePost'],
-        "login"                  =>["controller" => 'UserController',  "method" => 'login'],
-        "register"               =>["controller" => 'UserController',  "method" => 'newUser'],
         "about"                  =>["controller" => 'Frontcontroller', "method" => 'showAbout'],
-        "commentEditView"        =>["controller" => 'Frontcontroller', "method" => 'addComment'],
+        "commentEditView"        =>["controller" => 'Frontcontroller', "method" => 'singlePost'],
+
+        "login"                  =>["controller" => 'UserController',  "method" => 'userLogin'],
+        "register"               =>["controller" => 'UserController',  "method" => 'newUser'],
+        "profil"                 =>["controller" => 'UserController',  "method" => 'showProfil'],
+        "logOut"                 =>["controller" => 'UserController',  "method" => 'logOut'],
+
 
     ];
 

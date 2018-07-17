@@ -11,6 +11,7 @@
 
     </div>
 
+
 </div>
 
 <div class="padding">
@@ -40,7 +41,7 @@
                     </div>
                     <div class=" face back">
                         <p><?=$post->getTitle();?></p>
-                        <p><?=substr($post->getContent(), 0, 50); ?></p>
+                        <p><?=substr($post->getContent(), 0, 100); ?>...</p>
                         <button type="button" class="btn btn-outline-info" >Lire la suite</button>
                     </div>
                 </div>

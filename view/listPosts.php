@@ -29,7 +29,7 @@
                         <!-- Post title -->
                         <h3 class="font-weight-bold mb-3"><?=$post->getTitle();?></h3>
                         <!-- Excerpt -->
-                        <p><?=substr($post->getContent(), 0, 150); ?></p>
+                        <p><?=substr($post->getContent(), 0, 150 )?></p>
                         <!-- Post data -->
                         <p><?=$post->getName();?> le <?=$post->getCreatedAt();?></p>
                         <!-- Read more button -->

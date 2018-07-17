@@ -21,23 +21,20 @@ class UserManager extends Manager
         $req->execute();
 
     }
-        function getMembersdb($values)
-        {
-            $db =$this->db;
-            $query="SELECT * FROM membres WHERE pseudo = :pseudo";
-            $req=$db->prepare($query);
-            if (isset($values['id'])) $req->bindValue(':id', $values['id'], PDO::PARAM_INT);
-            $req->bindValue(':pseudo',$values ['pseudo']);
-            $req->execute();
-            $result = $req->fetch();
 
-            $isPasswordCorrect = password_verify($_POST['pass'], $result['pass']);
-            if ($isPasswordCorrect === true) {
-                return $result;
-            };
+    function getMembersdb($values)
+    {
+        // selection d'un membre
 
-        }
+        $db =$this->db;
+        $query="SELECT id FROM Membres WHERE (pseudo = :pseudo)";
+        $req = $db->prepare($query);
 
-
-
+        $req->bindValue(':pseudo', $values['pseudo'], PDO::PARAM_STR);
+        $req->bindValue(':pass', $values['pass'], PDO::PARAM_STR);
+        $req->execute(['pseudo'=>$_POST['pseudo']]);
+        $result = $req->fetch();
+        return $result;
     }
+
+}
