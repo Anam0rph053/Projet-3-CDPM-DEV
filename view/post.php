@@ -1,7 +1,6 @@
 <div class="padding">
     <div class="container">
-        <?php foreach ($params as $post):?>
-
+        <?php if(isset($post)): ?>
             <!-- Card -->
             <div class="card card-cascade wider reverse">
 
@@ -23,7 +22,6 @@
                     <!-- Text -->
                     <p class="card-text"><?=$post->getContent();?>
                     </p>
-
                     <!-- Linkedin -->
                     <a class="px-2 fa-lg li-ic"><i class="fa fa-linkedin"></i></a>
                     <!-- Twitter -->
@@ -35,12 +33,9 @@
 
             </div>
 
-        <?php endforeach;?>
-
-
-       <?php foreach($params as $comment): ?>
+        <?php endif; ?>
        <?php require('commentEditView.php'); ?>
-        <?php endforeach; ?>
+
 
 </div>
 

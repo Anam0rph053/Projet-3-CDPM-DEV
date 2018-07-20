@@ -6,7 +6,7 @@ class Comment
     private $id;
     private $post_id;
     private $pseudo;
-    private $parent_id;
+    private $email;
     private $comment;
     private $comment_date;
 
@@ -35,11 +35,11 @@ class Comment
     }
 
     /**
-     * @return mixed
+     * @param mixed $post_id
      */
-    public function getParentId()
+    public function setPostId($post_id)
     {
-        return $this->parent_id;
+        $this->post_id = $post_id;
     }
 
 
@@ -52,12 +52,29 @@ class Comment
     }
 
     /**
-     * @param mixed $author
+     * @param mixed $pseudo
      */
     public function setPseudo($pseudo)
     {
-        $this->author = $pseudo;
+        $this->pseudo = $pseudo;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param mixed $email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
 
     /**
      * @return mixed
@@ -91,7 +108,4 @@ class Comment
         $this->comment_date = $comment_date;
     }
 
-
 }
-
-

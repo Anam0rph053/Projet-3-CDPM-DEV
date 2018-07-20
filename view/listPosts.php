@@ -10,7 +10,7 @@
     <div class="padding">
         <div class="container">
 
-            <?php foreach ($params as $post):?>
+            <?php foreach ($variables as $post):?>
 
                 <div class="row">
 

@@ -22,7 +22,7 @@ class PostManager extends Manager
             $post->setContent($row['content']);
             $post->setCreatedAt($row['created_at']);
 
-            $posts [] = $post; //tableau d'obejt
+            $posts[] = $post; //tableau d'obejt
 
             //substr($post->getContent(), 0, 150);
             /*$extract = substr($row->text, 0, 150);

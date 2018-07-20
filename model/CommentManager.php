@@ -3,74 +3,73 @@
 class CommentManager extends Manager
 {
 
-    public function getComments($postId){
-        $db=$this->db;
+    public function getComments($postId)
+    {
 
+        $db = $this->db;
         $query = "SELECT * FROM comments WHERE post_id = ?";
         $req = $db->prepare($query);
         $req->execute([$postId]);
-        $comments = $req->fetchAll();
-        $comments_by_id = [];
-        foreach ($comments as $comment) {
-            $comments_by_id[$comment->id] = $comment;
-        }
-        foreach ($comments as $k =>$comment){
-            if($comment->parent_id!=0){
-                $comments_by_id[$comment->parent_id]->children[] =$comment;
-                unset($comments[$k]);
-            }
-        }
-        return $comments_by_id;
-        }
 
-      /*$query = "SELECT id, author, comment, DATE_FORMAT(comment_date, '%d/%m/%Y à %Hh%imin%ss') AS comment_date_fr FROM comments WHERE post_id = ? ORDER BY comment_date DESC";
-        $req = $db->prepare($query);
-        $req->execute(array($postId));
+        $comments = [];
         while ($row = $req->fetch(PDO::FETCH_ASSOC)) {
 
 
-            //  on peut également faire un hydrate a la place de la methode ci dessous...
-
             $comment = new Comment();
             $comment->setId($row['id']);
-           // $comment->setPostId($row['post_id']);
-            //$comment->setParentId($row['parent_id']);
-            $comment->setAuthor($row['author']);
+            $comment->setPostId($row['post_id']);
+            $comment->setPseudo($row['pseudo']);
             $comment->setComment($row['comment']);
-          //  $comment->setCommentDate($row['comment_date']);
-            $comments [] = $comment; //tableau d'obejt
+            $comment->setCommentDate($row['comment_date']);
 
-            //substr($post->getContent(), 0, 150);
-            /*$extract = substr($row->text, 0, 150);
-            $espace = strrpos($extract, ' ');
-            $espace = strrpos($extract, 0, $espace).'...';*/
-     //   };
-      //  return $comments;
-    /*}
 
-    public function getComment($commentId){
-        $db=$this->db;
-        $query = "SELECT id, author, comment, DATE_FORMAT(comment_date, '%d/%m/%Y à %Hh%imin%ss') AS comment_date_fr, post_id FROM comments WHERE id = ?";
+            $comments[] = $comment;
+        }
+        return $comments;
+
+
+    }
+
+    public function getComment($id)
+    {
+        $db = $this->db;
+        $query = "SELECT id, pseudo, comment, DATE_FORMAT(comment_date, '%d/%m/%Y à %Hh%imin%ss') AS comment_date_fr, post_id FROM comments WHERE id = ?";
         $req = $db->prepare($query);
-        $req->execute(array($commentId));
+        $req->execute(array($id));
         $row = $req->fetch(PDO::FETCH_ASSOC);
-
-
-            //  on peut également faire un hydrate a la place de la methode ci dessous...
-
+        {
             $comment = new Comment();
+            $comment->setId($row['id']);
+            $comment->setPostId($row['post_id']);
+            $comment->setPseudo($row['pseudo']);
+            $comment->setComment($row['comment']);
+            $comment->setCommentDate($row['comment_date']);
+        }
 
-        $comment = new Comment();
-        $comment->setId($row['id']);
-        // $comment->setPostId($row['post_id']);
-        //$comment->setParentId($row['parent_id']);
-        $comment->setAuthor($row['author']);
-        $comment->setComment($row['comment']);
-        $comment->setCommentDate($row['comment_date']);
+        return $comment;
+
+    }
+
+    function addCommentDb($values)
+    {
+        $db = $this->db;
+        if (!isset($values['id']) && !isset($values['post_id']) ) {
+            $query = "INSERT INTO comments( pseudo, email, comment,comment_date) VALUES(  :pseudo, :email, :comment, NOW())";
+
+        }
+        $req = $db->prepare($query);
+        if (isset($values['id'])&& isset($values['post_id'])) $req->bindValue(':id', $values['id'], PDO::PARAM_INT);
+        $req->bindValue(':pseudo', $values['pseudo'], PDO::PARAM_STR);
+        $req->bindValue(':email', $values['email'], PDO::PARAM_STR);
+        $req->bindValue(':comment', $values['comment'], PDO::PARAM_STR);
 
 
-        return $comment;*/
+        $req->execute();
 
-
+    }
 
 }
+/*$req->bindValue(':post_id', $comment->getPostId());
+$req->bindValue(':pseudo', $comment->getPseudo());
+$req->bindValue(':email', $comment->getEmail());
+$req->bindValue(':comment', $comment->getComment());*/

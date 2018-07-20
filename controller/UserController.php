@@ -97,19 +97,15 @@ class UserController
     }
 
     public function logOut(){
-        if (isset($_GET['logOut']))
-        {
-            session_destroy();
-            header('Location : .');
-            exit();
-        }
+
         session_destroy();
 
 // Suppression des cookies de connexion automatique
         setcookie('pseudo', '');
         setcookie('pass', '');
         $_SESSION['alertes']['submit_success'] = 'tu es bien déconnecté';
-        $myView = new View();
-        $myView->redirect('logOut');
+
+        $myView = new View('home');
+        $myView->redirect('home');
     }
 }

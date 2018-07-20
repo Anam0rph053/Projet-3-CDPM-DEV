@@ -12,6 +12,7 @@ class Routeur
         "post"                   =>["controller" => 'Frontcontroller', "method" => 'singlePost'],
         "about"                  =>["controller" => 'Frontcontroller', "method" => 'showAbout'],
         "commentEditView"        =>["controller" => 'Frontcontroller', "method" => 'singlePost'],
+        "createComment"          =>["controller" => 'Frontcontroller', "method" => 'addComment'],
 
         "login"                  =>["controller" => 'UserController',  "method" => 'userLogin'],
         "register"               =>["controller" => 'UserController',  "method" => 'newUser'],
