@@ -22,12 +22,6 @@
                     <!-- Text -->
                     <p class="card-text"><?=$post->getContent();?>
                     </p>
-                    <!-- Linkedin -->
-                    <a class="px-2 fa-lg li-ic"><i class="fa fa-linkedin"></i></a>
-                    <!-- Twitter -->
-                    <a class="px-2 fa-lg tw-ic"><i class="fa fa-twitter"></i></a>
-                    <!-- Dribbble -->
-                    <a class="px-2 fa-lg fb-ic"><i class="fa fa-facebook"></i></a>
 
                 </div>
 

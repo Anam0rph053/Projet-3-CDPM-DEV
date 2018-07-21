@@ -35,7 +35,9 @@ class CommentManager extends Manager
         $db = $this->db;
         $query = "SELECT id, pseudo, comment, DATE_FORMAT(comment_date, '%d/%m/%Y à %Hh%imin%ss') AS comment_date_fr, post_id FROM comments WHERE id = ?";
         $req = $db->prepare($query);
+
         $req->execute(array($id));
+
         $row = $req->fetch(PDO::FETCH_ASSOC);
         {
             $comment = new Comment();
@@ -50,26 +52,38 @@ class CommentManager extends Manager
 
     }
 
-    function addCommentDb($values)
+    function addCommentDb()
     {
         $db = $this->db;
-        if (!isset($values['id']) && !isset($values['post_id']) ) {
-            $query = "INSERT INTO comments( pseudo, email, comment,comment_date) VALUES(  :pseudo, :email, :comment, NOW())";
 
-        }
+            $query = "INSERT INTO comments( post_id, pseudo, email, comment, comment_date)  VALUES( :post_id, :pseudo, :email, :comment, NOW())";
         $req = $db->prepare($query);
-        if (isset($values['id'])&& isset($values['post_id'])) $req->bindValue(':id', $values['id'], PDO::PARAM_INT);
-        $req->bindValue(':pseudo', $values['pseudo'], PDO::PARAM_STR);
-        $req->bindValue(':email', $values['email'], PDO::PARAM_STR);
-        $req->bindValue(':comment', $values['comment'], PDO::PARAM_STR);
 
+        $values= new Comment();
+
+        $req->bindValue(':post_id', $values->getPostId(), PDO::PARAM_INT);
+        $req->bindValue(':pseudo', $values->getPseudo(), PDO::PARAM_STR);
+        $req->bindValue(':email', $values->getEmail(), PDO::PARAM_STR);
+        $req->bindValue(':comment', $values->getComment(), PDO::PARAM_STR);
+        $req->bindValue(':comment_date', $values->getCommentDate(), PDO::PARAM_STR);
 
         $req->execute();
 
     }
 
+
+      /*  $req->bindValue(':id', $values['id'], PDO::PARAM_INT);
+        $req->bindValue(':post_id', $values['post_id'], PDO::PARAM_INT);
+        $req->bindValue(':pseudo', $values['pseudo'], PDO::PARAM_STR);
+        $req->bindValue(':email', $values['email'], PDO::PARAM_STR);
+        $req->bindValue(':comment', $values['comment'], PDO::PARAM_STR);
+        $req->bindValue(':comment_date', $values['comment_date'], PDO::PARAM_STR);*/
+
+
+
+
+
+
+
 }
-/*$req->bindValue(':post_id', $comment->getPostId());
-$req->bindValue(':pseudo', $comment->getPseudo());
-$req->bindValue(':email', $comment->getEmail());
-$req->bindValue(':comment', $comment->getComment());*/
+

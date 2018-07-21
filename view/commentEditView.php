@@ -31,12 +31,12 @@
 
     <!-- Reply section -->
 <section class="my-5">
-
     <!-- Leave a reply -->
     <div class="card-header border-0 font-weight-bold">Laisser un Commentaire</div>
 
     <!-- Default form reply -->
-    <form class="px-1 mt-4" action="<?=HOST;?>createComment"  method="post">
+    <form class="px-1 mt-4" action="<?=HOST;?>addComment&amp;post_id=<?=$post->getId()?>" method="post">
+
 
 
         <!-- Email -->
@@ -63,7 +63,6 @@
 
     </form>
     <!-- Default form reply -->
-
 </section>
 <!-- Reply section -->
 

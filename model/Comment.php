@@ -4,7 +4,7 @@ class Comment
 {
 
     private $id;
-    private $post_id;
+    private $postId;
     private $pseudo;
     private $email;
     private $comment;
@@ -31,15 +31,15 @@ class Comment
      */
     public function getPostId()
     {
-        return $this->post_id;
+        return $this->postId;
     }
 
     /**
      * @param mixed $post_id
      */
-    public function setPostId($post_id)
+    public function setPostId($postId)
     {
-        $this->post_id = $post_id;
+        $this->post_id = $postId;
     }
 
 
