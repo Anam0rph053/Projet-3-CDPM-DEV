@@ -59,9 +59,8 @@ class Frontcontroller
        $erreur = [];
 
 
-        if (!empty($_POST) && !empty($_GET) && isset($_GET['post_id']) && $_GET['post_id'] > 0) {
+        if (!empty($_POST)) {
             {
-
                 if (isset($_POST['pseudo']) && isset($_POST['email']) && isset($_POST['comment']) && !empty($_POST['pseudo']) && !empty($_POST['email']) && !empty($_POST['comment'])) {
 
                     if (strlen($_POST['pseudo']) <= 32) {
@@ -93,22 +92,24 @@ class Frontcontroller
                     $_SESSION['alertes']['submit_error'] = 'problème on ne peut pas publier votre commentaire';
 
                     $myView = new View('post');
-                    $myView->redirect(compact('post', 'comments'));
-
+                    $myView->redirect('post/id/'.$_GET['post_id']);
 
                 } else {
-
+                   // $postManager = new PostManager();
                     $CommentManager = new CommentManager();
+
+                  //  $post = $postManager->getPost($_GET['id']);
+                   // $comments = $CommentManager->getComments($_GET['id']);
                     $CommentManager->addCommentDb($values);
+
 
                     $_SESSION['alertes']['submit_success'] = 'Super votre commentaire est en ligne';
 
-                  //  $myView = new View('post');
-                   // $myView->redirect(compact('post', 'comments'));
+                  $myView = new View('post');
+                  $myView->redirect('post/id/'.$_GET['post_id']);
 
                 }
             }
-
 
             $myView = new View('post');
             $myView->render(compact('post', 'comments'));
@@ -116,36 +117,15 @@ class Frontcontroller
         }
     }
 
-/*
-       if (!empty($_GET)) {
+    public function warningComment($id){
 
-           if (isset($_GET['id']) && $_GET['id'] > 0) {
-               if (!empty($_POST['pseudo']) && !empty($_POST['Email']) && !empty($_POST['comment'])) {
+        $CommentManager = new CommentManager();
+        $CommentManager->warningCommentDb($id);
 
-                   $postManager = new PostManager();
-                   $CommentManager = new CommentManager();
+        $myView = new View('post');
+        $myView->redirect('post/id'.$_GET['post_id']);
 
-                   $post = $postManager->getPost($id['id']);
-                   $comments = $CommentManager->getComments($id['id']);
-
-
-               } else {
-                   $_SESSION['alertes']['submit_error'] = 'votre commentaires n\'a pas pû être posté';
-
-               }
-           } else {
-               $_SESSION['alertes']['submit_error'] = 'Aucun Id de post n\a été envoyé';
-
-           }
-
-           $_SESSION['alertes']['submit_success'] = 'Votre cOmmentaires à bien été posté';
-
-           $myView = new View('post');
-           $myView->render(compact('post', 'comments'));
-       }
-
-   }*/
-
+    }
     public function showContact($variables)
     {
 

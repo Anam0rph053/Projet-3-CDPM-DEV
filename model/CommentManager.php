@@ -7,7 +7,7 @@ class CommentManager extends Manager
     {
 
         $db = $this->db;
-        $query = "SELECT * FROM comments WHERE post_id = ?";
+        $query = "SELECT * FROM comments WHERE post_id = ? ORDER BY comment_date DESC  ";
         $req = $db->prepare($query);
         $req->execute([$postId]);
 
@@ -33,10 +33,10 @@ class CommentManager extends Manager
     public function getComment($id)
     {
         $db = $this->db;
-        $query = "SELECT id, pseudo, comment, DATE_FORMAT(comment_date, '%d/%m/%Y à %Hh%imin%ss') AS comment_date_fr, post_id FROM comments WHERE id = ?";
+        $query = "SELECT id, pseudo, comment, DATE_FORMAT(comment_date, '%d/%m/%Y à %Hh%imin%ss')AS comment_date_fr, post_id FROM comments WHERE id = ? ORDER BY comment_date DESC ";
         $req = $db->prepare($query);
-
-        $req->execute(array($id));
+        $req->bindValue(':id', $id, PDO::PARAM_INT);
+        $req->execute();
 
         $row = $req->fetch(PDO::FETCH_ASSOC);
         {
@@ -56,34 +56,32 @@ class CommentManager extends Manager
     {
         $db = $this->db;
 
-            $query = "INSERT INTO comments( post_id, pseudo, email, comment, comment_date)  VALUES( :post_id, :pseudo, :email, :comment, NOW())";
+        if (!empty($_POST) && !empty($_GET['post_id']) && $_GET['post_id'] > 0) {
+
+            $query = "INSERT INTO comments( post_id, pseudo, email, comment, comment_date)  
+                      VALUES( :post_id, :pseudo,:email,:comment, NOW())";
+
         $req = $db->prepare($query);
 
-        $values= new Comment();
+        }
 
-        $req->bindValue(':post_id', $values->getPostId(), PDO::PARAM_INT);
-        $req->bindValue(':pseudo', $values->getPseudo(), PDO::PARAM_STR);
-        $req->bindValue(':email', $values->getEmail(), PDO::PARAM_STR);
-        $req->bindValue(':comment', $values->getComment(), PDO::PARAM_STR);
-        $req->bindValue(':comment_date', $values->getCommentDate(), PDO::PARAM_STR);
+        $req->bindParam(':post_id', $_GET['post_id'], PDO::PARAM_INT);
+        $req->bindParam(':pseudo', $_POST['pseudo'], PDO::PARAM_STR);
+        $req->bindParam(':email', $_POST['email'],PDO::PARAM_STR);
+        $req->bindParam(':comment', $_POST['comment'],PDO::PARAM_STR);
+
 
         $req->execute();
 
     }
-
-
-      /*  $req->bindValue(':id', $values['id'], PDO::PARAM_INT);
-        $req->bindValue(':post_id', $values['post_id'], PDO::PARAM_INT);
-        $req->bindValue(':pseudo', $values['pseudo'], PDO::PARAM_STR);
-        $req->bindValue(':email', $values['email'], PDO::PARAM_STR);
-        $req->bindValue(':comment', $values['comment'], PDO::PARAM_STR);
-        $req->bindValue(':comment_date', $values['comment_date'], PDO::PARAM_STR);*/
-
-
-
-
-
-
+    function warningCommentDb($id)
+    {
+        $req = $this -> db->prepare("UPDATE Comments
+                            SET validated = '0'
+                            WHERE :id = `id`");
+        $req->bindValue(':id',$id);
+        $req->execute();
+    }
 
 }
 

@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+<!<DOCTYPE html>
     <html lang="fr">
     <head>
         <!-- Required meta tags -->
@@ -24,6 +25,7 @@
     <!------------------------------NAVBAR----------------------------------------------------------------->
 
     <nav class="mb-1 navbar navbar-expand-lg navbar-dark default-color">
+
         <a class="navbar-brand" href="#">Jean Forteroche</a>
         <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-3" aria-controls="navbarSupportedContent-3" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -57,15 +59,39 @@
                         <i class="fa fa-google-plus"></i>
                     </a>
                 </li>
+
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+
+                    <?php
+
+                    if ((isset($_SESSION['user'])) && ($_SESSION['user'] != '')){
+
+                    ?>
+
+                    <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+
                         <i class="fa fa-user"></i>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right dropdown-default"
+                         aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item waves-effect waves-light" href="<?= HOST; ?>profil">Profil</a>
+                        <a class="dropdown-item waves-effect waves-light" href="<?= HOST; ?>logOut">Deconnexion</a>
+
+                    </div>
+                    <?php
+                            }else{
+                    ?>
+                        <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+
+                        <i class="fas fa-user-alt-slash"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item waves-effect waves-light" href="<?=HOST;?>login">Connexion</a>
                         <a class="dropdown-item waves-effect waves-light" href="<?=HOST;?>register">Inscription</a>
-                        <a class="dropdown-item waves-effect waves-light" href="<?=HOST;?>logOut">Deconnexion</a>
                     </div>
+                    <?php } ?>
                 </li>
             </ul>
         </div>
@@ -151,11 +177,9 @@
                     <h6 class="text-uppercase font-weight-bold">Administration</h6>
                     <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                     <p>
-                        <a class="dark-grey-text" href="#!">Se connecter</a>
+                        <a class="dark-grey-text" href="<?=HOST;?>adminCo">Se connecter</a>
                     </p>
-                    <p>
-                        <a class="dark-grey-text" href="#!">S'inscrire</a>
-                    </p>
+
 
 
                 </div>
@@ -214,5 +238,7 @@
     <!--------------------Icones--------------------->
     <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js" integrity="sha384-3LK/3kTpDE/Pkp8gTNp2gR/2gOiwQ6QaO7Td0zV76UFJVhqLl4Vl3KL1We6q6wR9" crossorigin="anonymous"></script>
     <script src="<?=ASSETS;?>js/app.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
     </body>
     </html>

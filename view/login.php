@@ -9,13 +9,13 @@
                     <!-- Material input email -->
                         <div class="md-form">
                             <i class="fa fa-user prefix grey-text"></i>
-                            <input type="text" id="materialFormLoginEmailEx" class="form-control" name="pseudo" placeholder="Votre pseudo">
+                            <input type="text" id="materialFormLoginEmailEx" class="form-control" name="pseudo" placeholder="Votre pseudo" value="<?php if(isset($_POST['pseudo'])) echo htmlspecialchars(trim($_POST['pseudo']));?>">
                             <label for="materialFormLoginEmailEx"</label>
                         </div>
                     <!-- Material input password -->
                         <div class="md-form">
                             <i class="fa fa-lock prefix grey-text"></i>
-                            <input type="password" id="materialFormLoginPasswordEx" class="form-control" name="pass" placeholder="Votre Mot de Passe">
+                            <input type="password" id="materialFormLoginPasswordEx" class="form-control" name="pass" placeholder="Votre Mot de Passe" value="<?php if(isset($_POST['pass'])) echo password_hash($_POST['pass'], PASSWORD_DEFAULT);?>">
                             <label for="materialFormLoginPasswordEx"</label>
                         </div>
 

@@ -10,6 +10,7 @@ class PostManager extends Manager
         $query = "SELECT * FROM posts";
         $req = $db->prepare($query);
         $req->execute();
+
         while ($row = $req->fetch(PDO::FETCH_ASSOC)) {
 
 

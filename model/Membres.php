@@ -9,6 +9,7 @@ class Membre
     private $email;
     private $pass;
     private $parent_id;
+    private $role;
 
     /**
      * @return mixed
@@ -105,5 +106,22 @@ class Membre
     {
         $this->parent_id = $parent_id;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getRole()
+    {
+        return $this->role;
+    }
+
+    /**
+     * @param mixed $role
+     */
+    public function setRole($role)
+    {
+        $this->role = $role;
+    }
+
 
 }

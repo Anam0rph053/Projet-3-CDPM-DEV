@@ -3,19 +3,20 @@
 
 <!--Section: Comments-->
 <section class="my-5">
+
    <?php if($comments !== null): ?>
    <?php foreach($comments as $comment): ?>
 
     <!-- Card header -->
-    <div class="card-header border-0 font-weight-bold"></div>
+    <div class="card-header font-weight-bold"></div>
 
     <div class="d-block d-md-flex">
-        <img class="card-img-64 rounded-circle z-depth-1 d-flex mx-auto " src="https://mdbootstrap.com/img/Photos/Avatars/img (20).jpg" alt="Generic placeholder image">
-        <div class="media-body text-center text-md-left ml-md-3 ml-0">
+
+        <div class="media-body text-center text-md-left ml-md- ml-0">
                     <h5 class="font-weight-bold mt-0">
-                <a class="text-default"><?=$comment->getPseudo();?></a>
+                <a class="text-default"><?=htmlspecialchars($comment->getPseudo());?>, le <?=htmlspecialchars($comment->getCommentDate());?></a>
                     <a class="pull-right text-default">
-                    <i class="fa fa-reply"></i>
+                    <i class="fas fa-exclamation-circle" action="<?=HOST;?>warningComment;?>"></i>
                 </a>
             </h5>
             <?=$comment->getComment();?>

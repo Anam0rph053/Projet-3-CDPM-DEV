@@ -7,34 +7,36 @@
             <!-- Material input text -->
             <div class="md-form">
                 <i class="fa fa-user prefix grey-text"></i>
-                <input type="text" name="pseudo" id="materialFormSubscriptionNameEx"  placeholder="Votre pseudo" class="form-control">
+                <input type="text" name="pseudo" id="materialFormSubscriptionNameEx"  placeholder="Votre pseudo" class="form-control" value="<?php if(isset($_POST['pseudo'])) echo htmlspecialchars(trim($_POST['pseudo']));?>">
                 <label for="materialFormSubscriptionNameEx" </label>
             </div>
 
             <!-- Material input email -->
             <div class="md-form">
                 <i class="fa fa-envelope prefix grey-text"></i>
-                <input type="email" name="email" id="materialFormSubscriptionEmailEx" placeholder="Votre Email" class="form-control">
+                <input type="email" name="email" id="materialFormSubscriptionEmailEx" placeholder="Votre Email" class="form-control" value="<?php if(isset($_POST['email'])) echo htmlspecialchars(trim($_POST['email']));?>">
                 <label for="materialFormSubscriptionEmailEx" </label>
             </div>
 
             <div class="md-form">
                 <i class="fa fa-envelope prefix grey-text"></i>
-                <input type="email" name="email2" id="materialFormSubscriptionEmailEx" placeholder="Confirmez votre Email" class="form-control">
+                <input type="email" name="email2" id="materialFormSubscriptionEmailEx" placeholder="Confirmez votre Email" class="form-control" value="<?php if(isset($_POST['email2'])) echo htmlspecialchars(trim($_POST['email2']));?>">
                 <label for="materialFormSubscriptionEmailEx" </label>
             </div>
 
             <div class="md-form">
                 <i class="fa fa-lock prefix grey-text"></i>
-                <input type="password" name="pass" id="materialFormCardPasswordEx" placeholder="Votre Mot de Passe" class="form-control">
+                <input type="password" name="pass" id="materialFormCardPasswordEx" placeholder="Votre Mot de Passe" class="form-control" value="<?php if(isset($_POST['pass'])) echo password_hash($_POST['pass'], PASSWORD_DEFAULT);?>">
                 <label for="materialFormSubscriptionEmailEx" </label>
             </div>
 
             <div class="md-form">
                 <i class="fa fa-lock prefix grey-text"></i>
-                <input type="password" name="pass2" id="materialFormCardPasswordEx" placeholder="confirmez votre Mot de Passe" class="form-control">
+                <input type="password" name="pass2" id="materialFormCardPasswordEx" placeholder="confirmez votre Mot de Passe" class="form-control" value="<?php if(isset($_POST['pass2'])) echo password_hash($_POST['pass2'], PASSWORD_DEFAULT);?>">
                 <label for="materialFormSubscriptionEmailEx" </label>
             </div>
+
+
 
             <div class="text-center mt-4">
                 <button class="btn btn-default waves-effect waves-light" type="submit" name="envoyer">S'inscrire</button>
