@@ -48,7 +48,6 @@ class Frontcontroller
 
             $myView = new View('post');
             $myView->render(compact('post', 'comments'));
-            // $myView->render(array('post'=> $post));
         }
 
 
@@ -117,13 +116,28 @@ class Frontcontroller
         }
     }
 
-    public function warningComment($id){
+    public function warningComment(){
 
         $CommentManager = new CommentManager();
-        $CommentManager->warningCommentDb($id);
+        $CommentManager->warningCommentDb();
 
-        $myView = new View('post');
-        $myView->redirect('post/id'.$_GET['post_id']);
+        if (!empty($_GET)) {
+            {
+                if ($_GET['id']) {
+
+                    $myView = new View('post');
+                    $myView->redirect('post/id/' . $_GET['post_id']);
+
+                }
+                else {
+                    $_SESSION['alertes']['submit_error'] = 'Ce commentaire ne peut pas être signalé';
+
+                    $myView = new View('post');
+                    $myView->redirect('post/id/' . $_GET['post_id']);
+                }
+
+            }
+        }
 
     }
     public function showContact($variables)

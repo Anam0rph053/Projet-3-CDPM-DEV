@@ -74,13 +74,20 @@ class CommentManager extends Manager
         $req->execute();
 
     }
-    function warningCommentDb($id)
+    function warningCommentDb()
     {
-        $req = $this -> db->prepare("UPDATE Comments
-                            SET validated = '0'
-                            WHERE :id = `id`");
-        $req->bindValue(':id',$id);
+        $db = $this->db;
+
+
+            $query = "UPDATE comments SET validated = 0 WHERE (id = :id) AND (post_id = :post_id) ";
+
+        $req =$db->prepare($query);
+
+
+        $req->bindParam(':id', $_GET['id'], PDO::PARAM_INT);
+        $req->bindParam(':post_id', $_GET['post_id'], PDO::PARAM_INT);
         $req->execute();
+
     }
 
 }

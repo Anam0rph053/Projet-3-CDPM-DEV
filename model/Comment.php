@@ -9,6 +9,7 @@ class Comment
     private $email;
     private $comment;
     private $comment_date;
+    private $validated;
 
     /**
      * @return mixed
@@ -106,6 +107,22 @@ class Comment
     public function setCommentDate($comment_date)
     {
         $this->comment_date = $comment_date;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getValidated()
+    {
+        return $this->validated;
+    }
+
+    /**
+     * @param mixed $validated
+     */
+    public function setValidated($validated)
+    {
+        $this->validated = $validated;
     }
 
 }

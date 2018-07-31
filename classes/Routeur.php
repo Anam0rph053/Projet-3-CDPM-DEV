@@ -13,14 +13,15 @@ class Routeur
         "about"                  =>["controller" => 'Frontcontroller', "method" => 'showAbout'],
         "commentEditView"        =>["controller" => 'Frontcontroller', "method" => 'singlePost'],
         "addComment"             =>["controller" => 'Frontcontroller', "method" => 'addComment'],
+        "warningComment"         =>["controller" => 'Frontcontroller', "method" => 'warningComment'],
 
         "login"                  =>["controller" => 'UserController',  "method" => 'userLogin'],
         "register"               =>["controller" => 'UserController',  "method" => 'newUser'],
         "profil"                 =>["controller" => 'UserController',  "method" => 'showProfil'],
         "logOut"                 =>["controller" => 'UserController',  "method" => 'userLogOut'],
 
-        "adminCo"                =>["controller" => 'Backcontroller',  "method" => 'adminCo'],
-
+        "dashboard"              =>["controller" => 'BackController',  "method" => 'dashboard'],
+        "editImg"                =>["controller" => 'BackController',  "method" => 'editImg'],
 
 
     ];

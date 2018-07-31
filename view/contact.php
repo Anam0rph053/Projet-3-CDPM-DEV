@@ -32,7 +32,7 @@
     </div>
 
     <div class="text-center mt-4">
-        <button class="btn btn-outline-btn btn-default waves-effect waves-light" type="submit">Envoyer</button>
+        <button class="btn btn-default" type="submit">Envoyer</button>
     </div>
 </form>
 

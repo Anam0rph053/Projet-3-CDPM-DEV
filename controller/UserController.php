@@ -13,6 +13,9 @@ class UserController
             if (isset($_POST['pseudo']) && isset($_POST['pass']) && isset($_POST['email']) && !empty($_POST['pseudo']) && !empty($_POST['pass']) && !empty($_POST['email'])) {
 
                 if ($_POST['pass'] == $_POST['pass2']) {
+                    $_POST['pass'] = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+                    $_POST['pass2'] = password_hash($_POST['pass2'], PASSWORD_DEFAULT);
+
                 } else {
                     $erreur['errorPass'] = 'Vos mot de passe ne sont pas identiques';
                 }
@@ -57,15 +60,16 @@ class UserController
         $myView->render();
     }
 
-    public function userLogin()
+    public function userLogin($values)
     {
+
         if (!empty($_POST)) {
-            if (isset($_POST['pseudo']) AND isset($_POST['pass'])) {
+            if (isset($_POST['pseudo']) && isset($_POST['pass']) && isset($_SESSION['role'])) {
 
                 $UserManager = new UserManager();
-                $result = $UserManager->getMembersdb($_POST);
+                $user = $UserManager->getMembersdb($values);
             }
-            if ($result == null ) {
+            if($user == null ) {
 
                 $_SESSION['alertes']['submit_error'] = 'Mauvais identifiant ou mauvais mot de passe';
 
@@ -74,32 +78,42 @@ class UserController
 
             } else {
 
-                $_SESSION['user']['id'] = $result;
-                $_SESSION['user']['pseudo'] = $result;
-                $_SESSION['user']['email'] = $result;
-                $_SESSION['user']['pass'] = $result;
-                $_SESSION['user']['role'] = $result;
+                $_SESSION['user']['id'] = $user;
+                $_SESSION['user']['pseudo'] = $user;
+                $_SESSION['user']['email'] = $user;
+                $_SESSION['user']['pass'] = $user;
+                $_SESSION['user']['role'] = $user;
 
+                if($_SESSION['role'] === 'admin'){
 
-                $_SESSION['alertes']['submit_success'] = 'Super tu est connecté';
-
-                if (isset($_POST ['exist'])) {
-
-                    setcookie('pseudo', $_POST['pseudo']);
-                    setcookie('pass', $_POST['pass']);
+                    $myView = new View('dashboard');
+                    $myView->redirect('dashboard');
+                }
+                if($_SESSION['role'] ==='user'){
+                    $myView = new View('profil');
+                    $myView->redirect('profil');
                 }
 
-                $myView = new View();
-                $myView->redirect('profil');
 
+
+            } if (isset($_POST ['exist'])) {
+
+                $_SESSION['alertes']['submit_success'] = 'Super tu est connecté';
+                setcookie('pseudo', $_POST['pseudo']);
+                setcookie('pass', $_POST['pass']);
             }
+
 
         }
         $myView = new View('login');
         $myView->render();
     }
 
-    public function showProfil(){
+
+
+    public function showProfil()
+    {
+
         $myView = new View('profil');
         $myView->render();
     }

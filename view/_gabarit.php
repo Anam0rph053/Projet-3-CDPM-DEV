@@ -32,7 +32,7 @@
         </button>
         <div class="navbar-collapse collapse" id="navbarSupportedContent-3" style="">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
+                <li class="nav-item ">
                     <a class="nav-link waves-effect waves-light" href="<?=HOST;?>home">Accueil
                         <span class="sr-only">(current)</span>
                     </a>
@@ -44,6 +44,7 @@
                     <a class="nav-link waves-effect waves-light" href="<?=HOST;?>posts">Le roman</a>
                 </li>
                 <li class="nav-item">
+
                     <a class="nav-link waves-effect waves-light" href="<?=HOST;?>contact">Contact</a>
                 </li>
 
@@ -64,24 +65,40 @@
 
                     <?php
 
-                    if ((isset($_SESSION['user'])) && ($_SESSION['user'] != '')){
+                    if(isset($_SESSION['role'])) {
 
-                    ?>
+                        if($_SESSION['role'] === 'admin'){ ?>
 
-                    <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 
-                        <i class="fa fa-user"></i>
-                    </a>
+                                <i class="fa fa-user"></i>
+                            </a>
 
-                    <div class="dropdown-menu dropdown-menu-right dropdown-default"
-                         aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item waves-effect waves-light" href="<?= HOST; ?>profil">Profil</a>
-                        <a class="dropdown-item waves-effect waves-light" href="<?= HOST; ?>logOut">Deconnexion</a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-default"
+                                 aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item waves-effect waves-light" href="<?= HOST; ?>Dashboard">Tableau de bord</a>
+                                <a class="dropdown-item waves-effect waves-light" href="<?= HOST; ?>logOut">Deconnexion</a>
 
-                    </div>
+                            </div>
+
+                        <?php } elseif($_SESSION['role'] === 'user'){
+
+                        ?>
+                            <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+
+                                <i class="fa fa-user"></i>
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right dropdown-default"
+                                 aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item waves-effect waves-light" href="<?= HOST; ?>profil">Profil</a>
+                                <a class="dropdown-item waves-effect waves-light" href="<?= HOST; ?>logOut">Deconnexion</a>
+
+                            </div>
                     <?php
-                            }else{
+                            }}else{
                     ?>
                         <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 
@@ -220,6 +237,8 @@
 
     <!-- Footer -->
     <!-- Optional JavaScript -->
+    <script src="<?=ASSETS;?>js/app.js"></script>
+
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -237,7 +256,6 @@
     <script type="text/javascript" src="js/mdb.min.js"></script>
     <!--------------------Icones--------------------->
     <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js" integrity="sha384-3LK/3kTpDE/Pkp8gTNp2gR/2gOiwQ6QaO7Td0zV76UFJVhqLl4Vl3KL1We6q6wR9" crossorigin="anonymous"></script>
-    <script src="<?=ASSETS;?>js/app.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     </body>

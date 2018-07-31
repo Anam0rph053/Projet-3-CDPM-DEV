@@ -41,39 +41,41 @@
 <div class="padding">
     <div class="container">
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-12">
                 <div class="card-title ">
-                    <img class="card-img" src="assets/images/miniature-accueil-5.jpg" alt="Card image">
-                    <div class="card-img-overlay">
                         <h3 class="title">Dernières Lectures</h3><hr>
                         <br/>
                         <p class="card-text">Jamais Matthew Pike, gardien taciturne des Eaux et Forêts de l'Alaska, n'aurait imaginé que porter secours au rescapé d'un crash aérien le précipiterait dans un tel imbroglio.</p>
-                        <a class ="btn btn-primary" type="button" href="<?=HOST;?>posts">Accèder aux Lectures></a>
+                        <a class ="btn btn-default" type="button" style="" href="<?=HOST;?>posts">Accèder aux Lectures</a><hr>
 
                     </div>
+                </div>
+
+        <!-- Grid column -->
+            <?php foreach ($variables as $post):?>
+                <div class="col-lg-4">
+            <!--Card-->
+            <div class="card">
+                <!--Card image-->
+                <div class="view">
+                    <img src="assets/images/chien.jpg" class="card-img-top" alt="photo">
+                    <a href="#">
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+                <!--Card content-->
+                <div class="card-body elegant-color white-text">
+                    <!--Title-->
+                    <h4 class="card-title"><?=$post->getTitle();?></h4>
+                    <!--Text-->
+                    <p class="card-text white-text"><?=substr($post->getContent(), 0, 100); ?>...</p>
+                    <a href="<?=HOST;?>post/id/<?php echo $post->getId();?>" class="btn btn-outline-white btn-md waves-effect">Lire la suite</a>
                 </div>
             </div>
-            <div class="col-sm-6 text-center">
-
-                <?php foreach ($variables as $post):?>
-                <div class="card">
-                    <div class="face front">
-                        <img class="card-img" src="assets/images/miniature-accueil-2.jpg"  alt="Card image">
-                        <div class="card-img-overlay">
-                            <h4><?=$post->getTitle();?></h4>
-
-                        </div>
-                    </div>
-                    <div class="face back">
-                        <p><?=$post->getTitle();?></p>
-                        <p><?=substr($post->getContent(), 0, 100); ?>...</p>
-                        <a   type="button" class="btn btn-outline-info" href="<?=HOST;?>post/id/<?php echo $post->getId();?>" >Lire la suite</a>
-                    </div>
-                </div>
-                <?php endforeach;?>
-
-
+            <!--/.Card-->
         </div>
+        <!-- Grid column -->
+            <?php endforeach;?>
         </div>
     </div>
 </div>

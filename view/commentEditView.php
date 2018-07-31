@@ -1,3 +1,16 @@
+
+
+<?php
+
+if (isset($_SESSION['alertes']['submit_error']) && !empty($_SESSION['alertes']['submit_error']))
+{
+    ?>
+    <p style="color:darkred;"><?= $_SESSION['alertes']['submit_error'] ?></p>
+    <?php
+    $_SESSION['alertes'] = [];
+}
+?>
+
 <h2 class="text-center">Commentaires</h2>
 
 
@@ -6,26 +19,40 @@
 
    <?php if($comments !== null): ?>
    <?php foreach($comments as $comment): ?>
-
     <!-- Card header -->
+
     <div class="card-header font-weight-bold"></div>
-
     <div class="d-block d-md-flex">
-
         <div class="media-body text-center text-md-left ml-md- ml-0">
+
                     <h5 class="font-weight-bold mt-0">
-                <a class="text-default"><?=htmlspecialchars($comment->getPseudo());?>, le <?=htmlspecialchars($comment->getCommentDate());?></a>
-                    <a class="pull-right text-default">
-                    <i class="fas fa-exclamation-circle" action="<?=HOST;?>warningComment;?>"></i>
+
+                        <?php if($comment->getValidated() === !1): ?>
+
+                        <a class="text-default"><?= htmlspecialchars($comment->getPseudo());?>, le <?=htmlspecialchars($comment->getCommentDate());?></a>
+
+                    <a class="pull-right text-default" href="<?=HOST;?>warningComment&amp;post_id=<?=$post->getId()?>">
+                    <span class="fas fa-exclamation-circle"  name="warningComment" id="warningComment" ></span>
                 </a>
             </h5>
-            <?=$comment->getComment();?>
-            <?php// var_dump($comments);die; ?>
+
+            <?= $comment->getComment();?>
+
+            <?php   else : ?>
+            <h5 class="font-weight-bold mt-0">
+            <a class="text-default"><?=htmlspecialchars($comment->getPseudo());?>, le <?=htmlspecialchars($comment->getCommentDate());?></a>
+                <a class="pull-right text-default" href="<?=HOST;?>warningComment&amp;post_id=<?=$post->getId()?>">
+                    <span class="fas fa-exclamation-circle" name="warningComment" id="warningComment" ></span>
+                </a>
+            </h5>
+            <?php endif; ?>
+            <p>Le Commentaire a été signalé, il est en cours de modération ! </p>
+
+            <?php //var_dump($comment->getValidated());die; ?>
 
 
             <?php endforeach; ?>
             <?php endif;?>
-
 
 </section>
 <!--Section: Comments-->
@@ -59,7 +86,7 @@
         </div>
 
         <div class="text-center mt-4">
-            <button class="btn btn-default btn-rounded btn-md" type="submit" >Envoyer</button>
+            <button class="btn btn-default btn-rounded btn-md" type="submit">Envoyer</button>
         </div>
 
     </form>
@@ -67,16 +94,6 @@
 </section>
 <!-- Reply section -->
 
-<?php
-
-if (isset($_SESSION['alertes']['submit_error']) && !empty($_SESSION['alertes']['submit_error']))
-{
-    ?>
-    <p style="color:darkred;"><?= $_SESSION['alertes']['submit_error'] ?></p>
-    <?php
-    $_SESSION['alertes'] = [];
-}
-?>
 
 <!--Pagination -->
 <nav class="d-flex justify-content-center mt-5">
