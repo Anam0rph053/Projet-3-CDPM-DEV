@@ -21,7 +21,7 @@ class Routeur
         "logOut"                 =>["controller" => 'UserController',  "method" => 'userLogOut'],
 
         "dashboard"              =>["controller" => 'BackController',  "method" => 'dashboard'],
-        "editImg"                =>["controller" => 'BackController',  "method" => 'editImg'],
+        "editPost"               =>["controller" => 'BackController',  "method" => 'editPost'],
 
 
     ];

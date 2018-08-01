@@ -8,9 +8,11 @@
     <!-- Section description -->
     <p class="text-center w-responsive mx-auto mb-5">Ici vous trouverez au fur et à mesure les chapitres de mon roman "Billet Simple pour l'Alaska ! </p>
     <div class="padding">
-        <div class="container">
 
+        <div class="container">
+            <hr class="my-5">
             <?php foreach ($variables as $post):?>
+
 
                 <div class="row">
 
@@ -33,7 +35,7 @@
                         <!-- Post data -->
                         <p><?=$post->getName();?> le <?=$post->getCreatedAt();?></p>
                         <!-- Read more button -->
-                            <a class="btn btn-success btn-md" href="<?=HOST;?>post/id/<?php echo $post->getId();?>">Lire la Suite</a>
+                            <a class="btn btn-default btn-md" href="<?=HOST;?>post/id/<?php echo $post->getId();?>">Lire la Suite</a>
                     </div>
                     <!-- Grid column -->
 

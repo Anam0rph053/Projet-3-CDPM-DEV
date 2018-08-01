@@ -1,15 +1,14 @@
 <?php
 
-class Membre
+class Membres
 {
 
     private $id;
-    private $post_id;
+    private $role;
     private $pseudo;
     private $email;
     private $pass;
-    private $parent_id;
-    private $role;
+    private $dateInscription;
 
     /**
      * @return mixed
@@ -26,21 +25,20 @@ class Membre
     {
         $this->id = $id;
     }
-
     /**
      * @return mixed
      */
-    public function getPostId()
+    public function getRole()
     {
-        return $this->post_id;
+        return $this->role;
     }
 
     /**
-     * @param mixed $post_id
+     * @param mixed $role
      */
-    public function setPostId($post_id)
+    public function setRole($role)
     {
-        $this->post_id = $post_id;
+        $this->role = $role;
     }
 
     /**
@@ -94,34 +92,20 @@ class Membre
     /**
      * @return mixed
      */
-    public function getParentId()
+    public function getDateInscription()
     {
-        return $this->parent_id;
+        return $this->dateInscription;
     }
 
     /**
-     * @param mixed $parent_id
+     * @param mixed $dateInscription
      */
-    public function setParentId($parent_id)
+    public function setDateInscription($dateInscription)
     {
-        $this->parent_id = $parent_id;
+        $this->dateInscription = $dateInscription;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getRole()
-    {
-        return $this->role;
-    }
 
-    /**
-     * @param mixed $role
-     */
-    public function setRole($role)
-    {
-        $this->role = $role;
-    }
 
 
 }

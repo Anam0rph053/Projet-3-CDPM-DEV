@@ -9,6 +9,7 @@ class CommentManager extends Manager
         $db = $this->db;
         $query = "SELECT * FROM comments WHERE post_id = ? ORDER BY comment_date DESC  ";
         $req = $db->prepare($query);
+
         $req->execute([$postId]);
 
         $comments = [];
@@ -21,6 +22,7 @@ class CommentManager extends Manager
             $comment->setPseudo($row['pseudo']);
             $comment->setComment($row['comment']);
             $comment->setCommentDate($row['comment_date']);
+            $comment->setValidated($row['validated']);
 
 
             $comments[] = $comment;
@@ -46,6 +48,8 @@ class CommentManager extends Manager
             $comment->setPseudo($row['pseudo']);
             $comment->setComment($row['comment']);
             $comment->setCommentDate($row['comment_date']);
+            $comment->setValidated($row['validated']);
+
         }
 
         return $comment;
@@ -74,18 +78,17 @@ class CommentManager extends Manager
         $req->execute();
 
     }
-    function warningCommentDb()
+    function warningCommentDb($id)
     {
         $db = $this->db;
 
 
-            $query = "UPDATE comments SET validated = 0 WHERE (id = :id) AND (post_id = :post_id) ";
+            $query = "UPDATE comments SET validated = 0 WHERE id = :id ";
 
         $req =$db->prepare($query);
 
+        $req->bindParam(':id', $id, PDO::PARAM_INT);
 
-        $req->bindParam(':id', $_GET['id'], PDO::PARAM_INT);
-        $req->bindParam(':post_id', $_GET['post_id'], PDO::PARAM_INT);
         $req->execute();
 
     }

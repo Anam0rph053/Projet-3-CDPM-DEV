@@ -1,24 +1,23 @@
 
 
     <!-- Navigation -->
-    <?php
-    //var_dump($_SESSION);
-    if (isset($_SESSION['alertes']['submit_success']) && !empty($_SESSION['alertes']['submit_success']))
-    {
-
-        ?>
-        <p style="color:green;"><?= $_SESSION['alertes']['submit_success'] ?></p>
+    <div class="alerte">
         <?php
-        $_SESSION['alertes'] = [];
-    }
-    elseif (isset($_SESSION['alertes']['submit_error']) && !empty($_SESSION['alertes']['submit_error']))
-    {
+        if (isset($_SESSION['alertes']['submit_success']) && !empty($_SESSION['alertes']['submit_success']))
+        {
+            ?>
+            <p style="color:green;"><?= $_SESSION['alertes']['submit_success'] ?></p>
+            <?php
+            $_SESSION['alertes'] = [];
+        }
+        elseif (isset($_SESSION['alertes']['submit_error']) && !empty($_SESSION['alertes']['submit_error']))
+        {
+            ?>
+            <p style="color:darkred;"><?= $_SESSION['alertes']['submit_error'] ?></p>
+            <?php
+            $_SESSION['alertes'] = [];
+        }
         ?>
-        <p style="color:darkred;"><?= $_SESSION['alertes']['submit_error'] ?></p>
-        <?php
-        $_SESSION['alertes'] = [];
-    }
-    ?>
 
 <div class="landing">
 
@@ -28,7 +27,7 @@
               <span class="text-wrapper">
                 <span class="line line1"></span>
                 <span class="title-start">Billet Simple Pour</span><br/>
-                  <span class="title-start">L'Alaska</span>
+                  <span class="title-end">L'Alaska</span>
                 <span class="line line2"></span>
               </span>
             </h1>

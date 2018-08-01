@@ -34,7 +34,7 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item ">
                     <a class="nav-link waves-effect waves-light" href="<?=HOST;?>home">Accueil
-                        <span class="sr-only">(current)</span>
+
                     </a>
                 </li>
                 <li class="nav-item">
@@ -197,8 +197,6 @@
                         <a class="dark-grey-text" href="<?=HOST;?>adminCo">Se connecter</a>
                     </p>
 
-
-
                 </div>
                 <!-- Grid column -->
 
@@ -228,7 +226,7 @@
 
         <!-- Copyright -->
         <div class="footer-copyright text-center text-black-50 py-3">© 2018 Copyright:
-            <a class="dark-grey-text" href="https://mdbootstrap.com/bootstrap-tutorial/"> jean-forteroche.com</a>
+            <a class="dark-grey-text" href="https://mdbootstrap.com/bootstrap-tutorial/">jean-forteroche.com</a>
         </div>
         <!-- Copyright -->
 
@@ -237,7 +235,6 @@
 
     <!-- Footer -->
     <!-- Optional JavaScript -->
-    <script src="<?=ASSETS;?>js/app.js"></script>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -254,6 +251,7 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="js/mdb.min.js"></script>
+    <script src="<?=ASSETS;?>js/app.js"></script>
     <!--------------------Icones--------------------->
     <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js" integrity="sha384-3LK/3kTpDE/Pkp8gTNp2gR/2gOiwQ6QaO7Td0zV76UFJVhqLl4Vl3KL1We6q6wR9" crossorigin="anonymous"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>

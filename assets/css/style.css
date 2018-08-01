@@ -2,6 +2,8 @@
 {
     font-family : 'Tahu';
     src : url('../fonts/Tahu.otf');
+    src : url('../fonts/Tahu.ttf');
+
     font-weight: normal;
     font-style: normal;
 }
@@ -28,22 +30,18 @@
     font-weight: normal;
     font-style: normal;
 }
-
 @font-face
 {
-    font-family : 'Asgalt-Regular';
-    src : url('../fonts/Asgalt-Regular.ttf');
+    font-family : 'fontastique';
+    src : url('../fonts/fontastique.ttf');
     font-weight: normal;
     font-style: normal;
 }
 
-@font-face
-{
-    font-family:'Kandira' ;
-    src : url('../fonts/Kandira-Reg.ttf');
-    font-weight: normal;
-    font-style: normal;
-}
+
+
+
+
 /***** General ******/
 
 html, body {
@@ -53,22 +51,22 @@ html, body {
     background-color: #e9ecef;
 
 }
-.p {
-    font-family: Kandira;
 
+.btn{
+    font-family: fontastique;
 }
-
-
 /**** Nav bar ****/
 
-.navbar-brand {
-    font-family: tahu;
+ .navbar-brand {
+
+    font-family: Tahu;
     font-size:2em;
-    color : white !important;
+    color : white!important;
     text-shadow: black 5px 5px 6px ;
 }
+
 li{
-    font-family: Matiz;
+    font-family:Matiz;
 
 }
 
@@ -136,8 +134,8 @@ li{
 }
 
 .title-end {
-    font-family: tahu;
-    font-size: 10em;
+    font-family: tahu !important;
+    font-size: 4em;
     color: white;
     text-shadow: black 5px 5px 6px;
 }
@@ -170,13 +168,22 @@ li{
 .ml1 .line2 { bottom: 0; }
 
 /***** Derniers posts home***/
-h3{
+.title{
     padding-top: 80px;
-    font-family: Tahu;
+    font-family: tahu;
     font-size: 3em;
     text-align: center;
     color: #22a99a!important;
 
+}
+.card-text  {
+
+    font-family:fontastique;
+    color:#777676;
+
+}
+.card-title{
+    font-family: fontastique;
 }
 
 .card{
@@ -206,6 +213,32 @@ h1.card-title{
 }
 img.img-fluid{
     border-radius:5px;
+}
+/**** Liste de sposts****/
+
+.font-weight-bold{
+    font-family: fontastique;
+    color : #22a99a;
+}
+p{
+    font-family: fontastique;
+    color:#777676;
+    text-align: justify;
+    line-height: 200%;
+
+}
+.h1-responsive{
+    font-family: tahu !important;
+    font-size: 3em!important;
+}
+
+h6{
+   font-family: fontastique;
+
+}
+.dark-grey-text{
+    font-family: fontastique;
+    color:#777676!important;
 }
 
 @media screen and (max-width: 600px) {

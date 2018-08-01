@@ -5,7 +5,7 @@ class Frontcontroller
     public function showHome($variables)
     {
         $postManager = new PostManager();
-        $posts = $postManager->getPosts();
+        $posts = $postManager->getLimitPosts();
 
         $myView = new View('home');
         $myView->render($posts);
@@ -116,20 +116,25 @@ class Frontcontroller
         }
     }
 
-    public function warningComment(){
-
-        $CommentManager = new CommentManager();
-        $CommentManager->warningCommentDb();
-
+    public function warningComment($id){
         if (!empty($_GET)) {
             {
                 if ($_GET['id']) {
+
+                     $CommentManager = new CommentManager();
+                    // $comment = $CommentManager->getComment($id['id']);
+                    // $signal = $comment['validated'] == 1;
+
+                     $CommentManager->warningCommentDb($_GET['id']);
+
+                    $_SESSION['alertes']['submit_success'] = 'Ce commentaire est signalé';
 
                     $myView = new View('post');
                     $myView->redirect('post/id/' . $_GET['post_id']);
 
                 }
                 else {
+
                     $_SESSION['alertes']['submit_error'] = 'Ce commentaire ne peut pas être signalé';
 
                     $myView = new View('post');

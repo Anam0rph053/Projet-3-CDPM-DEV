@@ -32,7 +32,34 @@ class PostManager extends Manager
         };
         return $posts;
     }
+    public function getLimitPosts()
+    {
+        $db=$this->db;
+        $query = "SELECT * FROM posts ORDER BY created_at DESC LIMIT 3 ";
+        $req = $db->prepare($query);
+        $req->execute();
 
+        while ($row = $req->fetch(PDO::FETCH_ASSOC)) {
+
+
+            //  on peut également faire un hydrate a la place de la methode ci dessous...
+
+            $post = new Post();
+            $post->setId($row['id']);
+            $post->setName($row['name']);
+            $post->setTitle($row['title']);
+            $post->setContent($row['content']);
+            $post->setCreatedAt($row['created_at']);
+
+            $posts[] = $post; //tableau d'obejt
+
+            //substr($post->getContent(), 0, 150);
+            /*$extract = substr($row->text, 0, 150);
+            $espace = strrpos($extract, ' ');
+            $espace = strrpos($extract, 0, $espace).'...';*/
+        };
+        return $posts;
+    }
     public function getPost($id)
 
     {

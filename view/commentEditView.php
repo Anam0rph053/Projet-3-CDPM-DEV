@@ -1,15 +1,21 @@
 
-
-<?php
-
-if (isset($_SESSION['alertes']['submit_error']) && !empty($_SESSION['alertes']['submit_error']))
-{
-    ?>
-    <p style="color:darkred;"><?= $_SESSION['alertes']['submit_error'] ?></p>
+<div class="alerte">
     <?php
-    $_SESSION['alertes'] = [];
-}
-?>
+    if (isset($_SESSION['alertes']['submit_success']) && !empty($_SESSION['alertes']['submit_success']))
+    {
+        ?>
+        <p style="color:green;"><?= $_SESSION['alertes']['submit_success'] ?></p>
+        <?php
+        $_SESSION['alertes'] = [];
+    }
+    elseif (isset($_SESSION['alertes']['submit_error']) && !empty($_SESSION['alertes']['submit_error']))
+    {
+        ?>
+        <p style="color:darkred;"><?= $_SESSION['alertes']['submit_error'] ?></p>
+        <?php
+        $_SESSION['alertes'] = [];
+    }
+    ?>
 
 <h2 class="text-center">Commentaires</h2>
 
@@ -27,27 +33,25 @@ if (isset($_SESSION['alertes']['submit_error']) && !empty($_SESSION['alertes']['
 
                     <h5 class="font-weight-bold mt-0">
 
-                        <?php if($comment->getValidated() === !1): ?>
+                        <?php if($comment->getValidated() == 1): ?>
 
                         <a class="text-default"><?= htmlspecialchars($comment->getPseudo());?>, le <?=htmlspecialchars($comment->getCommentDate());?></a>
-
-                    <a class="pull-right text-default" href="<?=HOST;?>warningComment&amp;post_id=<?=$post->getId()?>">
+                    <a class="pull-right text-default" href="<?=HOST;?>warningComment&amp;id=<?=$comment->getId()?>&amp;post_id=<?=$post->getId()?>">
                     <span class="fas fa-exclamation-circle"  name="warningComment" id="warningComment" ></span>
                 </a>
             </h5>
-
             <?= $comment->getComment();?>
-
             <?php   else : ?>
+
             <h5 class="font-weight-bold mt-0">
             <a class="text-default"><?=htmlspecialchars($comment->getPseudo());?>, le <?=htmlspecialchars($comment->getCommentDate());?></a>
                 <a class="pull-right text-default" href="<?=HOST;?>warningComment&amp;post_id=<?=$post->getId()?>">
-                    <span class="fas fa-exclamation-circle" name="warningComment" id="warningComment" ></span>
+                   <!-- <span class="fas fa-exclamation-circle" name="warningComment" id="warningComment" ></span>-->
                 </a>
             </h5>
-            <?php endif; ?>
-            <p>Le Commentaire a été signalé, il est en cours de modération ! </p>
 
+            <p>Le Commentaire a été signalé, il est en cours de modération !</p>
+            <?php endif; ?>
             <?php //var_dump($comment->getValidated());die; ?>
 
 

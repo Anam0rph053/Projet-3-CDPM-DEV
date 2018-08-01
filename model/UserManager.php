@@ -15,6 +15,7 @@ class UserManager extends Manager
         $req->bindValue(':pseudo', $values['pseudo'], PDO::PARAM_STR);
         $req->bindValue(':pass', $values['pass'], PDO::PARAM_STR);
         $req->bindValue(':email', $values['email'], PDO::PARAM_STR);
+
         $req->execute();
     }
 
@@ -23,18 +24,31 @@ class UserManager extends Manager
         // selection d'un membre
         $db =$this->db;
 
-        $query="SELECT id FROM Membres WHERE (pseudo = :pseudo)";
-
+        $query="SELECT * FROM membres WHERE pseudo = :pseudo ";
         $req = $db->prepare($query);
 
         $req->bindValue(':pseudo', $values['pseudo'], PDO::PARAM_STR);
 
-        $req->execute(['pseudo'=>$_POST['pseudo']]);
+        $req->execute();
 
-        $result = $req->fetch();
+        $row = $req->fetch(PDO::FETCH_ASSOC);
+        {
+            $user = new Membres();
+            $user->setId($row['id']);
+            $user->setrole($row['role']);
+            $user->setPseudo($row['pseudo']);
+            $user->setPass($row['pass']);
+            $user->setEmail($row['email']);
+            $user->setDateInscription($row['date_inscription']);
 
-        return $result;
+        }
+
+        return $user;
+
     }
+
+
+
     /*function getAdmin(){
 
         $db=$this->db;

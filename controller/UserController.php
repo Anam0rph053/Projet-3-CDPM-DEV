@@ -14,7 +14,6 @@ class UserController
 
                 if ($_POST['pass'] == $_POST['pass2']) {
                     $_POST['pass'] = password_hash($_POST['pass'], PASSWORD_DEFAULT);
-                    $_POST['pass2'] = password_hash($_POST['pass2'], PASSWORD_DEFAULT);
 
                 } else {
                     $erreur['errorPass'] = 'Vos mot de passe ne sont pas identiques';
@@ -62,29 +61,35 @@ class UserController
 
     public function userLogin($values)
     {
-
         if (!empty($_POST)) {
-            if (isset($_POST['pseudo']) && isset($_POST['pass']) && isset($_SESSION['role'])) {
+
+
+            if (isset($_POST['pseudo']) && isset($_POST['pass'])) {
+
+                $pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
 
                 $UserManager = new UserManager();
                 $user = $UserManager->getMembersdb($values);
+
+                $isPasswordCorrect = password_verify($_POST['pass'], $pass);
             }
             if($user == null ) {
 
                 $_SESSION['alertes']['submit_error'] = 'Mauvais identifiant ou mauvais mot de passe';
 
-                $myView = new View();
+                $myView = new View('login');
                 $myView->redirect('login');
 
-            } else {
+            } elseif($isPasswordCorrect === true) {
 
-                $_SESSION['user']['id'] = $user;
-                $_SESSION['user']['pseudo'] = $user;
-                $_SESSION['user']['email'] = $user;
-                $_SESSION['user']['pass'] = $user;
-                $_SESSION['user']['role'] = $user;
 
-                if($_SESSION['role'] === 'admin'){
+                $_SESSION['user']['id'] = $user['id'];
+                $_SESSION['user']['pseudo'] = $user['pseudo'];
+                $_SESSION['user']['email'] = $user['email'];
+                $_SESSION['user']['pass'] = $user['pass'];
+                $_SESSION['user']['role'] = $user['role'];
+
+                if($_SESSION['user']['role'] === 'admin'){
 
                     $myView = new View('dashboard');
                     $myView->redirect('dashboard');

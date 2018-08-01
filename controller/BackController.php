@@ -22,9 +22,9 @@ class Backcontroller
         }
     }
 
-    public function editImg()
+    public function editPost()
     {
-        if (isset($_POST['submit'])){
+        /*if (isset($_POST['submit'])){
             $file=$_FILES['file']['name'];
             $max_size =2097152;
             $size=filesize($_FILES['file']['tmp_name']);
@@ -43,7 +43,7 @@ class Backcontroller
             }else {
                 echo $error;
             }
-        }
+        }*/
 
     }
 
