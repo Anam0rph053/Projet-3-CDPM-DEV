@@ -48,8 +48,8 @@ class UserController
 
                 $_SESSION['alertes']['submit_success'] = 'Super bienvenue parmis nous';
 
-                $myView = new View('profil');
-                $myView->render();
+                $myView = new View('home');
+                $myView->redirect('home');
 
 
             }
@@ -59,53 +59,55 @@ class UserController
         $myView->render();
     }
 
-    public function userLogin($values)
+    public function userLogin()
     {
-        if (!empty($_POST)) {
+        if(!empty($_POST)) {
 
-
-            if (isset($_POST['pseudo']) && isset($_POST['pass'])) {
+            if(isset($_POST['pseudo']) && isset($_POST['pass'])) {
 
                 $pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
 
                 $UserManager = new UserManager();
-                $user = $UserManager->getMembersdb($values);
+                $user = $UserManager->getMembersdb();
 
-                $isPasswordCorrect = password_verify($_POST['pass'], $pass);
+                $isPasswordCorrect = password_verify($_POST['pass'], $user->getPass());
+
             }
-            if($user == null ) {
+                    if($user == null ) {
 
-                $_SESSION['alertes']['submit_error'] = 'Mauvais identifiant ou mauvais mot de passe';
+                        $_SESSION['alertes']['submit_error'] = 'Mauvais identifiant ou mauvais mot de passe';
 
-                $myView = new View('login');
-                $myView->redirect('login');
+                        $myView = new View('login');
+                        $myView->redirect('login');
 
-            } elseif($isPasswordCorrect === true) {
-
-
-                $_SESSION['user']['id'] = $user['id'];
-                $_SESSION['user']['pseudo'] = $user['pseudo'];
-                $_SESSION['user']['email'] = $user['email'];
-                $_SESSION['user']['pass'] = $user['pass'];
-                $_SESSION['user']['role'] = $user['role'];
-
-                if($_SESSION['user']['role'] === 'admin'){
-
-                    $myView = new View('dashboard');
-                    $myView->redirect('dashboard');
-                }
-                if($_SESSION['role'] ==='user'){
-                    $myView = new View('profil');
-                    $myView->redirect('profil');
-                }
+                            } elseif($isPasswordCorrect === true) {
 
 
+                                $_SESSION['user']['id'] = $user->getId();
+                                $_SESSION['user']['pseudo'] = $user->getPseudo();
+                                $_SESSION['user']['email'] = $user->getEmail();
+                                $_SESSION['user']['pass'] = $user->getPass();
+                                $_SESSION['user']['role'] = $user->getRole();
 
-            } if (isset($_POST ['exist'])) {
 
-                $_SESSION['alertes']['submit_success'] = 'Super tu est connecté';
-                setcookie('pseudo', $_POST['pseudo']);
-                setcookie('pass', $_POST['pass']);
+                                if($_SESSION['user']['role'] === 'admin'){
+                                    $myView = new View('dashboard');
+                                    $myView->redirect('dashboard');
+                                }
+
+
+                                if($_SESSION['user']['role'] === 'user'){
+
+                                    $myView = new View('profil');
+                                    $myView->redirect('profil');
+                                }
+
+                        if(isset($_POST['exist'])) {
+
+                            $_SESSION['alertes']['submit_success'] = 'Super tu est connecté';
+                            setcookie('pseudo', $_POST['pseudo']);
+                            setcookie('pass', $_POST['pass']);
+                    }
             }
 
 

@@ -65,9 +65,9 @@
 
                     <?php
 
-                    if(isset($_SESSION['role'])) {
+                    if(isset($_SESSION['user']['role'])) {
 
-                        if($_SESSION['role'] === 'admin'){ ?>
+                        if($_SESSION['user']['role'] === 'admin'){ ?>
 
                             <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -77,12 +77,12 @@
 
                             <div class="dropdown-menu dropdown-menu-right dropdown-default"
                                  aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item waves-effect waves-light" href="<?= HOST; ?>Dashboard">Tableau de bord</a>
+                                <a class="dropdown-item waves-effect waves-light" href="<?= HOST; ?>dashboard">Tableau de bord</a>
                                 <a class="dropdown-item waves-effect waves-light" href="<?= HOST; ?>logOut">Deconnexion</a>
 
                             </div>
 
-                        <?php } elseif($_SESSION['role'] === 'user'){
+                        <?php } elseif($_SESSION['user']['role'] === 'user'){
 
                         ?>
                             <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink"
@@ -172,16 +172,19 @@
                     <h6 class="text-uppercase font-weight-bold">Menu</h6>
                     <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                     <p>
-                        <a class="dark-grey-text" href="#!">a propos</a>
+                        <a class="dark-grey-text" href="<?=HOST;?>home">Accueil</a>
+
                     </p>
                     <p>
-                        <a class="dark-grey-text" href="#!">Lectures</a>
+                        <a class="dark-grey-text" href="<?=HOST;?>posts">Le Roman</a>
                     </p>
                     <p>
-                        <a class="dark-grey-text" href="#!">Contact</a>
+                        <a class="dark-grey-text" href="<?=HOST;?>about">A propos</a>
+
                     </p>
                     <p>
-                        <a class="dark-grey-text" href="#!">Accueil</a>
+                        <a class="dark-grey-text" href="<?=HOST;?>contact">Contact</a>
+
                     </p>
 
                 </div>
@@ -194,7 +197,7 @@
                     <h6 class="text-uppercase font-weight-bold">Administration</h6>
                     <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                     <p>
-                        <a class="dark-grey-text" href="<?=HOST;?>adminCo">Se connecter</a>
+                        <a class="dark-grey-text" href="<?=HOST;?>login">Se connecter</a>
                     </p>
 
                 </div>

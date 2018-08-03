@@ -8,7 +8,8 @@ class UserManager extends Manager
     {
         $db = $this->db;
         if (!isset($values['id'])) {
-            $query = "INSERT INTO membres( pseudo, pass, email) VALUES( :pseudo, :pass, :email)";
+
+            $query = "INSERT INTO membres( pseudo, pass, email, date_inscription) VALUES( :pseudo, :pass, :email, NOW())";
         }
         $req = $db->prepare($query);
         if (isset($values['id'])) $req->bindValue(':id', $values['id'], PDO::PARAM_INT);
@@ -19,15 +20,17 @@ class UserManager extends Manager
         $req->execute();
     }
 
-    function getMembersdb($values)
+    function getMembersdb()
     {
         // selection d'un membre
         $db =$this->db;
 
-        $query="SELECT * FROM membres WHERE pseudo = :pseudo ";
+        $query="SELECT * FROM membres WHERE pseudo = :pseudo  ";
+
         $req = $db->prepare($query);
 
-        $req->bindValue(':pseudo', $values['pseudo'], PDO::PARAM_STR);
+        $req->bindValue(':pseudo', $_POST['pseudo'], PDO::PARAM_STR);
+
 
         $req->execute();
 

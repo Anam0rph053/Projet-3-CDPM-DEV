@@ -26,7 +26,7 @@
                     <!-- Material input email -->
                     <div class="md-form">
                         <i class="fa fa-exclamation-triangle prefix grey-text"></i>
-                        <input type="email" id="materialFormCardConfirmEx" class="form-control" name="email" placeholder="Confirmez votre Email"  value="<?php if(isset($_POST['email'])) echo htmlspecialchars(trim($_POST['email2']));?>">
+                        <input type="email" id="materialFormCardConfirmEx" class="form-control" name="email2" placeholder="Confirmez votre Email"  value="<?php if(isset($_POST['email'])) echo htmlspecialchars(trim($_POST['email2']));?>">
                         <label for="materialFormCardConfirmEx" class="font-weight-light"> </label>
                     </div>
 
@@ -38,9 +38,11 @@
                     </div>
                     <div class="md-form">
                         <i class="fa fa-lock prefix grey-text"></i>
-                        <input type="password" id="materialFormCardPasswordEx" class="form-control" name="pass" placeholder="confirmez votre Mot de Passe" value="<?php if(isset($_POST['pass2'])) echo password_hash($_POST['pass2'], PASSWORD_DEFAULT);?>">
+                        <input type="password" id="materialFormCardPasswordEx" class="form-control" name="pass2" placeholder="confirmez votre Mot de Passe" value="<?php if(isset($_POST['pass2'])) echo password_hash($_POST['pass2'], PASSWORD_DEFAULT);?>">
                         <label for="materialFormCardPasswordEx" class="font-weight-light"></label>
                     </div>
+
+
 
                     <div class="text-center py-4 mt-3">
                         <button class="btn btn-default" name="submit" type="submit">S'inscrire</button>

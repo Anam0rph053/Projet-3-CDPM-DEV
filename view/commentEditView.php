@@ -33,7 +33,7 @@
 
                     <h5 class="font-weight-bold mt-0">
 
-                        <?php if($comment->getValidated() == 1): ?>
+                        <?php if($comment->getValidated() === '1'): ?>
 
                         <a class="text-default"><?= htmlspecialchars($comment->getPseudo());?>, le <?=htmlspecialchars($comment->getCommentDate());?></a>
                     <a class="pull-right text-default" href="<?=HOST;?>warningComment&amp;id=<?=$comment->getId()?>&amp;post_id=<?=$post->getId()?>">

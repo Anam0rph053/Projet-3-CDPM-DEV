@@ -7,7 +7,7 @@ class View
     {
         $this->template= $template;
     }
-    public function render($variables = array())
+    public function render($variables = array() )
     {
         extract($variables); //crée devinette ou devinettes ou ....
 

@@ -2,15 +2,14 @@
 
 class Backcontroller
 {
-    public function dashboard()
+    public function dashboard($variables)
     {
 
-        if(isset($_SESSION['role']) === 'admin'){
 
-            $myView = new View();
-            $myView->render('dashboard');
+        if($_SESSION['user']['role'] === 'admin') {
 
-
+            $myView = new View('dashboard');
+            $myView->render();
 
         }else{
 
@@ -18,12 +17,21 @@ class Backcontroller
 
                 $myView = new View();
                 $myView->redirect('home');
-                exit(); // Afin que la suite du code ne s'exécute pas
         }
     }
+    public function listPosts()
+    {
+        $postManager = new PostManager();
+        $posts = $postManager->getPosts();
 
+        $myView = new View('dashboard');
+        $myView->render($posts);
+
+    }
     public function editPost()
     {
+        $myView = new View('editPost');
+        $myView->render();
         /*if (isset($_POST['submit'])){
             $file=$_FILES['file']['name'];
             $max_size =2097152;
@@ -45,6 +53,24 @@ class Backcontroller
             }
         }*/
 
+
+    }
+
+    public function uploadImg()
+    {
+        if($_FILES['image']['error'] >0) $erreur = "erreur lors du transfert";
+
+
+        if($_FILES['image']['size'] > $maxsize) $erreur = "le fichiers est trop gros";
+
+
+        $extensions_valides = array( 'jpg' , 'jpeg' , 'gif' , 'png' );
+
+        $extension_upload = strtolower(  substr(  strrchr($_FILES['image']['name'], '.')  ,1)  );
+        if ( in_array($extension_upload,$extensions_valides) ) echo "Extension correcte";
+
+        $image_sizes = getimagesize($_FILES['icone']['tmp_name']);
+        if ($image_sizes[0] > $maxwidth OR $image_sizes[1] > $maxheight) $erreur = "Image trop grande";
     }
 
 

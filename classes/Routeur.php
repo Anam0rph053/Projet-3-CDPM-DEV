@@ -64,10 +64,7 @@ class Routeur
                 $params[$key] = $val;
             }
         }
-
-
         return $params;
-
 
     }
 

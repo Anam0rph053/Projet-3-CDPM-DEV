@@ -182,9 +182,10 @@ li{
     color:#777676;
 
 }
-.card-title{
+.card-title {
     font-family: fontastique;
 }
+
 
 .card{
     display: flex;
@@ -214,7 +215,7 @@ h1.card-title{
 img.img-fluid{
     border-radius:5px;
 }
-/**** Liste de sposts****/
+/**** Liste des posts****/
 
 .font-weight-bold{
     font-family: fontastique;
@@ -240,6 +241,9 @@ h6{
     font-family: fontastique;
     color:#777676!important;
 }
+
+/*** Admin ***/
+
 
 @media screen and (max-width: 600px) {
     form {
