@@ -2,6 +2,7 @@
 class Post
 {
     private $id;
+    private $img;
     private $name;
     private $title;
     private $content;
@@ -22,6 +23,22 @@ class Post
     public function setId($id)
     {
         $this->id = $id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImg()
+    {
+        return $this->img;
+    }
+
+    /**
+     * @param mixed $img
+     */
+    public function setImg($img)
+    {
+        $this->image = $img;
     }
 
     /**

@@ -17,7 +17,7 @@
             <?php
             $_SESSION['alertes'] = [];
         }
-        ?>
+        ?></div>
 
 <div class="landing">
 

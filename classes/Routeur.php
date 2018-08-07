@@ -22,7 +22,10 @@ class Routeur
 
         "dashboard"              =>["controller" => 'BackController',  "method" => 'dashboard'],
         "editPost"               =>["controller" => 'BackController',  "method" => 'editPost'],
+        "addPost"                =>["controller" => 'BackController',  "method" => 'addPost'],
+        "updatePost"             =>["controller" => 'BackController',  "method" => 'updatePost'],
 
+        "deletePost"             =>["controller" => 'BackController',  "method" => 'deletePost'],
 
     ];
 
@@ -43,8 +46,6 @@ class Routeur
         $params = array();
         // extract GET params
         $elements = explode('/', $this->request);//request parametre initiaux en get.
-
-
 
         unset($elements[0]); //supprime la variable post garde id et 1
 

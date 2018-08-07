@@ -205,6 +205,7 @@ form{
     align-items: center;
 }
 
+
 .col-sm-8{
     float: none;
     margin: 0 auto;}
@@ -215,6 +216,8 @@ h1.card-title{
 img.img-fluid{
     border-radius:5px;
 }
+
+
 /**** Liste des posts****/
 
 .font-weight-bold{
@@ -243,9 +246,14 @@ h6{
 }
 
 /*** Admin ***/
+.btn.btn-sm {
+    margin-top:20px!important;
+}
 
+/*** Media quieries ***/
 
 @media screen and (max-width: 600px) {
+
     form {
         width: 100%;
         margin: auto;
@@ -258,8 +266,70 @@ h6{
         font-size: 1.5em;
 
     }
+    .btn.btn-sm {
+        margin-top:20px!important;
+    }
 
 }
+
+/** Media quieries dasboard**/
+
+
+@media
+only screen and (max-width: 800px),
+(min-device-width: 800px) and (max-device-width: 1024px)  {
+     td,  th,  tr {
+        display: block;
+    }
+
+    /* cacher le header du tableau */
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr { border: 1px solid #ccc; }
+
+    td {
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50% !important;
+    }
+
+    td:before {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        white-space: nowrap;
+    }
+
+    td:nth-of-type(1):before { content: "Id"; }
+    td:nth-of-type(2):before { content: "Image"; }
+    td:nth-of-type(3):before { content: "Auteur"; }
+    td:nth-of-type(4):before { content: "Titre"; }
+    td:nth-of-type(5):before { content: "Extrait"; }
+    td:nth-of-type(6):before { content: "Actions"; }
+}
+
+
+    /*smartphone*/
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px) {
+    td, th,   tr  {
+        padding: 0;
+        margin: 0;
+        width: 100%; }
+}
+
+    /* tablettes */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    td, th,   tr  {
+        width: 100%;
+    }  }
 
 
 

@@ -22,7 +22,7 @@ class Frontcontroller
 
     }
 
-    public function listPosts()
+    public function listPosts($variables)
     {
         $postManager = new PostManager();
         $posts = $postManager->getPosts();
@@ -77,7 +77,7 @@ class Frontcontroller
                     }
 
                     if (strlen($_POST['comment']) <= 500) {
-                        $pseudo = htmlspecialchars($_POST['comment']);
+                        $comment = htmlspecialchars($_POST['comment']);
                     } else {
                         $erreur['errorPseudo'] = ' Votre commentaire est trop long ';
                     }

@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
         <link href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/css/compiled.min.css?ver=4.4.0" rel="stylesheet">
         <link href="<?=ASSETS;?>css/style.css" rel="stylesheet">
+
         <link href="<?=ASSETS;?>css/animate.css" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 
@@ -52,12 +53,12 @@
             <ul class="navbar-nav ml-auto nav-flex-icons">
                 <li class="nav-item">
                     <a class="nav-link waves-effect waves-light">
-                        <i class="fa fa-twitter"></i>
+                        <i class="fab fa-twitter"></i>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link waves-effect waves-light">
-                        <i class="fa fa-google-plus"></i>
+                        <i class="fab fa-facebook-f"></i>
                     </a>
                 </li>
 

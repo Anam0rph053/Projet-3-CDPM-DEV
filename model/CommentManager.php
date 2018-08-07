@@ -83,15 +83,43 @@ class CommentManager extends Manager
         $db = $this->db;
 
 
-            $query = "UPDATE comments SET validated = 0 WHERE id = :id ";
+            $query = "UPDATE comments SET validated = 0 WHERE id = :id AND post_id = :post_id";
 
         $req =$db->prepare($query);
 
-        $req->bindParam(':id', $id, PDO::PARAM_INT);
-
+        $req->bindParam(':id', $_GET['id'], PDO::PARAM_INT);
+        $req->bindParam(':post_id', $_GET['post_id'], PDO::PARAM_INT);
         $req->execute();
 
     }
+    function deleteCommentDb($id)
+    {
+        $db = $this->db;
+
+
+        $query = "DELETE FROM comments WHERE id = :id ";
+
+        $req = $db->prepare($query);
+
+        $req->bindParam(':id', $id, PDO::PARAM_INT);
+        $req->execute();
+    }
+
+    function validatedCommentDb($id)
+    {
+        $db = $this->db;
+
+
+        $query = "UPDATE comments SET validated = 1 WHERE id = :id AND post_id = :post_id";
+
+        $req =$db->prepare($query);
+
+        $req->bindParam(':id', $_GET['id'], PDO::PARAM_INT);
+        $req->bindParam(':post_id', $_GET['post_id'], PDO::PARAM_INT);
+
+        $req->execute();
+    }
+
 
 }
 

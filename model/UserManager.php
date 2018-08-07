@@ -31,14 +31,13 @@ class UserManager extends Manager
 
         $req->bindValue(':pseudo', $_POST['pseudo'], PDO::PARAM_STR);
 
-
         $req->execute();
 
         $row = $req->fetch(PDO::FETCH_ASSOC);
         {
             $user = new Membres();
             $user->setId($row['id']);
-            $user->setrole($row['role']);
+            $user->setRole($row['role']);
             $user->setPseudo($row['pseudo']);
             $user->setPass($row['pass']);
             $user->setEmail($row['email']);
