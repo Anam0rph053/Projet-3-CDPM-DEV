@@ -2,148 +2,133 @@
 
 class Backcontroller
 {
-    public function dashboard($id)
+    public function dashboard()
     {
 
 
-        if($_SESSION['user']['role'] === 'admin') {
+        if ($_SESSION['user']['role'] === 'admin') {
 
-                $postManager = new PostManager();
-                $commentManager = new CommentManager();
-                $posts=$postManager->getPosts();
+            $postManager = new PostManager();
+            $commentManager = new CommentManager();
 
-                $warningComments = $commentManager->warningCommentDb($id);
-                $myView = new View('dashboard');
-                $myView->render($posts, $warningComments);
+            $posts = $postManager->getPosts();
+            $comments = $commentManager->getAllComments();
+
+            $myView = new View('dashboard');
+            $myView->render(compact('posts', 'comments'));
 
 
-        }else{
+        } else {
 
-                $_SESSION['alertes']['submit_error'] = "Vous n'avez pas l'autorisation ";
+            $_SESSION['alertes']['submit_error'] = "Vous n'avez pas l'autorisation ";
 
-                $myView = new View();
-                $myView->redirect('home');
+            $myView = new View();
+            $myView->redirect('home');
         }
     }
 
-    public function editPost()
+
+    public function addPost()
     {
-        $myView = new View('editPost');
+
+
+        $erreur = [];
+
+        if (!empty($_POST) && !empty($_FILES)) {
+
+
+            if (isset($_FILES['img'])) {
+                $name_img = basename($_FILES['img']['name']);
+                $img = $_FILES['img'];
+                $extension = strtolower(substr($img['name'], -3));
+                $allow_ext = array("jpg", 'jpeg', 'png');
+                if (in_array($extension, $allow_ext)) {
+                    $chemin = "assets/images/" . $img['name'];
+                    move_uploaded_file($img['tmp_name'], $chemin);
+
+                } else {
+
+                    $erreur = "Mauvais format de fichier";
+                }
+
+            } else {
+                $erreur['errorForm'] = 'Un élément manque pour publier';
+
+            }
+
+            if (isset($_FILES['img']) && isset($_POST['name']) && isset($_POST['title']) && isset($_POST['content']) && !empty($_FILES['img']) && !empty($_POST['name']) && !empty($_POST['title']) && !empty($_POST['content'])) {
+
+                if (!empty($erreur)) {
+
+                    $_SESSION['alertes']['submit_error'] = 'problème on ne peut pas publier votre chapitre';
+
+                    $myView = new View();
+                    $myView->render('addPost');
+
+                } else {
+
+
+                    $post = new Post();
+
+                    $post->setImg($_FILES['img']['name']);
+                    $post->setName($_POST['name']);
+                    $post->setTitle($_POST['title']);
+                    $post->setContent($_POST['content']);
+                    $post->setCreatedAt(new DateTime());
+
+                    $manager = new PostManager();
+                    $manager->addPostDb($post);
+
+                    $_SESSION['alertes']['submit_success'] = 'Super votre commentaire est en ligne';
+
+                    $myView = new View('dashboard');
+                    $myView->redirect('dashboard');
+
+                }
+            }
+
+        }
+
+        $myView = new View('addPost');
         $myView->render();
-
-        /*if (isset($_POST['submit'])){
-            $file=$_FILES['file']['name'];
-            $max_size =2097152;
-            $size=filesize($_FILES['file']['tmp_name']);
-            $extensions = array('.png','.jpeg','.jpg','.PNG','.JPG','.JPEG');
-            $extension = strrchr($file,'.');
-
-            if(!in_array($extension, $extensions)){
-                $error = $_SESSION['alertes']['submit_error'] = 'Vous devez uploader un fichier de type Png, jpg, ou jpeg';
-            }
-            if($size>$max_size){
-                $error =  $_SESSION['alertes']['submit_error'] = 'fichier trop volumineux';
-
-            }
-            if(!isset($error)){
-                move_uploaded_file($_FILES['file']['tmp_name'],"img/".$file);
-            }else {
-                echo $error;
-            }
-        }*/
-
 
     }
 
-     public function addPost($variables)
-     {
 
+    public function editPost()
+    {            //var_dump($_FILES,$_POST,$_GET);die;
 
-         $erreur=[];
+        if ((!empty($_FILES['img'])) && (!empty($_POST['name'])) && (!empty($_POST['title'])) && (!empty($_POST['content'])) && (!empty($_GET['id']))) {
 
-       // if (!empty($_POST) && !empty($_FILES)) {
+            $post = new Post();
+            $post->setImg($_FILES['img']['name']);
+            $post->setName($_POST['name']);
+            $post->setTitle($_POST['title']);
+            $post->setContent($_POST['content']);
+            $post->setCreatedAt(new DateTime());
 
+            $manager = new PostManager();
+            $post = $manager->updatePostDb($post);
 
-            // if (isset($_FILES['image']) && isset($_POST['name']) && isset($_POST['title']) && isset($_POST['created_at']) && isset($_POST['content']) && !empty($_FILES['image']) && !empty($_POST['name']) && !empty($_POST['title']) && !empty($_POST['created_at']) && !empty($_POST['content'])) {
+            $myView = new View('dashboard');
+            $myView->redirect('dashboard');
+        }
 
-                 if(isset($_FILES['img'])) {
-                        require('/classes/imgClass.php');
-                     $img = $_FILES['img'];
-                     $extension = strtolower(substr($img['name'],-3));
-                     $allow_ext = array("jpg",'jpeg','png');
-                     if(in_array($extension, $allow_ext)){
-                         move_uploaded_file($img['tmp_name'],  "assets/images/" . $img['name']);
-                         Img::creerMin("assets/images/".$img['name'], "assets/images/miniatures/",$img['name'],215,112);
-                     }else {
+        //(isset($_GET['id']) && ($_GET['id'] > 0 )){
+        //}
 
-                         $erreur = "Mauvais format de fichier";
-                     }
+        $myView = new View('editPost');
+        $myView->render(compact('post'));
 
-
-                     /* $maxsize = 1024000000;
-                      // $maxwidth = 230px;
-                      //  $maxheight = 500px;
-
-                      if (isset($_FILES['image']) OR $_FILES['image']['error'] > 0) {
-
-                          $erreur = "erreur lors du transfert";
-                      }
-
-                      if ($_FILES['image']['size'] > $maxsize) {
-                          $erreur = "le fichiers est trop gros";
-                      }
-
-                      $extensions_valides = array('jpg', 'jpeg', 'gif', 'png');
-
-                      $extension_upload = strtolower(substr(strrchr($_FILES['image']['name'], '.'), 1));
-                      if (in_array($extension_upload, $extensions_valides)) echo "Extension correcte";
-
-                      // $image_sizes = getimagesize($_FILES['icone']['tmp_name']);
-                      // if ($image_sizes[0] > $maxwidth OR $image_sizes[1] > $maxheight) $erreur = "Image trop grande";
-                  }
-
-
-                 } else {
-                     $erreur['errorForm'] = 'Un élément manque pour vous inscrire';
-                 }
-
-                 if (!empty($erreur)) {
-
-                     $_SESSION['alertes']['submit_error'] = 'problème on ne peut pas publier votre chapitre';
-
-                     $myView = new View('dashboard');
-                     $myView->redirect('dashboard');
-
-                 } else {
-
-                     $manager = new PostManager();
-                     $manager->addPostDb($variables);
-
-
-                     $_SESSION['alertes']['submit_success'] = 'Super votre commentaire est en ligne';
-
-                     $myView = new View('dashboard');
-                     $myView->redirect('dashboard');
-
-                 }*/
-                 }
-            // }
-             $myView = new View('addPost');
-             $myView->render();
-
-         }
-
-   // }
-
+    }
 
     public function deletePost($id)
     {
 
-
         $PostManager = new PostManager();
         $affectedLines = $PostManager->deletePostDb($id);
 
-       //$affectedLines = $PostManager->getPost($id);
+        //$affectedLines = $PostManager->getPost($id);
 
 
         if ($affectedLines === false) {
@@ -158,7 +143,6 @@ class Backcontroller
 
             $_SESSION['alertes']['submit_success'] = "Félicitation le chapitre a bien été supprimé";
 
-            $deletePost = $PostManager->deletePostDb($id);
 
             $myView = new View('dashboard');
             $myView->redirect('dashboard');
@@ -167,34 +151,25 @@ class Backcontroller
 
     }
 
-    public function updatepost()
-    {
-        if(isset($id)){
-            $PostManager= new PostManager();
-            $post = $PostManager->updatePostDb($id);
-        }
-        $myView = new View('editpost');
-        $myView->render();
-    }
-
     public function deleteComment($id)
     {
-        $PostManager = new PostManager();
-        // $affectedLines = $PostManager->deletePostDb($id);
-        $affectedLines = $PostManager->getcomment($id);
-
+        $CommentManager = new CommentManager();
+        $affectedLines = $CommentManager->deleteCommentDb($id);
 
         if ($affectedLines === false) {
 
-            $_SESSION['alertes']['submit_error'] = "lecommentaire n'a pas pû être supprimé";
-            //require('view/frontend/editCommentView.php'); peut se mettre dans la partie erreur
+            $_SESSION['alertes']['submit_error'] = "le commentaire n'a pas pû être supprimé";
+
+            $myView = new View('dashboard');
+            $myView->redirect('dashboard/id/' . $_GET['id']);
+
 
         } else {
-            $deleteComment = $PostManager->deleteCommentDb($id);
 
-            $_SESSION['alertes']['submit_success'] = "Félicitation le chapitre a bien été supprimé";
+            $_SESSION['alertes']['submit_success'] = "Félicitation le commentaire a bien été supprimé";
 
-            $myView = new View();
+
+            $myView = new View('dashboard');
             $myView->redirect('dashboard');
         }
     }
@@ -206,18 +181,15 @@ class Backcontroller
                 if ($_GET['id']) {
 
                     $CommentManager = new CommentManager();
-                    // $comment = $CommentManager->getComment($id['id']);
-                    // $signal = $comment['validated'] == 1;
 
                     $CommentManager->validatedCommentDb($_GET['id']);
 
-                    $_SESSION['alertes']['submit_success'] = 'Ce commentaire a été validé';
+                    $_SESSION['alertes']['submit_success'] = 'Ce commentaire est validé';
 
                     $myView = new View('dashboard');
-                    $myView->redirect('dashboard');
+                    $myView->redirect('dashboard/id/' . $_GET['id']);
 
-                }
-                else {
+                } else {
 
                     $_SESSION['alertes']['submit_error'] = 'Ce commentaire ne peut pas être validé';
 
@@ -227,6 +199,7 @@ class Backcontroller
 
             }
         }
-    }
 
+
+    }
 }

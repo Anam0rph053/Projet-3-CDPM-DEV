@@ -6,9 +6,9 @@
  * Time: 16:16
  */
 
-class imgClass
+class img
 {
-    static function creerMiniatures($img,$chemin,$nom,$mlargeur=100,$mhauteur=100){
+    static function creerMin($img,$chemin,$nom,$mlargeur=100,$mhauteur=100){
         // On supprime l'extension du nom
         $nom = substr($nom,0,-4);
         // On récupère les dimensions de l'image

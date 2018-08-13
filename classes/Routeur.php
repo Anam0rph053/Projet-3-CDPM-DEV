@@ -23,9 +23,9 @@ class Routeur
         "dashboard"              =>["controller" => 'BackController',  "method" => 'dashboard'],
         "editPost"               =>["controller" => 'BackController',  "method" => 'editPost'],
         "addPost"                =>["controller" => 'BackController',  "method" => 'addPost'],
-        "updatePost"             =>["controller" => 'BackController',  "method" => 'updatePost'],
-
         "deletePost"             =>["controller" => 'BackController',  "method" => 'deletePost'],
+        "deleteComment"          =>["controller" => 'BackController',  "method" => 'deleteComment'],
+        "validatedComment"       =>["controller" => 'BackController',  "method" => 'validatedComment'],
 
     ];
 

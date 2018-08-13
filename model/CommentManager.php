@@ -3,7 +3,7 @@
 class CommentManager extends Manager
 {
 
-    public function getComments($postId)
+       public function getComments($postId)
     {
 
         $db = $this->db;
@@ -15,6 +15,32 @@ class CommentManager extends Manager
         $comments = [];
         while ($row = $req->fetch(PDO::FETCH_ASSOC)) {
 
+            $comment = new Comment();
+            $comment->setId($row['id']);
+            $comment->setPostId($row['post_id']);
+            $comment->setPseudo($row['pseudo']);
+            $comment->setComment($row['comment']);
+            $comment->setCommentDate($row['comment_date']);
+            $comment->setValidated($row['validated']);
+
+
+            $comments[] = $comment;
+        }
+        return $comments;
+
+
+    }
+
+    public function getAllComments()
+    {
+
+        $db = $this->db;
+        $query = "SELECT * FROM comments  ORDER BY id DESC  ";
+        $req = $db->prepare($query);
+        $req->execute();
+
+        $comments = [];
+        while ($row = $req->fetch(PDO::FETCH_ASSOC)) {
 
             $comment = new Comment();
             $comment->setId($row['id']);
@@ -35,9 +61,11 @@ class CommentManager extends Manager
     public function getComment($id)
     {
         $db = $this->db;
-        $query = "SELECT id, pseudo, comment, DATE_FORMAT(comment_date, '%d/%m/%Y à %Hh%imin%ss')AS comment_date_fr, post_id FROM comments WHERE id = ? ORDER BY comment_date DESC ";
+        $query = "SELECT * FROM comments WHERE id = ? ORDER BY comment_date DESC ";
         $req = $db->prepare($query);
+
         $req->bindValue(':id', $id, PDO::PARAM_INT);
+
         $req->execute();
 
         $row = $req->fetch(PDO::FETCH_ASSOC);
@@ -96,27 +124,27 @@ class CommentManager extends Manager
     {
         $db = $this->db;
 
-
         $query = "DELETE FROM comments WHERE id = :id ";
 
         $req = $db->prepare($query);
 
-        $req->bindParam(':id', $id, PDO::PARAM_INT);
+        $req->bindParam(':id', $_GET['id'], PDO::PARAM_INT);
+
         $req->execute();
     }
 
+
     function validatedCommentDb($id)
     {
+
         $db = $this->db;
 
 
-        $query = "UPDATE comments SET validated = 1 WHERE id = :id AND post_id = :post_id";
+        $query = "UPDATE comments SET validated = 1 WHERE id = :id ";
 
         $req =$db->prepare($query);
 
         $req->bindParam(':id', $_GET['id'], PDO::PARAM_INT);
-        $req->bindParam(':post_id', $_GET['post_id'], PDO::PARAM_INT);
-
         $req->execute();
     }
 

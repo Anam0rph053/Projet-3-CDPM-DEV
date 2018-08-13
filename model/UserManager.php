@@ -12,7 +12,9 @@ class UserManager extends Manager
             $query = "INSERT INTO membres( pseudo, pass, email, date_inscription) VALUES( :pseudo, :pass, :email, NOW())";
         }
         $req = $db->prepare($query);
+
         if (isset($values['id'])) $req->bindValue(':id', $values['id'], PDO::PARAM_INT);
+
         $req->bindValue(':pseudo', $values['pseudo'], PDO::PARAM_STR);
         $req->bindValue(':pass', $values['pass'], PDO::PARAM_STR);
         $req->bindValue(':email', $values['email'], PDO::PARAM_STR);

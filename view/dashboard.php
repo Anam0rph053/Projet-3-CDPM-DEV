@@ -54,22 +54,21 @@
 
 
 
-                <?php foreach ($variables as $post) : ?>
+                <?php foreach ($posts as $post) : ?>
 
 
                     <tr>
-                        <td class="pt-3-half" style="font-family: fontastique ;color:#777676;""><?=$post->getId(); ?></td>
-                        <td class="pt-3-half" style="font-family: fontastique ;color:#777676;""><?=$post->getImg(); ?></td>
-                        <td class="pt-3-half" style="font-family: fontastique ;color:#777676;""><?=$post->getName(); ?></td>
-                        <td class="pt-3-half" style="font-family: fontastique ;color:#777676;""><?=$post->getTitle(); ?></td>
-                        <td class="pt-3-half" style="font-family: fontastique ;color:#777676;""><?=substr($post->getContent(), 0, 150 ) ?></td>
-                        <td class="pt-3-half" style="font-family: fontastique ;color:#777676;""><span class="table-remove"><a href="<?=HOST;?>deletePost&amp;id=<?=$post->getId()?>" ><button type="button"
+                        <td class="pt-3-half" style="font-family: fontastique ;color:#777676;"><?=$post->getId(); ?></td>
+                        <td class="pt-3-half" style="font-family: fontastique ;color:#777676;width:200px;height:100px;"><img src="<?=$post->getImg();?>"></td>
+                        <td class="pt-3-half" style="font-family: fontastique ;color:#777676;"><?=$post->getName(); ?></td>
+                        <td class="pt-3-half" style="font-family: fontastique ;color:#777676;"><?=$post->getTitle(); ?></td>
+                        <td class="pt-3-half" style="font-family: fontastique ;color:#777676;"><?=substr($post->getContent(), 0, 150 ) ?></td>
+                        <td class="pt-3-half" style="font-family: fontastique ;color:#777676;"><span class="table-remove"><a href="<?=HOST;?>deletePost&amp;id=<?=$post->getId()?>" ><button type="button"
                                                                                  class="btn btn-danger btn-rounded btn-sm my-0">Effacer</button></span>
-                            <span class="table-"><a href="<?= HOST; ?>editPost"><button type="button"
+                            <span class="table-"><a href="<?= HOST; ?>editPost&amp;id=<?=$post->getId()?>"><button type="button"
                                                                                         class="btn btn-danger btn-rounded btn-sm my-0">Modifier</button></a></span>
                         </td>
 
-                        </td>
                     </tr>
 
                 <?php endforeach; //fin foreach
@@ -88,40 +87,44 @@
     <div class="card">
         <h4 class="card-title text-center  py-4" style="color:#26b2a4;">Liste des commentaires signalés</h4>
         <div class="card-body">
-            <?php if(isset($comments))?>
-            <?php if($comments !== null): ?>
-            <?php foreach ($comments as $comment) : ?>
 
             <div id="table" class="table-editable">
-
+                </tr>
                 <table class="table table-bordered table-responsive-md table-striped text-center">
                     <tr>
 
                         <th class="text-center">id Com</th>
-                        <th class="text-center">id Post</th>
                         <th class="text-center">Pseudo</th>
                         <th class="text-center">Commentaire</th>
                         <th class="text-center">Actions</th>
-                    </tr>
 
-                    <?php if($comment->getValidated() === 'O'): ?>
+                        <?php foreach ($comments as $comment) : ?>
+
                     <tr>
-                        <td class="pt-3-half"><?=$comment->getId(); ?></td>
-                        <td class="pt-3-half"><?=$comment->getPostId(); ?></td>
-                        <td class="pt-3-half"><?=$comment->getPseudo(); ?></td>
-                        <td class="pt-3-half"><?=$comment->getComment(); ?></td>
-                        <td class="pt-3-half"><span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0"><a href="<?=HOST; ?>deleteComment">Effacer</button></span>
-                            <span class="table-"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0"><a href="<?=HOST; ?>ValidatedComment">Valider</button></span></td>
-                        </td>
-                    </tr>
-                    <?php endif;?>
+                        <?php if($comment->getValidated() === '0'): ?>
 
+
+                        <td class="pt-3-half" style="font-family: fontastique ;color:#777676;"><?=$comment->getId(); ?></td>
+                        <td class="pt-3-half" style="font-family: fontastique ;color:#777676;"><?=$comment->getPseudo(); ?></td>
+                        <td class="pt-3-half" style="font-family: fontastique ;color:#777676;"><?=$comment->getComment(); ?></td>
+                        <td class="pt-3-half" style="font-family: fontastique ;color:#777676;"><span class="table-remove"><a href="<?=HOST;?>deleteComment&amp;id=<?=$comment->getId()?>"><button type="button"
+                                                                                                                                                                                             class="btn btn-danger btn-rounded btn-sm my-0">Effacer</button></span>
+                            <span class="table-"><a href="<?=HOST;?>validatedComment&amp;id=<?=$comment->getId()?>&amp;post_id=<?=$post->getId()?>"><button type="button"
+                                                                                                                   class="btn btn-danger btn-rounded btn-sm my-0">Valider</button></a></span>
+                        </td>
+                        <?php endif; ?>
+
+                    </tr>
+
+                    <?php endforeach; //fin foreach
+                    ?>
 
                 </table>
+
             </div>
-                <?php endforeach; //fin foreach
-                ?>
-            <?php endif;?>
+
+
+
         </div>
     </div>
 

@@ -40,7 +40,7 @@
                     <span class="fas fa-exclamation-circle"  name="warningComment" id="warningComment" ></span>
                 </a>
             </h5>
-            <?= $comment->getComment();?>
+            <?=$comment->getComment();?>
             <?php   else : ?>
 
             <h5 class="font-weight-bold mt-0">

@@ -122,8 +122,6 @@ class Frontcontroller
                 if ($_GET['id']) {
 
                      $CommentManager = new CommentManager();
-                    // $comment = $CommentManager->getComment($id['id']);
-                    // $signal = $comment['validated'] == 1;
 
                      $CommentManager->warningCommentDb($_GET['id']);
 

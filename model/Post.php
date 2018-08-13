@@ -7,6 +7,7 @@ class Post
     private $title;
     private $content;
     private $createdAt;
+    private $errors = [];
 
 
     /**
@@ -38,7 +39,7 @@ class Post
      */
     public function setImg($img)
     {
-        $this->image = $img;
+        $this->img = $img;
     }
 
     /**
@@ -104,5 +105,22 @@ class Post
     {
         $this->createdAt = $createdAt;
     }
+    /**
+     * @return array
+     */
+    public function getErrors()
+    {
+        return $this->errors;
+    }
+
+    /**
+     * @param array $errors
+     */
+    public function setErrors($errors)
+    {
+        $this->errors = $errors;
+    }
+
+
 
 }

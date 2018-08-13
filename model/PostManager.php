@@ -18,7 +18,7 @@ class PostManager extends Manager
 
             $post = new Post();
             $post->setId($row['id']);
-            $post->setImage($row['img']);
+            $post->setImg($row['img']);
             $post->setName($row['name']);
             $post->setTitle($row['title']);
             $post->setContent($row['content']);
@@ -48,7 +48,7 @@ class PostManager extends Manager
 
             $post = new Post();
             $post->setId($row['id']);
-            $post->setImage($row['img']);
+            $post->setImg($row['img']);
             $post->setName($row['name']);
             $post->setTitle($row['title']);
             $post->setContent($row['content']);
@@ -81,7 +81,7 @@ class PostManager extends Manager
         $post = new Post();
 
         $post->setId($row['id']);
-        $post->setImage($row['img']);
+        $post->setImg($row['img']);
         $post->setName($row['name']);
         $post->setTitle($row['title']);
         $post->setContent($row['content']);
@@ -91,24 +91,43 @@ class PostManager extends Manager
         return $post;
     }
 
-    public function addPostDb($variables)
+    public function addPostDb($post)
     {
         $db = $this->db;
 
-                $query = "INSERT INTO posts( img, author, title, content, created_at)  
-                      VALUES( :img, :author,:title,:content, NOW());";
+
+            $query = "INSERT INTO posts( img, name, title, content, created_at)  
+                      VALUES( :img , :name, :title, :content, NOW());";
+
 
             $req = $db->prepare($query);
-
-        $req->bindParam(':img', $_POST['img'], PDO::PARAM_INT);
-        $req->bindParam(':author', $_POST['author'], PDO::PARAM_STR);
-        $req->bindParam(':title', $_POST['title'], PDO::PARAM_STR);
-        $req->bindParam(':content', $_POST['content'], PDO::PARAM_STR);
+        $req->bindValue(':img', $post->getImg(), PDO::PARAM_STR);
+        $req->bindValue(':name', $post->getName(), PDO::PARAM_STR);
+        $req->bindValue(':title', $post->getTitle(), PDO::PARAM_STR);
+        $req->bindValue(':content', $post->getContent(), PDO::PARAM_STR);
 
         $req->execute();
 
     }
 
+    public function updatePostDb($post)
+    {
+
+        $db = $this->db;
+
+
+        $query = "UPDATE posts SET img = :img, name = :name, title = :title, content = :content WHERE id = :id";
+
+        $req = $db->prepare($query);
+
+
+        $req->bindValue(':img', $post->getImg(), PDO::PARAM_STR);
+        $req->bindValue(':name', $post->getName(), PDO::PARAM_STR);
+        $req->bindValue(':title', $post->getTitle(), PDO::PARAM_STR);
+        $req->bindValue(':content', $post->getContent(), PDO::PARAM_STR);
+
+        $req->execute();
+    }
 
     public function deletePostDb($id)
     {
@@ -123,21 +142,5 @@ class PostManager extends Manager
 
     }
 
-    public function updatePostDb()
-    {
 
-        $db = $this->db;
-        if (!empty($_POST) && !empty($_GET['id']) && $_GET['id'] > 0) {
-
-       $query = "UPDATE posts SET author = :author, title = :title, content = :content, img = :img WHERE id = :id";
-
-        $req = $db->prepare($query);
-
-        }
-        $req->bindParam(':author', $_POST['author'], PDO::PARAM_STR);
-        $req->bindParam(':title', $_POST['title'], PDO::PARAM_STR);
-        $req->bindParam(':content', $_POST['content'], PDO::PARAM_STR);
-        $req->bindParam(':img', $_POST['img'], PDO::PARAM_INT);
-        $req->execute();
-    }
 }
