@@ -1,38 +1,49 @@
-<?php
 
-?>
+
 
 <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Modifier un Chapitre</h3><br/>
 
 
+<?php
 
-<form action="<?=HOST;?>editPost" method="post" enctype="multipart/form-data">
+if(isset($post)){
+    ?>
 
-
+<form action="<?=HOST;?>editPost&amp;id=<?=$post->getId()?>" method="post" enctype="multipart/form-data">
 
         <div class="md-form">
             <i class= "fas fa-user-secret prefix grey-text"></i>
 
-
-            <input type="text" id="author"   name="name"  class="form-control" value="<?//=$post->getTitle()?>">
-            <label for="materialFormContactNameEx"</label>
+            <input type="text" id="name"   name="name"  class="form-control" value="<?=$post->getName()?>">
+            <label for="name"</label>
         </div>
+
+    <div class="md-form">
+        <i class="fas fa-edit prefix grey-text"></i>
+        <input type="text" id="title"   name="title"  class="form-control" value="<?=$post->getTitle()?>">
+        <label for="title"</label>
+    </div>
 
         <br/>
         <div class="md-form">
             <i class="fas fa-pencil-alt prefix grey-text"></i>
-            <textarea type="text" id="materialFormContactMessageEx" name="content" class="form-control md-textarea" rows="3" ><?//=$post->getContent()?></textarea>
-            <label for="materialFormContactMessageEx"</label>
+            <textarea type="text" id="content" name="content" class="form-control md-textarea" rows="3"><?=$post->getContent()?></textarea>
+            <label for="content"</label>
         </div>
+
         <input type="hidden" name="MAX_FILE_SIZE" value="1024000000" />
-        <input type="file" name="img" value="<?//=$post->getImg()?>" />
+        <input type="file" name="img" value="" />
 
 
 
         <div class="text-center py-4 mt-3">
-            <button class="btn btn-default" name="submit"type="submit">Mettre en ligne</button>
+            <button class="btn btn-default" name="submit" type="submit">Mettre en ligne</button>
         </div>
 </form>
+<?php } else{
+
+    echo "erreur";
+}  ?>
 
 
 

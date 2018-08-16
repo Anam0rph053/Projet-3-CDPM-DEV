@@ -18,7 +18,7 @@
                     <div class="col-lg-5">
                         <!-- Featured image -->
                         <div class="view overlay rounded z-depth-2 mb-lg-0 mb-4">
-                            <img class="img-fluid" src="assets/images/loup.jpg" alt="Sample image">
+                            <img class="img-fluid" src="<?=ASSETS;?>images/<?=$post->getImg()?>" alt="Sample image">
                             <a>
                                 <div class="mask rgba-white-slight"></div>
                             </a>

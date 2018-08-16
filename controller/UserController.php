@@ -118,11 +118,24 @@ class UserController
 
 
 
-    public function showProfil()
+    public function showProfil($id)
     {
+        if($_SESSION['user']['role'] === 'user'){
 
-        $myView = new View('profil');
-        $myView->render();
+                $UserManager = new UserManager();
+                $user = $UserManager->getMemberDb($id);
+
+                $myView = new View('profil');
+                $myView->render();
+
+        } else {
+
+        $_SESSION['alertes']['submit_error'] = "Vous n'avez pas l'autorisation ";
+
+        $myView = new View();
+        $myView->redirect('home');
+        }
+
     }
 
     public function userLogOut(){

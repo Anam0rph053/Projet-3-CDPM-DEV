@@ -6,7 +6,7 @@
 
                 <!-- Card image -->
                 <div class="view view-cascade overlay">
-                    <img class="card-img-top" src="<?=ASSETS;?>images/lac2.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="<?=ASSETS;?>images/<?=$post->getImg()?>" alt="Card image cap">
                     <a href="#!">
                         <div class="mask rgba-white-slight"></div>
                     </a>

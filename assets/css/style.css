@@ -319,11 +319,13 @@ only screen and (max-width: 800px),
 @media only screen
 and (min-device-width : 320px)
 and (max-device-width : 480px) {
-    td, th,   tr  {
+    td, th, tr  {
         padding: 0;
         margin: 0;
         width: 100%; }
 }
+
+
 
     /* tablettes */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {

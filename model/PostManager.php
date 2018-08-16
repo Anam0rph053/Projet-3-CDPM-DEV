@@ -87,8 +87,8 @@ class PostManager extends Manager
         $post->setContent($row['content']);
         $post->setCreatedAt($row['created_at']);
 
-
         return $post;
+
     }
 
     public function addPostDb($post)
@@ -112,21 +112,21 @@ class PostManager extends Manager
 
     public function updatePostDb($post)
     {
-
         $db = $this->db;
-
 
         $query = "UPDATE posts SET img = :img, name = :name, title = :title, content = :content WHERE id = :id";
 
         $req = $db->prepare($query);
-
 
         $req->bindValue(':img', $post->getImg(), PDO::PARAM_STR);
         $req->bindValue(':name', $post->getName(), PDO::PARAM_STR);
         $req->bindValue(':title', $post->getTitle(), PDO::PARAM_STR);
         $req->bindValue(':content', $post->getContent(), PDO::PARAM_STR);
 
+
         $req->execute();
+
+
     }
 
     public function deletePostDb($id)

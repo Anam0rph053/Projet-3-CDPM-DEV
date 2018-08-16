@@ -52,9 +52,6 @@
 
             <p>Le Commentaire a été signalé, il est en cours de modération !</p>
             <?php endif; ?>
-            <?php //var_dump($comment->getValidated());die; ?>
-
-
             <?php endforeach; ?>
             <?php endif;?>
 

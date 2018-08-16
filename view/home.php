@@ -57,7 +57,7 @@
             <div class="card">
                 <!--Card image-->
                 <div class="view">
-                    <img src="assets/images/chien.jpg" class="card-img-top" alt="photo">
+                    <img src="<?=ASSETS;?>images/<?=$post->getImg()?>" class="card-img-top" alt="photo">
                     <a href="#">
                         <div class="mask rgba-white-slight"></div>
                     </a>
@@ -68,7 +68,7 @@
                     <h4 class="card-title"><?=$post->getTitle();?></h4>
                     <!--Text-->
                     <p class="card-text white-text"><?=substr($post->getContent(), 0, 100); ?>...</p>
-                    <a href="<?=HOST;?>post/id/<?php echo $post->getId();?>" class="btn btn-outline-white btn-md waves-effect">Lire la suite</a>
+                    <a href="<?=HOST;?>post/id/<?= $post->getId();?>" class="btn btn-outline-white btn-md waves-effect">Lire la suite</a>
                 </div>
             </div>
             <!--/.Card-->

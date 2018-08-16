@@ -51,19 +51,32 @@ class UserManager extends Manager
 
     }
 
-
-
-    /*function getAdmin(){
-
+    function getMemberDb($id){
         $db=$this->db;
 
-        $query="SELECT * FROM Membres WHERE role = admin ";
+        $query = "SELECT * FROM membres WHERE id = :id";
 
         $req = $db->prepare($query);
-        $req->execute();
-        var_dump($req);die;
 
-    }*/
+        $req->bindValue(':id', $id, PDO::PARAM_INT);
+
+        $req->execute();
+
+        $row = $req->fetch(PDO::FETCH_ASSOC);
+
+        $user = new Membres();
+        $user->setId($row['id']);
+        $user->setrole($row['role']);
+        $user->setPseudo($row['pseudo']);
+        $user->setPass($row['pass']);
+        $user->setEmail($row['email']);
+        $user->setDateInscription($row['date_inscription']);
+
+        return $user;
+
+
+
+    }
 
 
 }

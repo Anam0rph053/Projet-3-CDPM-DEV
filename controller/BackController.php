@@ -30,6 +30,7 @@ class Backcontroller
 
     public function addPost()
     {
+        if ($_SESSION['user']['role'] === 'admin') {
 
 
         $erreur = [];
@@ -79,7 +80,7 @@ class Backcontroller
                     $manager = new PostManager();
                     $manager->addPostDb($post);
 
-                    $_SESSION['alertes']['submit_success'] = 'Super votre commentaire est en ligne';
+                    $_SESSION['alertes']['submit_success'] = 'Super votre chapitre est en ligne';
 
                     $myView = new View('dashboard');
                     $myView->redirect('dashboard');
@@ -92,38 +93,57 @@ class Backcontroller
         $myView = new View('addPost');
         $myView->render();
 
-    }
+        } else {
 
+            $_SESSION['alertes']['submit_error'] = "Vous n'avez pas l'autorisation ";
 
-    public function editPost()
-    {            //var_dump($_FILES,$_POST,$_GET);die;
-
-        if ((!empty($_FILES['img'])) && (!empty($_POST['name'])) && (!empty($_POST['title'])) && (!empty($_POST['content'])) && (!empty($_GET['id']))) {
-
-            $post = new Post();
-            $post->setImg($_FILES['img']['name']);
-            $post->setName($_POST['name']);
-            $post->setTitle($_POST['title']);
-            $post->setContent($_POST['content']);
-            $post->setCreatedAt(new DateTime());
-
-            $manager = new PostManager();
-            $post = $manager->updatePostDb($post);
-
-            $myView = new View('dashboard');
-            $myView->redirect('dashboard');
+            $myView = new View();
+            $myView->redirect('home');
         }
-
-        //(isset($_GET['id']) && ($_GET['id'] > 0 )){
-        //}
-
-        $myView = new View('editPost');
-        $myView->render(compact('post'));
-
     }
+
+
+    public function editPost($post)
+    {
+
+        if(empty($_POST) && empty($_FILES)) {
+
+
+            if (isset($_POST['name']) && isset($_POST['title']) && isset($_POST['content']) && !empty($_FILES['img']) && !empty($_POST['name']) && !empty($_POST['title']) && !empty($_POST['content'])) {
+
+                $post = new Post();
+
+                $post->setImg($_FILES['img']['name']);
+                $post->setName($_POST['name']);
+                $post->setTitle($_POST['title']);
+                $post->setContent($_POST['content']);
+                $post->setCreatedAt(new DateTime());
+
+                $manager = new PostManager();
+                $manager->updatePostDb($post);
+
+                $_SESSION['alertes']['submit_success'] = 'Super votre chapitre est en ligne';
+
+                $myView = new View('dashboard');
+                $myView->redirect('dashboard');
+
+           }else {
+
+                $PostManager = new PostManager();
+                $post = $PostManager->getPost($_GET['id']);
+                $myView = new View('editPost');
+                $myView->render(compact('post'));
+
+            }
+
+        }
+    }
+
+
 
     public function deletePost($id)
     {
+        if ($_SESSION['user']['role'] === 'admin') {
 
         $PostManager = new PostManager();
         $affectedLines = $PostManager->deletePostDb($id);
@@ -147,12 +167,20 @@ class Backcontroller
             $myView = new View('dashboard');
             $myView->redirect('dashboard');
         }
+            } else {
+
+        $_SESSION['alertes']['submit_error'] = "Vous n'avez pas l'autorisation ";
+
+        $myView = new View();
+        $myView->redirect('home');
+        }
 
 
     }
 
     public function deleteComment($id)
     {
+        if ($_SESSION['user']['role'] === 'admin') {
         $CommentManager = new CommentManager();
         $affectedLines = $CommentManager->deleteCommentDb($id);
 
@@ -172,10 +200,18 @@ class Backcontroller
             $myView = new View('dashboard');
             $myView->redirect('dashboard');
         }
+        } else {
+
+            $_SESSION['alertes']['submit_error'] = "Vous n'avez pas l'autorisation ";
+
+            $myView = new View();
+            $myView->redirect('home');
+        }
     }
 
     public function validatedComment()
     {
+        if ($_SESSION['user']['role'] === 'admin') {
         if (!empty($_GET)) {
             {
                 if ($_GET['id']) {
@@ -200,6 +236,12 @@ class Backcontroller
             }
         }
 
+        } else {
 
+            $_SESSION['alertes']['submit_error'] = "Vous n'avez pas l'autorisation ";
+
+            $myView = new View();
+            $myView->redirect('home');
+        }
     }
 }
