@@ -15,13 +15,12 @@
 $_SESSION['alertes'] = [];
 }
 ?>
-    <div class="padding">
-        <div class="container">
 
-            <?php if(isset($user)) :?>
+
+
     <!-- Card -->
-    <div class="card testimonial-card" ><a href="<?=HOST;?>showProfil"></a>
-
+    <div class="card testimonial-card">
+        <?php if(isset($user)) : ?>
         <!-- Bacground color -->
         <div class="card-up aqua-gradient">
         </div>
@@ -37,9 +36,8 @@ $_SESSION['alertes'] = [];
             <!-- Quotation -->
             <p><i class="fa fa-quote-left"></i>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, adipisci</p>
         </div>
-
+        <?php endif;?>
     </div>
     <!-- Card -->
-<?php endif;?>
-        </div>
-    </div>
+
+

@@ -32,7 +32,8 @@ if(isset($post)){
         </div>
 
         <input type="hidden" name="MAX_FILE_SIZE" value="1024000000" />
-        <input type="file" name="img" value="" />
+        <input type="file" name="img" value="">
+        <input type="hidden" name="img" value=""><img src="<?=ASSETS;?>images/<?=$post->getImg()?>" style="width: 150px; height:90px; "></input>
 
 
 

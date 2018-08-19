@@ -120,13 +120,28 @@ class UserController
 
     public function showProfil($id)
     {
+
         if($_SESSION['user']['role'] === 'user'){
 
-                $UserManager = new UserManager();
-                $user = $UserManager->getMemberDb($id);
+            if(!empty($_POST)){
+var_dump($_POST);die;
+                    $user = new Membres();
 
-                $myView = new View('profil');
-                $myView->render();
+                    $user->setId($_GET['id']);
+                    $user->setPseudo($_POST['pseudo']);
+                    $user->setPass($_POST['pass']);
+                    $user->setEmail($_POST['email']);
+
+
+                    $UserManager = new UserManager();
+                    $UserManager->getMemberDb($id);
+
+                    $myView = new View('profil');
+                    $myView->render('profil');
+
+            }else{
+                echo "erreur";
+            }
 
         } else {
 

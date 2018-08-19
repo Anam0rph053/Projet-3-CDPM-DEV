@@ -97,7 +97,7 @@ class PostManager extends Manager
 
 
             $query = "INSERT INTO posts( img, name, title, content, created_at)  
-                      VALUES( :img , :name, :title, :content, NOW());";
+                      VALUES( :img , :name, :title, :content, NOW())";
 
 
             $req = $db->prepare($query);
@@ -118,6 +118,7 @@ class PostManager extends Manager
 
         $req = $db->prepare($query);
 
+        $req->bindValue(':id', $post->getId(), PDO::PARAM_INT);
         $req->bindValue(':img', $post->getImg(), PDO::PARAM_STR);
         $req->bindValue(':name', $post->getName(), PDO::PARAM_STR);
         $req->bindValue(':title', $post->getTitle(), PDO::PARAM_STR);
