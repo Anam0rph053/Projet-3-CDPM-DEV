@@ -1,4 +1,21 @@
-
+<?php
+if (isset($_SESSION['alertes']['submit_success']) && !empty($_SESSION['alertes']['submit_success']))
+{
+    ?>
+    <div class="alert alert-success" role="alert">
+        <p style="color:green;"><?= $_SESSION['alertes']['submit_success'] ?></p></div>
+    <?php
+    $_SESSION['alertes'] = [];
+}
+elseif (isset($_SESSION['alertes']['submit_error']) && !empty($_SESSION['alertes']['submit_error']))
+{
+    ?>
+    <div class="alert alert-danger" role="alert">
+        <p style="color:darkred;"><?= $_SESSION['alertes']['submit_error'] ?></p></div>
+    <?php
+    $_SESSION['alertes'] = [];
+}
+?>
 <!-- Material form contact -->
 <form>
     <p class="h4 text-center mb-4" style="font-family: fontastique !important;">Contactez-Moi</p>
@@ -37,20 +54,3 @@
 </form>
 
 <!-- Material form contact -->
-<div class="alerte">
-    <?php
-    if (isset($_SESSION['alertes']['submit_success']) && !empty($_SESSION['alertes']['submit_success']))
-    {
-        ?>
-        <p style="color:green;"><?= $_SESSION['alertes']['submit_success'] ?></p>
-        <?php
-        $_SESSION['alertes'] = [];
-    }
-    elseif (isset($_SESSION['alertes']['submit_error']) && !empty($_SESSION['alertes']['submit_error']))
-    {
-    ?>
-    <p style="color:darkred;"><?= $_SESSION['alertes']['submit_error'] ?></p>
-<?php
-$_SESSION['alertes'] = [];
-}
-?>

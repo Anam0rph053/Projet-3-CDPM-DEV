@@ -54,6 +54,7 @@ class Membres
      */
     public function setPseudo($pseudo)
     {
+
         $this->pseudo = $pseudo;
     }
 

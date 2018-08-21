@@ -58,17 +58,6 @@ class Backcontroller
             }
 
             if (isset($_FILES['img']) && isset($_POST['name']) && isset($_POST['title']) && isset($_POST['content']) && !empty($_FILES['img']) && !empty($_POST['name']) && !empty($_POST['title']) && !empty($_POST['content'])) {
-
-                if (!empty($erreur)) {
-
-                    $_SESSION['alertes']['submit_error'] = 'problème on ne peut pas publier votre chapitre';
-
-                    $myView = new View();
-                    $myView->render('addPost');
-
-                } else {
-
-
                     $post = new Post();
 
                     $post->setImg($_FILES['img']['name']);
@@ -76,6 +65,15 @@ class Backcontroller
                     $post->setTitle($_POST['title']);
                     $post->setContent($_POST['content']);
                     $post->setCreatedAt(new DateTime());
+
+                        if (!empty($erreur)) {
+
+                            $_SESSION['alertes']['submit_error'] = 'problème on ne peut pas publier votre chapitre';
+
+                            $myView = new View();
+                            $myView->render('add-post');
+
+                } else {
 
                     $manager = new PostManager();
                     $manager->addPostDb($post);
@@ -90,7 +88,7 @@ class Backcontroller
 
         }
 
-        $myView = new View('addPost');
+        $myView = new View('add-post');
         $myView->render();
 
         } else {
@@ -112,9 +110,10 @@ class Backcontroller
 
            $erreur = [];
 
-           if (!empty($_POST) && !empty($_FILES)) {
+           if (!empty($_POST)) {
 
-               if (isset($_FILES['img'])) {
+               if (isset($_FILES['img']) && $_FILES['img']['error'] == 0) {
+
                    $name_img = basename($_FILES['img']['name']);
                    $img = $_FILES['img'];
                    $extension = strtolower(substr($img['name'], -3));
@@ -133,7 +132,8 @@ class Backcontroller
 
                }
 
-               if (isset($_FILES['img']) && isset($_POST['name']) && isset($_POST['title']) && isset($_POST['content']) && !empty($_FILES['img']) && !empty($_POST['name']) && !empty($_POST['title']) && !empty($_POST['content'])) {
+               if (isset($_POST['name']) && isset($_POST['title']) && isset($_POST['content']) && !empty($_POST['name']) && !empty($_POST['title']) && !empty($_POST['content'])) {
+
 
                   if (!empty($erreur)) {
 
@@ -146,7 +146,15 @@ class Backcontroller
                    $post = new Post();
 
                    $post->setId($_GET['id']);
-                   $post->setImg($_FILES['img']['name']);
+
+                   if (isset($_FILES['img'])){
+                       $post->setImg($_FILES['img']['name']);
+
+
+                   }else {
+                       $post->setImg($_POST['img']);
+                   }
+
                    $post->setName($_POST['name']);
                    $post->setTitle($_POST['title']);
                    $post->setContent($_POST['content']);
@@ -166,7 +174,7 @@ class Backcontroller
                $PostManager = new PostManager();
                $post = $PostManager->getPost($_GET['id']);
 
-               $myView = new View('editPost');
+               $myView = new View('edit-post');
                $myView->render(compact('post'));
            }
 

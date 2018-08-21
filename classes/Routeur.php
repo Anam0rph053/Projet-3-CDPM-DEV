@@ -11,9 +11,9 @@ class Routeur
         "posts"                  =>["controller" => 'Frontcontroller', "method" => 'listPosts'],
         "post"                   =>["controller" => 'Frontcontroller', "method" => 'singlePost'],
         "about"                  =>["controller" => 'Frontcontroller', "method" => 'showAbout'],
-        "commentEditView"        =>["controller" => 'Frontcontroller', "method" => 'singlePost'],
-        "addComment"             =>["controller" => 'Frontcontroller', "method" => 'addComment'],
-        "warningComment"         =>["controller" => 'Frontcontroller', "method" => 'warningComment'],
+        "comment-edit-view"      =>["controller" => 'Frontcontroller', "method" => 'singlePost'],
+        "add-comment"            =>["controller" => 'Frontcontroller', "method" => 'addComment'],
+        "warning-comment"        =>["controller" => 'Frontcontroller', "method" => 'warningComment'],
 
         "login"                  =>["controller" => 'UserController',  "method" => 'userLogin'],
         "register"               =>["controller" => 'UserController',  "method" => 'newUser'],
@@ -21,11 +21,11 @@ class Routeur
         "logOut"                 =>["controller" => 'UserController',  "method" => 'userLogOut'],
 
         "dashboard"              =>["controller" => 'BackController',  "method" => 'dashboard'],
-        "editPost"               =>["controller" => 'BackController',  "method" => 'editPost'],
-        "addPost"                =>["controller" => 'BackController',  "method" => 'addPost'],
-        "deletePost"             =>["controller" => 'BackController',  "method" => 'deletePost'],
-        "deleteComment"          =>["controller" => 'BackController',  "method" => 'deleteComment'],
-        "validatedComment"       =>["controller" => 'BackController',  "method" => 'validatedComment'],
+        "edit-post"              =>["controller" => 'BackController',  "method" => 'editPost'],
+        "add-post"               =>["controller" => 'BackController',  "method" => 'addPost'],
+        "delete-post"            =>["controller" => 'BackController',  "method" => 'deletePost'],
+        "delete-comment"         =>["controller" => 'BackController',  "method" => 'deleteComment'],
+        "validated-comment"      =>["controller" => 'BackController',  "method" => 'validatedComment'],
 
     ];
 

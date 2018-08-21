@@ -1,24 +1,24 @@
 
 
     <!-- Navigation -->
-    <div class="alerte">
+    <?php
+    if (isset($_SESSION['alertes']['submit_success']) && !empty($_SESSION['alertes']['submit_success']))
+    {
+        ?>
+        <div class="alert alert-success" role="alert">
+            <p style="color:green;"><?= $_SESSION['alertes']['submit_success'] ?></p></div>
         <?php
-        if (isset($_SESSION['alertes']['submit_success']) && !empty($_SESSION['alertes']['submit_success']))
-        {
-            ?>
-            <p style="color:green;"><?= $_SESSION['alertes']['submit_success'] ?></p>
-            <?php
-            $_SESSION['alertes'] = [];
-        }
-        elseif (isset($_SESSION['alertes']['submit_error']) && !empty($_SESSION['alertes']['submit_error']))
-        {
-            ?>
-            <p style="color:darkred;"><?= $_SESSION['alertes']['submit_error'] ?></p>
-            <?php
-            $_SESSION['alertes'] = [];
-        }
-        ?></div>
-
+        $_SESSION['alertes'] = [];
+    }
+    elseif (isset($_SESSION['alertes']['submit_error']) && !empty($_SESSION['alertes']['submit_error']))
+    {
+        ?>
+        <div class="alert alert-danger" role="alert">
+            <p style="color:darkred;"><?= $_SESSION['alertes']['submit_error'] ?></p></div>
+        <?php
+        $_SESSION['alertes'] = [];
+    }
+    ?>
 <div class="landing">
 
     <div class="inner">
@@ -34,6 +34,9 @@
     </div>
     </div>
 
+    <div class="fleche"><a href="#accueil"</a>
+        <i class="fas fa-angle-down fa-5x white-text"></i>
+    </div>
 </div>
 
 
@@ -42,10 +45,10 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="card-title ">
-                        <h3 class="title">Dernières Lectures</h3><hr>
+                        <h3 class="title" id="accueil">Dernières Lectures</h3><hr>
                         <br/>
-                        <p class="card-text">Jamais Matthew Pike, gardien taciturne des Eaux et Forêts de l'Alaska, n'aurait imaginé que porter secours au rescapé d'un crash aérien le précipiterait dans un tel imbroglio.</p>
-                        <a class ="btn btn-default" type="button" style="" href="<?=HOST;?>posts">Accèder aux Lectures</a><hr>
+                        <p class="extract">Jamais Matthew Pike, gardien taciturne des Eaux et Forêts de l'Alaska, n'aurait imaginé que porter secours au rescapé d'un crash aérien le précipiterait dans un tel imbroglio.</p>
+                        <button class ="btn btn-default " type="button" href="<?=HOST;?>posts">Accèder aux Lectures</button><hr>
 
                     </div>
                 </div>

@@ -27,7 +27,7 @@ class Frontcontroller
         $postManager = new PostManager();
         $posts = $postManager->getPosts();
 
-        $myView = new View('listPosts');
+        $myView = new View('list-posts');
         $myView->render($posts);
 
     }

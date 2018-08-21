@@ -1,5 +1,6 @@
 <div class="padding">
     <div class="container">
+
         <?php if(isset($post)): ?>
             <!-- Card -->
             <div class="card card-cascade wider reverse">
@@ -18,7 +19,7 @@
                     <!-- Title -->
                     <h4 class="card-title"><strong><?=$post->getTitle();?></strong></h4>
                     <!-- Subtitle -->
-                    <h6 class="font-weight-bold indigo-text py-2"><?=$post->getName();?> le <?=$post->getCreatedAt();;?></h6>
+                    <h6 class="font-weight-bold py-2"><?=$post->getName();?> le <?=$post->getCreatedAt();;?></h6>
                     <!-- Text -->
                     <p class="card-text"><?=$post->getContent();?>
                     </p>
@@ -28,7 +29,7 @@
             </div>
 
         <?php endif; ?>
-       <?php require('commentEditView.php'); ?>
+       <?php require('comment-edit-view.php'); ?>
 
 
 </div>

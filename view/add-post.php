@@ -1,12 +1,29 @@
 
-
+<?php
+if (isset($_SESSION['alertes']['submit_success']) && !empty($_SESSION['alertes']['submit_success']))
+{
+    ?>
+    <div class="alert alert-success" role="alert">
+        <p style="color:green;"><?= $_SESSION['alertes']['submit_success'] ?></p></div>
+    <?php
+    $_SESSION['alertes'] = [];
+}
+elseif (isset($_SESSION['alertes']['submit_error']) && !empty($_SESSION['alertes']['submit_error']))
+{
+    ?>
+    <div class="alert alert-danger" role="alert">
+        <p style="color:darkred;"><?= $_SESSION['alertes']['submit_error'] ?></p></div>
+    <?php
+    $_SESSION['alertes'] = [];
+}
+?>
 
 <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Ajouter un Chapitre</h3><br/>
 
 
 
 
-<form action="<?=HOST;?>addPost" method="post" enctype="multipart/form-data">
+<form action="<?=HOST;?>add-post" method="post" enctype="multipart/form-data">
 
 
 
@@ -38,20 +55,4 @@
 </form>
 
 
-<div class="alerte">
-    <?php
-    if (isset($_SESSION['alertes']['submit_success']) && !empty($_SESSION['alertes']['submit_success']))
-    {
-        ?>
-        <p style="color:green;"><?= $_SESSION['alertes']['submit_success'] ?></p>
-        <?php
-        $_SESSION['alertes'] = [];
-    }
-    elseif (isset($_SESSION['alertes']['submit_error']) && !empty($_SESSION['alertes']['submit_error']))
-    {
-        ?>
-        <p style="color:darkred;"><?= $_SESSION['alertes']['submit_error'] ?></p>
-        <?php
-        $_SESSION['alertes'] = [];
-    }
-    ?></div>
+

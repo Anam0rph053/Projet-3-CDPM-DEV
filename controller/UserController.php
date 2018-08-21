@@ -123,25 +123,12 @@ class UserController
 
         if($_SESSION['user']['role'] === 'user'){
 
-            if(!empty($_POST)){
-var_dump($_POST);die;
-                    $user = new Membres();
-
-                    $user->setId($_GET['id']);
-                    $user->setPseudo($_POST['pseudo']);
-                    $user->setPass($_POST['pass']);
-                    $user->setEmail($_POST['email']);
-
-
                     $UserManager = new UserManager();
-                    $UserManager->getMemberDb($id);
+                   $profil=  $UserManager->getMemberDb($_SESSION['user']['id']);
 
                     $myView = new View('profil');
-                    $myView->render('profil');
+                    $myView->render(compact('profil'));
 
-            }else{
-                echo "erreur";
-            }
 
         } else {
 

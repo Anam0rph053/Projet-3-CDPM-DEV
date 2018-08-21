@@ -7,10 +7,10 @@ class CommentManager extends Manager
     {
 
         $db = $this->db;
-        $query = "SELECT * FROM comments WHERE post_id = ? ORDER BY comment_date DESC  ";
+        $query = "SELECT * FROM comments WHERE post_id = :post_id ORDER BY comment_date DESC  ";
         $req = $db->prepare($query);
-
-        $req->execute([$postId]);
+        $req->bindValue(':post_id', $postId);
+        $req->execute();
 
         $comments = [];
         while ($row = $req->fetch(PDO::FETCH_ASSOC)) {

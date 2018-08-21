@@ -1,5 +1,22 @@
 
-
+<?php
+if (isset($_SESSION['alertes']['submit_success']) && !empty($_SESSION['alertes']['submit_success']))
+{
+    ?>
+    <div class="alert alert-success" role="alert">
+        <p style="color:green;"><?= $_SESSION['alertes']['submit_success'] ?></p></div>
+    <?php
+    $_SESSION['alertes'] = [];
+}
+elseif (isset($_SESSION['alertes']['submit_error']) && !empty($_SESSION['alertes']['submit_error']))
+{
+    ?>
+    <div class="alert alert-danger" role="alert">
+        <p style="color:darkred;"><?= $_SESSION['alertes']['submit_error'] ?></p></div>
+    <?php
+    $_SESSION['alertes'] = [];
+}
+?>
 
 <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Modifier un Chapitre</h3><br/>
 
@@ -9,7 +26,7 @@
 if(isset($post)){
     ?>
 
-<form action="<?=HOST;?>editPost&amp;id=<?=$post->getId()?>" method="post" enctype="multipart/form-data">
+<form action="<?=HOST;?>edit-post&amp;id=<?=$post->getId()?>" method="post" enctype="multipart/form-data">
 
         <div class="md-form">
             <i class= "fas fa-user-secret prefix grey-text"></i>
@@ -33,8 +50,8 @@ if(isset($post)){
 
         <input type="hidden" name="MAX_FILE_SIZE" value="1024000000" />
         <input type="file" name="img" value="">
-        <input type="hidden" name="img" value=""><img src="<?=ASSETS;?>images/<?=$post->getImg()?>" style="width: 150px; height:90px; "></input>
-
+        <input type="hidden" name="img" value="<?=$post->getImg()?>"/>
+        <img src="<?=ASSETS;?>images/<?=$post->getImg()?>" style="width: 150px; height:90px; ">
 
 
         <div class="text-center py-4 mt-3">
@@ -48,20 +65,4 @@ if(isset($post)){
 
 
 
-<div class="alerte">
-    <?php
-    if (isset($_SESSION['alertes']['submit_success']) && !empty($_SESSION['alertes']['submit_success']))
-    {
-        ?>
-        <p style="color:green;"><?= $_SESSION['alertes']['submit_success'] ?></p>
-        <?php
-        $_SESSION['alertes'] = [];
-    }
-    elseif (isset($_SESSION['alertes']['submit_error']) && !empty($_SESSION['alertes']['submit_error']))
-    {
-        ?>
-        <p style="color:darkred;"><?= $_SESSION['alertes']['submit_error'] ?></p>
-        <?php
-        $_SESSION['alertes'] = [];
-    }
-    ?></div>
+
