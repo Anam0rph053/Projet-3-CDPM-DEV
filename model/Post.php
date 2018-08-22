@@ -55,7 +55,12 @@ class Post
      */
     public function setName($name)
     {
-        $this->name = $name;
+       // if(preg_match('[a-zA-Z]',) ){
+            $this->name = $name;
+       // }else {
+            //$this->error['name'] = "erreur de Nom ";
+     //  }
+
     }
 
     /**

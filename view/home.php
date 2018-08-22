@@ -47,8 +47,8 @@
                 <div class="card-title ">
                         <h3 class="title" id="accueil">Dernières Lectures</h3><hr>
                         <br/>
-                        <p class="extract">Jamais Matthew Pike, gardien taciturne des Eaux et Forêts de l'Alaska, n'aurait imaginé que porter secours au rescapé d'un crash aérien le précipiterait dans un tel imbroglio.</p>
-                        <button class ="btn btn-default " type="button" href="<?=HOST;?>posts">Accèder aux Lectures</button><hr>
+                        <p class="card-text">Jamais Matthew Pike, gardien taciturne des Eaux et Forêts de l'Alaska, n'aurait imaginé que porter secours au rescapé d'un crash aérien le précipiterait dans un tel imbroglio.</p>
+                        <a  href="<?=HOST;?>posts" class ="btn btn-default" style="color:white!important;" >Accèder aux Lectures</a><hr>
 
                     </div>
                 </div>
@@ -68,10 +68,10 @@
                 <!--Card content-->
                 <div class="card-body elegant-color white-text">
                     <!--Title-->
-                    <h4 class="card-title"><?=$post->getTitle();?></h4>
+                    <h4 class="card-title"><?=htmlspecialchars($post->getTitle());?></h4>
                     <!--Text-->
                     <p class="card-text white-text"><?=substr($post->getContent(), 0, 100); ?>...</p>
-                    <a href="<?=HOST;?>post/id/<?= $post->getId();?>" class="btn btn-outline-white btn-md waves-effect">Lire la suite</a>
+                    <a href="<?=HOST;?>post/id/<?=htmlspecialchars($post->getId());?>" class="btn btn-outline-white btn-md waves-effect">Lire la suite</a>
                 </div>
             </div>
             <!--/.Card-->

@@ -7,18 +7,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <title>Billet Simple pour l'Alaska</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+        <link href="<?=ASSETS;?>css/compiled.min.css" rel="stylesheet">
+        <!-- Material Design Bootstrap -->
+        <link href="<?=ASSETS;?>css/mdb.min.css" rel="stylesheet">
+
         <link href="<?=ASSETS;?>css/style.css" rel="stylesheet">
+
 
         <link href="<?=ASSETS;?>css/animate.css" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 
         <link href="<?=ASSETS;?>css/waypoints.css" rel="stylesheet">
 
-        <!-- Material Design Bootstrap -->
-        <link href="<?=ASSETS;?>css/mdb.min.css" rel="stylesheet">
+
+
         <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
-        <script>tinymce.init({selector:'textarea'});</script>
+        <script>tinymce.init({selector:'textarea', forced_root_block : false,
+                force_br_newlines : true,
+                force_p_newlines : false});</script>
+
+        <script src='https://www.google.com/recaptcha/api.js'></script>
 
     </head>
 

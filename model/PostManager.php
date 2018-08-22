@@ -143,5 +143,15 @@ class PostManager extends Manager
 
     }
 
+    public function count()
+    {
+        $db = $this->db;
+
+        $query = "SELECT COUNT(id) as nbr-posts FROM posts";
+
+        $req = $db->prepare($query);
+
+
+    }
 
 }

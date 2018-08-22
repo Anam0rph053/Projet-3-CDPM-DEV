@@ -1,4 +1,3 @@
-
 <?php
 if (isset($_SESSION['alertes']['submit_success']) && !empty($_SESSION['alertes']['submit_success']))
 {
@@ -17,10 +16,10 @@ elseif (isset($_SESSION['alertes']['submit_error']) && !empty($_SESSION['alertes
     $_SESSION['alertes'] = [];
 }
 ?>
-    <!-- Card -->
-    <div class="card testimonial-card">
+<!-- Card -->
+<div class="card testimonial-card">
 
-        <?php if(isset($profil)) : ?>
+    <?php if(isset($profil)) : ?>
         <!-- Background color -->
         <div class="card-up aqua-gradient">
         </div>
@@ -31,13 +30,15 @@ elseif (isset($_SESSION['alertes']['submit_error']) && !empty($_SESSION['alertes
 
         <div class="card-body">
             <!-- Name -->
-            <h4 class="card-title"> <?=$profil->getPseudo()?></h4>
+            <h4 class="card-title" ><?=htmlspecialchars($profil->getPseudo())?></h4>
             <hr>
             <!-- Quotation -->
-            <p><i class="fa fa-quote-left"></i>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, adipisci</p>
+            <p><?=$profil->getEmail()?></p>
+            <a  href="<?=HOST;?>delete-member&amp;id=<?=$profil->getId();?>" class ="btn btn-danger btn-rounded btn-sm my-0" >Suppression du Compte</a>
         </div>
-        <?php endif;?>
-    </div>
-    <!-- Card -->
+    <?php endif;?>
+</div>
+<!-- Card -->
 
 
+    v

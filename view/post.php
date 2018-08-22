@@ -17,11 +17,11 @@
                 <div class="card-body card-body-cascade text-center">
 
                     <!-- Title -->
-                    <h4 class="card-title"><strong><?=$post->getTitle();?></strong></h4>
+                    <h4 class="titre-post"><strong><?=htmlspecialchars($post->getTitle());?></strong></h4>
                     <!-- Subtitle -->
-                    <h6 class="font-weight-bold py-2"><?=$post->getName();?> le <?=$post->getCreatedAt();;?></h6>
+                    <h6 class="font-weight-bold  py-2"><?=htmlspecialchars($post->getName());?> le <?=htmlspecialchars($post->getCreatedAt());?></h6>
                     <!-- Text -->
-                    <p class="card-text"><?=$post->getContent();?>
+                    <p class="card-text"><?=htmlspecialchars($post->getContent());?>
                     </p>
 
                 </div>

@@ -58,6 +58,17 @@ class Backcontroller
             }
 
             if (isset($_FILES['img']) && isset($_POST['name']) && isset($_POST['title']) && isset($_POST['content']) && !empty($_FILES['img']) && !empty($_POST['name']) && !empty($_POST['title']) && !empty($_POST['content'])) {
+
+                if (!empty($erreur)) {
+
+                    $_SESSION['alertes']['submit_error'] = 'problème on ne peut pas publier votre chapitre';
+
+                    $myView = new View();
+                    $myView->render('addPost');
+
+                } else {
+
+
                     $post = new Post();
 
                     $post->setImg($_FILES['img']['name']);
@@ -65,15 +76,6 @@ class Backcontroller
                     $post->setTitle($_POST['title']);
                     $post->setContent($_POST['content']);
                     $post->setCreatedAt(new DateTime());
-
-                        if (!empty($erreur)) {
-
-                            $_SESSION['alertes']['submit_error'] = 'problème on ne peut pas publier votre chapitre';
-
-                            $myView = new View();
-                            $myView->render('add-post');
-
-                } else {
 
                     $manager = new PostManager();
                     $manager->addPostDb($post);
@@ -127,29 +129,15 @@ class Backcontroller
                        $erreur = "Mauvais format de fichier";
                    }
 
-               } else {
-                   $erreur['errorForm'] = 'Un élément manque pour publier';
-
                }
 
                if (isset($_POST['name']) && isset($_POST['title']) && isset($_POST['content']) && !empty($_POST['name']) && !empty($_POST['title']) && !empty($_POST['content'])) {
 
-
-                  if (!empty($erreur)) {
-
-                       $_SESSION['alertes']['submit_error'] = 'problème on ne peut pas publier votre chapitre';
-
-                       $myView = new View();
-                       $myView->render('editPost');
-
-                   } else {
                    $post = new Post();
-
                    $post->setId($_GET['id']);
 
-                   if (isset($_FILES['img'])){
+                   if (isset($_FILES['img']) && $_FILES['img']['error'] == 0){
                        $post->setImg($_FILES['img']['name']);
-
 
                    }else {
                        $post->setImg($_POST['img']);
@@ -159,6 +147,15 @@ class Backcontroller
                    $post->setTitle($_POST['title']);
                    $post->setContent($_POST['content']);
                    $post->setCreatedAt(new DateTime());
+
+                  if (!empty($erreur)) {
+
+                       $_SESSION['alertes']['submit_error'] = 'problème on ne peut pas publier votre chapitre';
+
+                       $myView = new View();
+                       $myView->render('editPost');
+
+                   } else {
 
                    $manager = new PostManager();
                    $manager->updatePostDb($post);

@@ -52,7 +52,7 @@ class Frontcontroller
 
 
 
-   public function addComment($values)
+   public function addComment()
 
    {
        $erreur = [];
@@ -99,7 +99,7 @@ class Frontcontroller
 
                   //  $post = $postManager->getPost($_GET['id']);
                    // $comments = $CommentManager->getComments($_GET['id']);
-                    $CommentManager->addCommentDb($values);
+                    $CommentManager->addCommentDb();
 
 
                     $_SESSION['alertes']['submit_success'] = 'Super votre commentaire est en ligne';

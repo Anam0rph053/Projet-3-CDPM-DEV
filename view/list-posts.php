@@ -28,13 +28,16 @@
                     <div class="col-lg-7">
 
                         <!-- Post title -->
-                        <h3 class="font-weight-bold mb-3"><?=$post->getTitle();?></h3>
+                        <h3 class="font-weight-bold mb-3"><?=htmlspecialchars($post->getTitle());?></h3>
                         <!-- Excerpt -->
-                        <p><?=substr($post->getContent(), 0, 150)?></p>
+
+
+                       <p><?=substr($post->getContent(), 0, 150)?>...</p>
                         <!-- Post data -->
-                        <p><?=$post->getName();?> le <?=$post->getCreatedAt();?></p>
+                        <p><?=$post->getName();?> le <?=htmlspecialchars($post->getCreatedAt());?></p>
                         <!-- Read more button -->
-                            <a class="btn btn-default btn-md" href="<?=HOST;?>post/id/<?php echo $post->getId();?>">Lire la Suite</a>
+                        <a  href="<?=HOST;?>post/id/<?=$post->getId();?>" style="color:white !important;" class ="btn btn-default" >Lire la Suite</a>
+
                     </div>
                     <!-- Grid column -->
 
@@ -44,10 +47,36 @@
                 <hr class="my-5">
 
             <?php endforeach;?>
+            <!--Pagination teal-->
+            <nav>
+                <ul class="pagination pg-teal justify-content-center">
+                    <!--Arrow left-->
+                    <li class="page-item">
+                        <a class="page-link" aria-label="Précédent">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only">Précédent</span>
+                        </a>
+                    </li>
 
+                    <!--Numbers-->
+                    <li class="page-item active"><a class="page-link">1</a></li>
+                    <li class="page-item"><a class="page-link">2</a></li>
+                    <li class="page-item"><a class="page-link">3</a></li>
+                    <li class="page-item"><a class="page-link">4</a></li>
+                    <li class="page-item"><a class="page-link">5</a></li>
+
+                    <!--Arrow right-->
+                    <li class="page-item">
+                        <a class="page-link" aria-label="suivant">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">suivant</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!--/Pagination teal-->
                 </div>
                 <!-- Grid row -->
-
         </div>
     </div>
 </section>

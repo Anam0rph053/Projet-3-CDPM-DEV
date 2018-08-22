@@ -4,11 +4,36 @@ include_once 'model/UserManager.php';
 class UserController
 {
 
-    public function newUser($values)
+    public function newUser()
     {
         $erreur = [];
 
         if (!empty($_POST)) {
+            //traitement recaptcha
+
+
+            // Ma clé privée
+            $secret = "6Ld9MGsUAAAAAB18KsiWHoaonpl0oTPjZeC-YM5Z";
+            // Paramètre renvoyé par le recaptcha
+            $response = $_POST['g-recaptcha-response'];
+            // On récupère l'IP de l'utilisateur
+            $remoteip = $_SERVER['REMOTE_ADDR'];
+
+            $api_url = "https://www.google.com/recaptcha/api/siteverify?secret="
+                . $secret
+                . "&response=" . $response
+                . "&remoteip=" . $remoteip ;
+
+            $decode = json_decode(file_get_contents($api_url), true);
+
+            if ($decode['success'] == true) {
+                // C'est un humain
+
+            }
+
+            else {
+
+            }
 
             if (isset($_POST['pseudo']) && isset($_POST['pass']) && isset($_POST['email']) && !empty($_POST['pseudo']) && !empty($_POST['pass']) && !empty($_POST['email'])) {
 
@@ -63,7 +88,33 @@ class UserController
     {
         if(!empty($_POST)) {
 
-            if(isset($_POST['pseudo']) && isset($_POST['pass'])) {
+            //traitement recaptcha
+
+
+                    // Ma clé privée
+                $secret = "6Ld9MGsUAAAAAB18KsiWHoaonpl0oTPjZeC-YM5Z";
+                // Paramètre renvoyé par le recaptcha
+                $response = $_POST['g-recaptcha-response'];
+                // On récupère l'IP de l'utilisateur
+                $remoteip = $_SERVER['REMOTE_ADDR'];
+
+                $api_url = "https://www.google.com/recaptcha/api/siteverify?secret="
+                    . $secret
+                    . "&response=" . $response
+                    . "&remoteip=" . $remoteip ;
+
+                $decode = json_decode(file_get_contents($api_url), true);
+
+                if ($decode['success'] == true) {
+                    // C'est un humain
+
+                }
+
+                else {
+                    //robot
+                }
+
+            if(isset($_POST['pseudo']) && isset($_POST['pass']) && isset($decode['success'])) {
 
                 $pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
 
@@ -118,17 +169,16 @@ class UserController
 
 
 
-    public function showProfil($id)
+    public function showProfil()
     {
 
         if($_SESSION['user']['role'] === 'user'){
 
                     $UserManager = new UserManager();
-                   $profil=  $UserManager->getMemberDb($_SESSION['user']['id']);
+                    $profil=  $UserManager->getMemberProfil($_SESSION['user']['pseudo']);
 
                     $myView = new View('profil');
                     $myView->render(compact('profil'));
-
 
         } else {
 
@@ -138,6 +188,51 @@ class UserController
         $myView->redirect('home');
         }
 
+    }
+
+    public function deleteMember()
+    {
+
+        if ($_SESSION['user']['role'] === 'user') {
+
+            if ($_GET['id']) {
+
+                $UserManager = new UserManager();
+                $affectedLines = $UserManager->deleteMemberDb($_GET['id']);
+
+
+                if ($affectedLines === false) {
+
+                    $_SESSION['alertes']['submit_error'] = "le compte n'a pas pû être supprimé";
+
+                    $myView = new View('profil');
+                    $myView->redirect('profil');
+
+                } else {
+                    session_start();
+                    // Réinitialisation du tableau de session
+                    // On le vide intégralement
+                    $_SESSION = array();
+                    // Destruction de la session
+                    session_destroy();
+                    // Destruction du tableau de session
+
+                    unset($_SESSION['user']);
+
+                    $_SESSION['alertes']['submit_success'] = "Félicitation le compte a bien été supprimé";
+
+
+                    $myView = new View('home');
+                    $myView->redirect('home');
+                }
+            }
+        } else {
+
+            $_SESSION['alertes']['submit_error'] = "Vous n'avez pas l'autorisation ";
+
+            $myView = new View();
+            $myView->redirect('home');
+        }
     }
 
     public function userLogOut(){

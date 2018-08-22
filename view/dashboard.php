@@ -38,7 +38,7 @@
                 <tr>
                     <th class="titre-tab">Id</th>
                     <th class="titre-tab">Image</th>
-                    <th class="titre-tab">Auteur</th>
+                    <th class="titre-tab">Nom</th>
                     <th class="titre-tab">Titre</th>
                     <th class="titre-tab">Extrait</th>
                     <th class="titre-tab">Actions</th>
@@ -54,9 +54,9 @@
                     <tr>
                         <td class="pt-3-half"><?=$post->getId(); ?></td>
                         <td class="pt-3-half"><img src="<?=ASSETS;?>images/<?=$post->getImg()?>" style="width: 150px; height:90px; "></td>
-                        <td class="pt-3-half"><?=$post->getName(); ?></td>
-                        <td class="pt-3-half"><?=$post->getTitle(); ?></td>
-                        <td class="pt-3-half"><?=substr($post->getContent(), 0, 150 ) ?></td>
+                        <td class="pt-3-half"><?=htmlspecialchars($post->getName()); ?></td>
+                        <td class="pt-3-half"><?=htmlspecialchars($post->getTitle()); ?></td>
+                        <td class="pt-3-half"><?=htmlspecialchars(substr($post->getContent(), 0, 150 )) ?></td>
                         <td class="pt-3-half"><span class="table-remove"><a href="<?=HOST;?>delete-post&amp;id=<?=$post->getId()?>" ><button type="button"
                                                                                  class="btn btn-danger btn-rounded btn-sm my-0">Effacer</button></span>
                             <span class="table-"><a href="<?= HOST; ?>edit-post&amp;id=<?=$post->getId()?>"><button type="button"
@@ -85,22 +85,25 @@
             <div id="table" class="table-editable">
                 </tr>
                 <table class="table table-bordered table-responsive-md table-striped text-center">
+                    <thead>
                     <tr>
 
-                        <th class="titre-tab">id Com</th>
-                        <th class="titre-tab">Pseudo</th>
+                        <th class="titre-tab">id</th>
+                        <th class="titre-tab">nom</th>
                         <th class="titre-tab">Commentaire</th>
                         <th class="titre-tab">Actions</th>
 
                         <?php foreach ($comments as $comment) : ?>
+                    </tr>
 
-                    <tr>
+                    </thead>
+
                         <?php if($comment->getValidated() === '0'): ?>
 
 
-                            <td class="pt-3-half"><?=$comment->getId(); ?></td>
-                            <td class="pt-3-half"><?=$comment->getPseudo(); ?></td>
-                            <td class="pt-3-half"><?=$comment->getComment(); ?></td>
+                            <td class="pt-3-half"><?=htmlspecialchars($comment->getId()); ?></td>
+                            <td class="pt-3-half"><?=htmlspecialchars($comment->getPseudo()); ?></td>
+                            <td class="pt-3-half"><?=htmlspecialchars($comment->getComment()); ?></td>
                             <td class="pt-3-half"><span class="table-remove"><a href="<?=HOST;?>delete-comment&amp;id=<?=$comment->getId()?>">
                                         <button type="button" class="btn btn-danger btn-rounded btn-sm my-0">Effacer</button></span>
                                 <span class="table-"><a href="<?=HOST;?>validated-comment&amp;id=<?=$comment->getId()?>&amp;post_id=<?=$post->getId()?>">
@@ -133,6 +136,7 @@
             <div id="table" class="table-editable">
                 </tr>
                 <table class="table table-bordered table-responsive-md table-striped text-center">
+                    <thead>
                     <tr>
 
                         <th class="titre-tab">id Com</th>
@@ -141,14 +145,16 @@
                         <th class="titre-tab">Actions</th>
 
                         <?php foreach ($comments as $comment) : ?>
+                    </tr>
 
+                    </thead>
                     <tr>
 
 
 
-                            <td class="pt-3-half" ><?=$comment->getId(); ?></td>
-                            <td class="pt-3-half" ><?=$comment->getPseudo(); ?></td>
-                            <td class="pt-3-half" ><?=$comment->getComment(); ?></td>
+                            <td class="pt-3-half" ><?=htmlspecialchars($comment->getId()); ?></td>
+                            <td class="pt-3-half" ><?=htmlspecialchars($comment->getPseudo()); ?></td>
+                            <td class="pt-3-half" ><?=htmlspecialchars($comment->getComment()); ?></td>
                             <td class="pt-3-half" ><span class="table-remove"><a href="<?=HOST;?>delete-comment&amp;id=<?=$comment->getId()?>">
                                                    <button type="button" class="btn btn-danger btn-rounded btn-sm my-0">Effacer</button></span>
 

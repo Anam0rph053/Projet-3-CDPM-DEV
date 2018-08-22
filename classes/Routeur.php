@@ -19,6 +19,7 @@ class Routeur
         "register"               =>["controller" => 'UserController',  "method" => 'newUser'],
         "profil"                 =>["controller" => 'UserController',  "method" => 'showProfil'],
         "logOut"                 =>["controller" => 'UserController',  "method" => 'userLogOut'],
+        "delete-member"          =>["controller" => 'UserController',  "method" => 'deleteMember'],
 
         "dashboard"              =>["controller" => 'BackController',  "method" => 'dashboard'],
         "edit-post"              =>["controller" => 'BackController',  "method" => 'editPost'],

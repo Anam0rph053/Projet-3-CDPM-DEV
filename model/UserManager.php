@@ -74,9 +74,43 @@ class UserManager extends Manager
 
         return $user;
 
-
-
     }
 
+    function getMemberProfil($pseudo)
+    {
+        $db=$this->db;
+
+        $query = "SELECT * FROM membres WHERE pseudo = :pseudo";
+
+        $req = $db->prepare($query);
+
+        $req->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
+
+        $req->execute();
+
+        $row = $req->fetch(PDO::FETCH_ASSOC);
+
+        $user = new Membres();
+        $user->setId($row['id']);
+        $user->setrole($row['role']);
+        $user->setPseudo($row['pseudo']);
+        $user->setPass($row['pass']);
+        $user->setEmail($row['email']);
+        $user->setDateInscription($row['date_inscription']);
+
+        return $user;
+    }
+    function deleteMemberDb($id)
+    {
+        $db = $this->db;
+
+        $query = "DELETE FROM membres WHERE id = :id ";
+
+        $req = $db->prepare($query);
+
+        $req->bindParam(':id', $_GET['id'], PDO::PARAM_INT);
+
+        $req->execute();
+    }
 
 }

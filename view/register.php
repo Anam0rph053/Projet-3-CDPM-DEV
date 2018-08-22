@@ -62,7 +62,7 @@
                         <label for="materialFormCardPasswordEx" class="font-weight-light"></label>
                     </div>
 
-
+                    <div class="g-recaptcha" data-sitekey="6Ld9MGsUAAAAAB18KsiWHoaonpl0oTPjZeC-YM5Z"></div>
 
                     <div class="text-center py-4 mt-3">
                         <button class="btn btn-default" name="submit" type="submit">S'inscrire</button>

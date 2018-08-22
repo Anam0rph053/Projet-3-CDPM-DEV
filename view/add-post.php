@@ -29,7 +29,7 @@ elseif (isset($_SESSION['alertes']['submit_error']) && !empty($_SESSION['alertes
 
     <div class="md-form">
         <i class= "fas fa-user-secret prefix grey-text"></i>
-        <input type="text" id="name"   name="name"  class="form-control" value="Jean Forteroche" style="color:grey;">
+        <input type="text" id="name"   name="name"  class="form-control" value="Jean Forteroche" >
         <label for="materialFormContactNameEx"</label>
     </div>
     <div class="md-form">
