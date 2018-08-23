@@ -42,7 +42,7 @@ class Routeur
         return $elements[0];
     }
 
-    public function getParams()
+   /* public function getParams()
     {
         $params = array();
         // extract GET params
@@ -68,12 +68,12 @@ class Routeur
         }
         return $params;
 
-    }
+    }*/
 
     public function renderController()
     {
         $route = $this->getRoute();
-        $params = $this->getParams();
+       // $params = $this->getParams();
 
         if(key_exists($route, $this->routes))
         {
@@ -81,7 +81,7 @@ class Routeur
             $method = $this->routes[$route]['method'];
 
             $currentController = new $controller();
-            $currentController->$method($params);
+            $currentController->$method(/*$params*/);
 
 
         } else{

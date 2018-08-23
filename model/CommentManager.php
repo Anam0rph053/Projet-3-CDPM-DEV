@@ -106,7 +106,7 @@ class CommentManager extends Manager
         $req->execute();
 
     }
-    function warningCommentDb($id)
+    function warningCommentDb()
     {
         $db = $this->db;
 
@@ -120,7 +120,7 @@ class CommentManager extends Manager
         $req->execute();
 
     }
-    function deleteCommentDb($id)
+    function deleteCommentDb()
     {
         $db = $this->db;
 
@@ -134,7 +134,7 @@ class CommentManager extends Manager
     }
 
 
-    function validatedCommentDb($id)
+    function validatedCommentDb()
     {
 
         $db = $this->db;

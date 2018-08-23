@@ -103,7 +103,7 @@ class Backcontroller
     }
 
 
-    public function editPost($post)
+    public function editPost()
 
     {
 
@@ -196,7 +196,7 @@ class Backcontroller
         $PostManager = new PostManager();
         $affectedLines = $PostManager->deletePostDb($id);
 
-        //$affectedLines = $PostManager->getPost($id);
+
 
 
         if ($affectedLines === false) {
@@ -226,19 +226,20 @@ class Backcontroller
 
     }
 
-    public function deleteComment($id)
+    public function deleteComment()
     {
         if ($_SESSION['user']['role'] === 'admin') {
-        $CommentManager = new CommentManager();
-        $affectedLines = $CommentManager->deleteCommentDb($id);
+            if(isset($_GET['id'])){
+                $CommentManager = new CommentManager();
+                $affectedLines = $CommentManager->deleteCommentDb();
+                if ($affectedLines === false) {
 
-        if ($affectedLines === false) {
+                    $_SESSION['alertes']['submit_error'] = "le commentaire n'a pas pû être supprimé";
 
-            $_SESSION['alertes']['submit_error'] = "le commentaire n'a pas pû être supprimé";
+                    $myView = new View('dashboard');
+                    $myView->redirect('dashboard/id/' . $_GET['id']);
 
-            $myView = new View('dashboard');
-            $myView->redirect('dashboard/id/' . $_GET['id']);
-
+                }
 
         } else {
 

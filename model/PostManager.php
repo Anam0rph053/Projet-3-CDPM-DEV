@@ -64,17 +64,15 @@ class PostManager extends Manager
         return $posts;
     }
 
-    public function getPost($id)
-
+    public function getPost()
     {
         $db = $this->db;
-
 
         $query = "SELECT * FROM posts WHERE id = :id";
 
         $req = $db->prepare($query);
-        $req->bindValue(':id', $id, PDO::PARAM_INT);
 
+        $req->bindValue(':id', $_GET['id'], PDO::PARAM_INT);
         $req->execute();
 
         $row = $req->fetch(PDO::FETCH_ASSOC);

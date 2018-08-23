@@ -2,16 +2,13 @@
 
 class Frontcontroller
 {
-    public function showHome($variables)
+    public function showHome()
     {
         $postManager = new PostManager();
         $posts = $postManager->getLimitPosts();
 
         $myView = new View('home');
         $myView->render($posts);
-
-
-        // include(VIEW.'home.php');
 
     }
 
@@ -22,7 +19,7 @@ class Frontcontroller
 
     }
 
-    public function listPosts($variables)
+    public function listPosts()
     {
         $postManager = new PostManager();
         $posts = $postManager->getPosts();
@@ -32,22 +29,21 @@ class Frontcontroller
 
     }
 
-    public function singlePost($id)
-
+    public function singlePost()
     {
-        $postManager = new PostManager();
-        $CommentManager = new CommentManager();
 
-        $post = $postManager->getPost($id['id']);
-        $comments = $CommentManager->getComments($id['id']);
+        if(isset($_GET['id'])){
 
+            $postManager = new PostManager();
+            $CommentManager = new CommentManager();
 
-       // var_dump($commentsById);
-       // var_dump($comments);
-       // var_dump($commentsById);die;
+            $post = $postManager->getPost($_GET['id']);
+            $comments = $CommentManager->getComments($_GET['id']);
 
             $myView = new View('post');
             $myView->render(compact('post', 'comments'));
+        }
+
         }
 
 
@@ -116,34 +112,32 @@ class Frontcontroller
         }
     }
 
-    public function warningComment($id){
+    public function warningComment(){
         if (!empty($_GET)) {
-            {
-                if ($_GET['id']) {
+            if (isset($_GET['id'])) {
 
-                     $CommentManager = new CommentManager();
+                $CommentManager = new CommentManager();
 
-                     $CommentManager->warningCommentDb($_GET['id']);
+                $CommentManager->warningCommentDb($_GET['id']);
 
-                    $_SESSION['alertes']['submit_success'] = 'Ce commentaire est signalé';
+                $_SESSION['alertes']['submit_success'] = 'Ce commentaire est signalé';
 
-                    $myView = new View('post');
-                    $myView->redirect('post/id/' . $_GET['post_id']);
+                $myView = new View('post');
+                $myView->redirect('post/id/' . $_GET['post_id']);
 
-                }
-                else {
+            } else {
 
-                    $_SESSION['alertes']['submit_error'] = 'Ce commentaire ne peut pas être signalé';
+                $_SESSION['alertes']['submit_error'] = 'Ce commentaire ne peut pas être signalé';
 
-                    $myView = new View('post');
-                    $myView->redirect('post/id/' . $_GET['post_id']);
-                }
-
+                $myView = new View();
+                $myView->redirect('post/id/' . $_GET['post_id']);
             }
+
+
         }
 
     }
-    public function showContact($variables)
+    public function showContact()
     {
 
         $myView = new View('contact');

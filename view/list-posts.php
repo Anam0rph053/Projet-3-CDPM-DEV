@@ -36,7 +36,7 @@
                         <!-- Post data -->
                         <p><?=$post->getName();?> le <?=htmlspecialchars($post->getCreatedAt());?></p>
                         <!-- Read more button -->
-                        <a  href="<?=HOST;?>post/id/<?=$post->getId();?>" style="color:white !important;" class ="btn btn-default" >Lire la Suite</a>
+                        <a  href="post&amp;id=<?=$post->getId()?>" style="color:white !important;" class ="btn btn-default" >Lire la Suite</a>
 
                     </div>
                     <!-- Grid column -->
