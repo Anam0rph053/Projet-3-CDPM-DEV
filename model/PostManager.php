@@ -26,10 +26,7 @@ class PostManager extends Manager
 
             $posts[] = $post; //tableau d'obejt
 
-            //substr($post->getContent(), 0, 150);
-            /*$extract = substr($row->text, 0, 150);
-            $espace = strrpos($extract, ' ');
-            $espace = strrpos($extract, 0, $espace).'...';*/
+
         };
         return $posts;
     }
@@ -37,7 +34,7 @@ class PostManager extends Manager
     public function getLimitPosts()
     {
         $db = $this->db;
-        $query = "SELECT * FROM posts ORDER BY created_at DESC LIMIT 3 ";
+        $query = "SELECT * FROM posts ORDER BY created_at DESC LIMIT 0, 3 ";
         $req = $db->prepare($query);
         $req->execute();
 
@@ -56,10 +53,7 @@ class PostManager extends Manager
 
             $posts[] = $post; //tableau d'obejt
 
-            //substr($post->getContent(), 0, 150);
-            /*$extract = substr($row->text, 0, 150);
-            $espace = strrpos($extract, ' ');
-            $espace = strrpos($extract, 0, $espace).'...';*/
+
         };
         return $posts;
     }
@@ -94,11 +88,11 @@ class PostManager extends Manager
         $db = $this->db;
 
 
-            $query = "INSERT INTO posts( img, name, title, content, created_at)  
+        $query = "INSERT INTO posts( img, name, title, content, created_at)  
                       VALUES( :img , :name, :title, :content, NOW())";
 
+        $req = $db->prepare($query);
 
-            $req = $db->prepare($query);
         $req->bindValue(':img', $post->getImg(), PDO::PARAM_STR);
         $req->bindValue(':name', $post->getName(), PDO::PARAM_STR);
         $req->bindValue(':title', $post->getTitle(), PDO::PARAM_STR);
@@ -128,28 +122,53 @@ class PostManager extends Manager
 
     }
 
-    public function deletePostDb($id)
+    public function deletePostDb()
     {
-            $db = $this->db;
+        $db = $this->db;
 
-            $query = "DELETE FROM posts WHERE id = :id ";
+        $query = "DELETE FROM posts WHERE id = :id ";
 
-            $req = $db->prepare($query);
+        $req = $db->prepare($query);
 
-            $req->bindParam(':id', $_GET['id'], PDO::PARAM_INT);
-            $req->execute();
+        $req->bindParam(':id', $_GET['id'], PDO::PARAM_INT);
+        $req->execute();
 
     }
 
     public function count()
     {
         $db = $this->db;
-
-        $query = "SELECT COUNT(id) as nbr-posts FROM posts";
-
+        $query = "SELECT COUNT(*) as nbre FROM posts";
         $req = $db->prepare($query);
+        $req->execute();
 
+        return $req->fetch(PDO::FETCH_ASSOC);
 
     }
+    public function getPostsLimitPaginate($min)
+    {
+        $db = $this->db;
+        $query = "SELECT * FROM posts ORDER BY created_at DESC LIMIT {$min}, 3 ";
+        $req = $db->prepare($query);
+        $req->execute();
 
+        while ($row = $req->fetch(PDO::FETCH_ASSOC)) {
+
+
+            //  on peut également faire un hydrate a la place de la methode ci dessous...
+
+        $post = new Post();
+        $post->setId($row['id']);
+        $post->setImg($row['img']);
+        $post->setName($row['name']);
+        $post->setTitle($row['title']);
+        $post->setContent($row['content']);
+        $post->setCreatedAt($row['created_at']);
+
+        $posts[] = $post; //tableau d'obejt
+
+
+    };
+        return $posts;
+    }
 }

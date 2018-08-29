@@ -88,14 +88,14 @@ class CommentManager extends Manager
     {
         $db = $this->db;
 
-        if (!empty($_POST) && !empty($_GET['post_id']) && $_GET['post_id'] > 0) {
+
 
             $query = "INSERT INTO comments( post_id, pseudo, email, comment, comment_date)  
                       VALUES( :post_id, :pseudo,:email,:comment, NOW())";
 
         $req = $db->prepare($query);
 
-        }
+
 
         $req->bindParam(':post_id', $_GET['post_id'], PDO::PARAM_INT);
         $req->bindParam(':pseudo', $_POST['pseudo'], PDO::PARAM_STR);
@@ -109,7 +109,6 @@ class CommentManager extends Manager
     function warningCommentDb()
     {
         $db = $this->db;
-
 
             $query = "UPDATE comments SET validated = 0 WHERE id = :id AND post_id = :post_id";
 

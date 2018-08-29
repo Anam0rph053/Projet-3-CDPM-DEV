@@ -37,7 +37,6 @@ class MyAutoload
             include_once (CLASSES.$class.'.php');
 
         }elseif (file_exists(CONTROLLER.$class.'.php'))
-
         {
             include_once (CONTROLLER.$class.'.php');
 

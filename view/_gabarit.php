@@ -3,7 +3,7 @@
     <html lang="fr">
     <head>
         <!-- Required meta tags -->
-        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <title>Billet Simple pour l'Alaska</title>
@@ -22,9 +22,13 @@
 
 
         <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
-        <script>tinymce.init({selector:'textarea', forced_root_block : false,
+        <script>tinymce.init({selector:'.tiny',
+                entity_encoding : "raw",
+                encoding: "UTF-8",
+                forced_root_block : false,
                 force_br_newlines : true,
-                force_p_newlines : false});</script>
+                force_p_newlines : false
+                });</script>
 
         <script src='https://www.google.com/recaptcha/api.js'></script>
 
@@ -86,8 +90,8 @@
 
                             <div class="dropdown-menu dropdown-menu-right dropdown-default"
                                  aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item waves-effect waves-light" href="<?= HOST; ?>dashboard">Tableau de bord</a>
-                                <a class="dropdown-item waves-effect waves-light" href="<?= HOST; ?>logOut">Deconnexion</a>
+                                <a class="dropdown-item waves-effect waves-light" href="<?=HOST; ?>dashboard">Tableau de bord</a>
+                                <a class="dropdown-item waves-effect waves-light" href="<?=HOST; ?>logOut">Deconnexion</a>
 
                             </div>
 

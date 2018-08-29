@@ -15,17 +15,33 @@ class Frontcontroller
     public function showAbout()
     {
         $myView = new View('about');
-        $myView->render(array());
+        $myView->render();
 
     }
 
     public function listPosts()
     {
         $postManager = new PostManager();
-        $posts = $postManager->getPosts();
+
+        if(isset($_GET['page'])){
+
+           $page = $_GET['page'];
+
+           $max = $page * 3 ;
+
+           $min = $max - 3;
+
+            $posts = $postManager->getPostsLimitPaginate($min);
+
+    }else {
+            $posts = $postManager->getPostsLimitPaginate(0);
+        }
+
+        $nbrPosts = $postManager->count();
+        $nbrePage = ceil($nbrPosts['nbre'] / 3);
 
         $myView = new View('list-posts');
-        $myView->render($posts);
+        $myView->render(compact('posts', 'nbrePage'));
 
     }
 
@@ -37,7 +53,7 @@ class Frontcontroller
             $postManager = new PostManager();
             $CommentManager = new CommentManager();
 
-            $post = $postManager->getPost($_GET['id']);
+            $post = $postManager->getPost();
             $comments = $CommentManager->getComments($_GET['id']);
 
             $myView = new View('post');
@@ -87,21 +103,17 @@ class Frontcontroller
                     $_SESSION['alertes']['submit_error'] = 'problème on ne peut pas publier votre commentaire';
 
                     $myView = new View('post');
-                    $myView->redirect('post/id/'.$_GET['post_id']);
+                    $myView->redirect('post&id='.$_GET['post_id']);
 
                 } else {
-                   // $postManager = new PostManager();
                     $CommentManager = new CommentManager();
-
-                  //  $post = $postManager->getPost($_GET['id']);
-                   // $comments = $CommentManager->getComments($_GET['id']);
                     $CommentManager->addCommentDb();
 
 
                     $_SESSION['alertes']['submit_success'] = 'Super votre commentaire est en ligne';
 
                   $myView = new View('post');
-                  $myView->redirect('post/id/'.$_GET['post_id']);
+                  $myView->redirect('post&id='.$_GET['post_id']);
 
                 }
             }
@@ -118,19 +130,19 @@ class Frontcontroller
 
                 $CommentManager = new CommentManager();
 
-                $CommentManager->warningCommentDb($_GET['id']);
+                $CommentManager->warningCommentDb();
 
                 $_SESSION['alertes']['submit_success'] = 'Ce commentaire est signalé';
 
                 $myView = new View('post');
-                $myView->redirect('post/id/' . $_GET['post_id']);
+                $myView->redirect('post&id='.$_GET['post_id']);
 
             } else {
 
                 $_SESSION['alertes']['submit_error'] = 'Ce commentaire ne peut pas être signalé';
 
                 $myView = new View();
-                $myView->redirect('post/id/' . $_GET['post_id']);
+                $myView->redirect('post&id='.$_GET['post_id']);
             }
 
 
@@ -139,12 +151,57 @@ class Frontcontroller
     }
     public function showContact()
     {
+        if(!empty($_POST)){
+
+            extract ($_POST);
+            $valid = true;
+
+            if(empty($pseudo)){
+                $valid = false;
+                $_SESSION['alertes']['submit_error'] = "Vous n'avez pas rempli votre Pseudo";
+
+            }
+            if(empty($email)){
+                $valid = false;
+                $_SESSION['alertes']['submit_error'] = "Vous n'avez pas rempli votre email";
+            }
+            if(empty($title)){
+                $valid = false;
+                $_SESSION['alertes']['submit_error'] = "Vous n'avez pas rempli votre objet de message";
+            }
+            if(empty($message)){
+                $valid = false;
+                $_SESSION['alertes']['submit_error'] = "Vous n'avez pas rempli votre message";
+            }
+            if($valid){
+
+                $to      = "n.coplo@gmail.com";
+                $subject = $pseudo."a contacté le site";
+                $header = "From : $pseudo <$email>";
+
+
+                if(mail($to, $subject, $message, $header)){
+
+                    $_SESSION['alertes']['submit_success'] = 'le message à bien été envoyé';
+
+                    unset($pseudo);
+                    unset($email);
+                    unset($message);
+
+                }
+                else{
+                    $_SESSION['alertes']['submit_error'] = 'Une erreur est survenue nous ne pouvons pas envoyé votre message';
+                }
+            }
+
+        }
 
         $myView = new View('contact');
         $myView->render();
 
 
     }
+
 
 
 

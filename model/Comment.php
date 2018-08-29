@@ -8,7 +8,7 @@ class Comment
     private $pseudo;
     private $email;
     private $comment;
-    private $comment_date;
+    private $commentDate;
     private $validated;
 
     /**
@@ -98,15 +98,17 @@ class Comment
      */
     public function getCommentDate()
     {
-        return $this->comment_date;
+        $date=DateTime::createFromFormat('Y-m-d H:i:s', $this->commentDate);
+
+        return $date->format('d-m-Y H:i:s');
     }
 
     /**
-     * @param mixed $comment_date
+     * @param mixed $commentDate
      */
-    public function setCommentDate($comment_date)
+    public function setCommentDate($commentDate)
     {
-        $this->comment_date = $comment_date;
+        $this->commentDate = $commentDate;
     }
 
     /**

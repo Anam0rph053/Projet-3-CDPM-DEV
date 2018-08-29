@@ -25,10 +25,9 @@
         <div class="col-sm-12">
             <h1 class="ml1">
               <span class="text-wrapper">
-                <span class="line line1"></span>
-                <span class="title-start">Billet Simple Pour</span><br/>
+                <span class="title-start">Billet Simple Pour</span>
+                  <br/>
                   <span class="title-end">L'Alaska</span>
-                <span class="line line2"></span>
               </span>
             </h1>
     </div>
@@ -71,7 +70,7 @@
                     <h4 class="card-title"><?=htmlspecialchars($post->getTitle());?></h4>
                     <!--Text-->
                     <p class="card-text white-text"><?=substr($post->getContent(), 0, 100); ?>...</p>
-                    <a href="<?=HOST;?>post/id/<?=htmlspecialchars($post->getId());?>" class="btn btn-outline-white btn-md waves-effect">Lire la suite</a>
+                    <a href="<?=HOST;?>post&id=<?=htmlspecialchars($post->getId());?>" class="btn btn-outline-white btn-md waves-effect">Lire la suite</a>
                 </div>
             </div>
             <!--/.Card-->

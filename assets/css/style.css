@@ -9,8 +9,8 @@
 }
 @font-face
 {
-    font-family : 'cookies&milk-regular';
-    src : url('../fonts/cookies&milk-regular.ttf');
+    font-family : 'cookiesmilkregular';
+    src : url('../fonts/cookiesmilkregular.ttf');
     font-weight: normal;
     font-style: normal;
 }
@@ -18,7 +18,7 @@
 @font-face
 {
     font-family : 'cookies&milk-Italic';
-    src : url('../fonts/cookies&milk-Italic.ttf');
+    src : url('../fonts/cookiesmilkItalic.ttf');
     font-weight: normal;
     font-style: normal;
 }
@@ -180,7 +180,7 @@ li{
     -webkit-animation: fadein 4s; /* Safari et Chrome */
     -o-animation: fadein 4s; /* Opera */
 
-    font-family: cookies\&milk-regular;
+    font-family: cookiesmilkregular !important;
     font-size: 3em ;
     color:white;
     text-shadow: black 5px 5px 6px ;

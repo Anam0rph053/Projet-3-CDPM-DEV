@@ -8,12 +8,13 @@ class UserController
     {
         $erreur = [];
 
-        if (!empty($_POST)) {
+
+        if(isset($_POST) && !empty($_POST)) {
             //traitement recaptcha
 
 
             // Ma clé privée
-            $secret = "6Ld9MGsUAAAAAB18KsiWHoaonpl0oTPjZeC-YM5Z";
+            $secret = "6Ld9MGsUAAAAAHBuwy48P7feK736syVc-hHy25Mw";
             // Paramètre renvoyé par le recaptcha
             $response = $_POST['g-recaptcha-response'];
             // On récupère l'IP de l'utilisateur
@@ -26,15 +27,14 @@ class UserController
 
             $decode = json_decode(file_get_contents($api_url), true);
 
-            if ($decode['success'] == true) {
-                // C'est un humain
+            if ($decode['success'] !== true) {
+
+                $_SESSION['alertes']['submit_error'] = 'Veuillez cocher la case captcha';
+
+                $myView = new View('register');
+                $myView->redirect('register');
 
             }
-
-            else {
-
-            }
-
             if (isset($_POST['pseudo']) && isset($_POST['pass']) && isset($_POST['email']) && !empty($_POST['pseudo']) && !empty($_POST['pass']) && !empty($_POST['email'])) {
 
                 if ($_POST['pass'] == $_POST['pass2']) {
@@ -66,9 +66,15 @@ class UserController
 
             } else {
 
-                $userManager = new UserManager();
-                $userManager->addMembersdb($_POST);
+                $user = new Membres();
+                $user->setPseudo($_POST['pseudo']);
+                $user->setPass($_POST['pass']);
+                $user->setEmail($_POST['email']);
+                $user->setDateInscription(new DateTime());
 
+
+                $userManager = new UserManager();
+                $userManager->addMembersdb($user);
 
 
                 $_SESSION['alertes']['submit_success'] = 'Super bienvenue parmis nous';
@@ -92,7 +98,7 @@ class UserController
 
 
                     // Ma clé privée
-                $secret = "6Ld9MGsUAAAAAB18KsiWHoaonpl0oTPjZeC-YM5Z";
+                $secret = "6Ld9MGsUAAAAAHBuwy48P7feK736syVc-hHy25Mw";
                 // Paramètre renvoyé par le recaptcha
                 $response = $_POST['g-recaptcha-response'];
                 // On récupère l'IP de l'utilisateur
@@ -105,13 +111,13 @@ class UserController
 
                 $decode = json_decode(file_get_contents($api_url), true);
 
-                if ($decode['success'] == true) {
-                    // C'est un humain
+                if ($decode['success'] !== true) {
 
-                }
+                    $_SESSION['alertes']['submit_error'] = 'Veuillez cocher la case captcha';
 
-                else {
-                    //robot
+                    $myView = new View('login');
+                    $myView->redirect('login');
+
                 }
 
             if(isset($_POST['pseudo']) && isset($_POST['pass']) && isset($decode['success'])) {
@@ -198,7 +204,7 @@ class UserController
             if ($_GET['id']) {
 
                 $UserManager = new UserManager();
-                $affectedLines = $UserManager->deleteMemberDb($_GET['id']);
+                $affectedLines = $UserManager->deleteMemberDb();
 
 
                 if ($affectedLines === false) {
@@ -209,7 +215,7 @@ class UserController
                     $myView->redirect('profil');
 
                 } else {
-                    session_start();
+                    //session_start();
                     // Réinitialisation du tableau de session
                     // On le vide intégralement
                     $_SESSION = array();
@@ -237,7 +243,7 @@ class UserController
 
     public function userLogOut(){
 
-        session_start();
+        //session_start();
         // Réinitialisation du tableau de session
         // On le vide intégralement
         $_SESSION = array();

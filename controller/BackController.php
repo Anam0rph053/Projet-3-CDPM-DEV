@@ -169,7 +169,7 @@ class Backcontroller
            } else {
 
                $PostManager = new PostManager();
-               $post = $PostManager->getPost($_GET['id']);
+               $post = $PostManager->getPost();
 
                $myView = new View('edit-post');
                $myView->render(compact('post'));
@@ -189,32 +189,34 @@ class Backcontroller
 
 
 
-    public function deletePost($id)
+    public function deletePost()
     {
         if ($_SESSION['user']['role'] === 'admin') {
 
-        $PostManager = new PostManager();
-        $affectedLines = $PostManager->deletePostDb($id);
+            if($_GET['id']){
+
+                $PostManager = new PostManager();
+                $affectedLines = $PostManager->deletePostDb();
+
+                if ($affectedLines === false) {
+
+                    $_SESSION['alertes']['submit_error'] = "le chapitre n'a pas pû être supprimé";
+
+                    $myView = new View('dashboard');
+                    $myView->redirect('dashboard&id=' . $_GET['id']);
+
+                } else {
 
 
+                    $_SESSION['alertes']['submit_success'] = "Félicitation le chapitre a bien été supprimé";
 
 
-        if ($affectedLines === false) {
+                    $myView = new View('dashboard');
+                    $myView->redirect('dashboard');
+                }
 
-            $_SESSION['alertes']['submit_error'] = "le chapitre n'a pas pû être supprimé";
+            }
 
-            $myView = new View('dashboard');
-            $myView->redirect('dashboard/id/' . $_GET['id']);
-
-        } else {
-
-
-            $_SESSION['alertes']['submit_success'] = "Félicitation le chapitre a bien été supprimé";
-
-
-            $myView = new View('dashboard');
-            $myView->redirect('dashboard');
-        }
             } else {
 
         $_SESSION['alertes']['submit_error'] = "Vous n'avez pas l'autorisation ";
@@ -229,25 +231,27 @@ class Backcontroller
     public function deleteComment()
     {
         if ($_SESSION['user']['role'] === 'admin') {
+
             if(isset($_GET['id'])){
+
                 $CommentManager = new CommentManager();
                 $affectedLines = $CommentManager->deleteCommentDb();
+
                 if ($affectedLines === false) {
 
                     $_SESSION['alertes']['submit_error'] = "le commentaire n'a pas pû être supprimé";
 
                     $myView = new View('dashboard');
-                    $myView->redirect('dashboard/id/' . $_GET['id']);
+                    $myView->redirect('dashboard&id=' . $_GET['id']);
+                }else {
 
+                    $_SESSION['alertes']['submit_success'] = "Félicitation le commentaire a bien été supprimé";
+
+
+                    $myView = new View('dashboard');
+                    $myView->redirect('dashboard');
                 }
 
-        } else {
-
-            $_SESSION['alertes']['submit_success'] = "Félicitation le commentaire a bien été supprimé";
-
-
-            $myView = new View('dashboard');
-            $myView->redirect('dashboard');
         }
         } else {
 

@@ -7,7 +7,6 @@ class Post
     private $title;
     private $content;
     private $createdAt;
-    private $errors = [];
 
 
     /**
@@ -55,11 +54,7 @@ class Post
      */
     public function setName($name)
     {
-       // if(preg_match('[a-zA-Z]',) ){
             $this->name = $name;
-       // }else {
-            //$this->error['name'] = "erreur de Nom ";
-     //  }
 
     }
 
@@ -100,7 +95,9 @@ class Post
      */
     public function getCreatedAt()
     {
-        return $this->createdAt;
+        $date=DateTime::createFromFormat('Y-m-d H:i:s', $this->createdAt);
+
+        return $date->format('d-m-Y H:i:s');
     }
 
     /**
@@ -108,22 +105,8 @@ class Post
      */
     public function setCreatedAt($createdAt)
     {
-        $this->createdAt = $createdAt;
-    }
-    /**
-     * @return array
-     */
-    public function getErrors()
-    {
-        return $this->errors;
-    }
 
-    /**
-     * @param array $errors
-     */
-    public function setErrors($errors)
-    {
-        $this->errors = $errors;
+        $this->createdAt = $createdAt;
     }
 
 

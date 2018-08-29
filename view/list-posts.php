@@ -11,7 +11,7 @@
 
         <div class="container">
             <hr class="my-5">
-            <?php foreach ($variables as $post):?>
+            <?php foreach ($variables['posts'] as $post):?>
 
                 <div class="row">
 
@@ -31,8 +31,13 @@
                         <h3 class="font-weight-bold mb-3"><?=htmlspecialchars($post->getTitle());?></h3>
                         <!-- Excerpt -->
 
+                        <?php
+                        $extract = substr($post->getContent(), 0, 150);
+                        $espace = strrpos($extract, ' ');
+                        $text = substr($post->getContent(), 0, $espace).'...' ;?>
 
-                       <p><?=substr($post->getContent(), 0, 150)?>...</p>
+
+                       <p><?=$text?></p>
                         <!-- Post data -->
                         <p><?=$post->getName();?> le <?=htmlspecialchars($post->getCreatedAt());?></p>
                         <!-- Read more button -->
@@ -49,31 +54,21 @@
             <?php endforeach;?>
             <!--Pagination teal-->
             <nav>
+
+
+
                 <ul class="pagination pg-teal justify-content-center">
                     <!--Arrow left-->
-                    <li class="page-item">
-                        <a class="page-link" aria-label="Précédent">
-                            <span aria-hidden="true">&laquo;</span>
-                            <span class="sr-only">Précédent</span>
-                        </a>
-                    </li>
-
+                    <?php for($x = 1; $x<=$nbrePage; $x++) : ?>
                     <!--Numbers-->
-                    <li class="page-item active"><a class="page-link">1</a></li>
-                    <li class="page-item"><a class="page-link">2</a></li>
-                    <li class="page-item"><a class="page-link">3</a></li>
-                    <li class="page-item"><a class="page-link">4</a></li>
-                    <li class="page-item"><a class="page-link">5</a></li>
+                    <li class="page-item active"><a href="?page=<?=$x;?>"><?=$x;?></a></li>
 
                     <!--Arrow right-->
-                    <li class="page-item">
-                        <a class="page-link" aria-label="suivant">
-                            <span aria-hidden="true">&raquo;</span>
-                            <span class="sr-only">suivant</span>
-                        </a>
-                    </li>
+                    <?php endfor;?>
                 </ul>
+
             </nav>
+
             <!--/Pagination teal-->
                 </div>
                 <!-- Grid row -->

@@ -42,38 +42,10 @@ class Routeur
         return $elements[0];
     }
 
-   /* public function getParams()
-    {
-        $params = array();
-        // extract GET params
-        $elements = explode('/', $this->request);//request parametre initiaux en get.
-
-        unset($elements[0]); //supprime la variable post garde id et 1
-
-        for($i = 1; $i<count($elements); $i++)
-        {
-            $params[$elements[$i]] = $elements[$i+1];  //delete/id/4 => id/4
-            $i++;
-        }
-
-        if(!isset($params)) $params = null ;
-
-        // extract POST params
-        if($_POST)
-        {
-            foreach($_POST as $key => $val)
-            {
-                $params[$key] = $val;
-            }
-        }
-        return $params;
-
-    }*/
 
     public function renderController()
     {
         $route = $this->getRoute();
-       // $params = $this->getParams();
 
         if(key_exists($route, $this->routes))
         {
@@ -81,7 +53,7 @@ class Routeur
             $method = $this->routes[$route]['method'];
 
             $currentController = new $controller();
-            $currentController->$method(/*$params*/);
+            $currentController->$method();
 
 
         } else{

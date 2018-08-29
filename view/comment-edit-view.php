@@ -41,7 +41,7 @@ elseif (isset($_SESSION['alertes']['submit_error']) && !empty($_SESSION['alertes
                     <span class="fas fa-exclamation-circle" name="warning-comment" id="warning-comment" ></span>
                 </a>
             </h5>
-            <p><?=$comment->getComment();?></p>
+            <p><<?=htmlspecialchars($comment->getComment());?></p>
             <?php   else : ?>
 
             <h5 class="font-weight-bold mt-0">
