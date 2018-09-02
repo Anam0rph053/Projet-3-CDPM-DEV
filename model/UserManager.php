@@ -23,7 +23,7 @@ class UserManager extends Manager
     {
         $db =$this->db;
 
-        $query="SELECT * FROM membres WHERE pseudo = :pseudo  ";
+        $query="SELECT * FROM membres WHERE pseudo = :pseudo ";
 
         $req = $db->prepare($query);
 

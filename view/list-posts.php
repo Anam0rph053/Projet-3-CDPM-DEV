@@ -31,10 +31,10 @@
                         <h3 class="font-weight-bold mb-3"><?=htmlspecialchars($post->getTitle());?></h3>
                         <!-- Excerpt -->
 
-                        <?php
-                        $extract = substr($post->getContent(), 0, 150);
-                        $espace = strrpos($extract, ' ');
-                        $text = substr($post->getContent(), 0, $espace).'...' ;?>
+                            <?php
+                            $extract = substr($post->getContent(), 0, 150);
+                            $espace = strrpos($extract, ' ');
+                            $text = substr($post->getContent(), 0, $espace).'...' ;?>
 
 
                        <p><?=$text?></p>
@@ -53,16 +53,13 @@
 
             <?php endforeach;?>
             <!--Pagination teal-->
-            <nav>
+            <nav aria-label="pagination example">
 
-
-
-                <ul class="pagination pg-teal justify-content-center">
+                <ul class="pagination justify-content-center">
                     <!--Arrow left-->
                     <?php for($x = 1; $x<=$nbrePage; $x++) : ?>
                     <!--Numbers-->
-                    <li class="page-item active"><a href="?page=<?=$x;?>"><?=$x;?></a></li>
-
+                    <li class="active"><a href="?page=<?=$x;?>"><?=$x;?></a></li>
                     <!--Arrow right-->
                     <?php endfor;?>
                 </ul>
@@ -73,6 +70,6 @@
                 </div>
                 <!-- Grid row -->
         </div>
-    </div>
+
 </section>
 <!-- Section: Blog v.1 -->

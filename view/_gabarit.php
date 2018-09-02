@@ -5,8 +5,10 @@
         <!-- Required meta tags -->
         <meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" type="image/x-icon" href="<?=ASSETS;?>css/images/favicon.ico" /><link rel="shortcut icon" type="image/x-icon" href="<?=ASSETS;?>css/images/favicon.ico" />
 
         <title>Billet Simple pour l'Alaska</title>
+
         <link href="<?=ASSETS;?>css/compiled.min.css" rel="stylesheet">
         <!-- Material Design Bootstrap -->
         <link href="<?=ASSETS;?>css/mdb.min.css" rel="stylesheet">
@@ -19,21 +21,19 @@
 
         <link href="<?=ASSETS;?>css/waypoints.css" rel="stylesheet">
 
-
-
         <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
-        <script>tinymce.init({selector:'.tiny',
+        <script>tinymce.init({selector:'textarea#post',
                 entity_encoding : "raw",
                 encoding: "UTF-8",
                 forced_root_block : false,
                 force_br_newlines : true,
                 force_p_newlines : false
+
                 });</script>
 
         <script src='https://www.google.com/recaptcha/api.js'></script>
 
     </head>
-
     <body>
     <!------------------------------NAVBAR----------------------------------------------------------------->
 

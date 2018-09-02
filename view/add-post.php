@@ -22,7 +22,6 @@ elseif (isset($_SESSION['alertes']['submit_error']) && !empty($_SESSION['alertes
 
 
 
-
 <form action="<?=HOST;?>add-post" method="post" enctype="multipart/form-data">
 
 
@@ -41,7 +40,7 @@ elseif (isset($_SESSION['alertes']['submit_error']) && !empty($_SESSION['alertes
     <br/>
     <div class="md-form">
         <i class="fas fa-pencil-alt prefix grey-text"></i>
-        <textarea type="text" id="materialFormContactMessageEx" name="content" class="form-control md-textarea tiny" rows="3" placeholder="Rédigez votre Chapitre"></textarea>
+        <textarea type="text" id="post" name="content" class="form-control md-textarea tiny" rows="3" placeholder="Rédigez votre Chapitre"></textarea>
         <label for="materialFormContactMessageEx"</label>
 
     </div>

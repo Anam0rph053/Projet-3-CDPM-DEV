@@ -57,6 +57,7 @@
                 <div class="col-lg-4">
             <!--Card-->
             <div class="card">
+
                 <!--Card image-->
                 <div class="view">
                     <img src="<?=ASSETS;?>images/<?=$post->getImg()?>" class="card-img-top" alt="photo">
@@ -64,13 +65,21 @@
                         <div class="mask rgba-white-slight"></div>
                     </a>
                 </div>
+
                 <!--Card content-->
                 <div class="card-body elegant-color white-text">
+
                     <!--Title-->
                     <h4 class="card-title"><?=htmlspecialchars($post->getTitle());?></h4>
+
                     <!--Text-->
-                    <p class="card-text white-text"><?=substr($post->getContent(), 0, 100); ?>...</p>
-                    <a href="<?=HOST;?>post&id=<?=htmlspecialchars($post->getId());?>" class="btn btn-outline-white btn-md waves-effect">Lire la suite</a>
+                    <?php
+                    $extract = substr($post->getContent(), 0, 150);
+                    $espace = strrpos($extract, ' ');
+                    $text = substr($post->getContent(), 0, $espace).'...' ;?>
+
+                    <p><?=$text; ?>...</p>
+                    <a href="<?=HOST;?>post&id=<?=$post->getId();?>" class="btn btn-outline-white btn-md waves-effect">Lire la suite</a>
                 </div>
             </div>
             <!--/.Card-->

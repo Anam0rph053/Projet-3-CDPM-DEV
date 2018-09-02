@@ -33,7 +33,7 @@ elseif (isset($_SESSION['alertes']['submit_error']) && !empty($_SESSION['alertes
             <h4 class="card-title" ><?=htmlspecialchars($profil->getPseudo())?></h4>
             <hr>
             <!-- Quotation -->
-            <p><?=$profil->getEmail()?></p>
+            <p class="card-title" ><?=$profil->getEmail()?></p>
             <a  href="<?=HOST;?>delete-member&amp;id=<?=$profil->getId();?>" class ="btn btn-danger btn-rounded btn-sm my-0" >Suppression du Compte</a>
         </div>
     <?php endif;?>

@@ -4,18 +4,20 @@ class Backcontroller
 {
     public function dashboard()
     {
+        if(isset($_SESSION['user'])){
+            if ($_SESSION['user']['role'] === 'admin') {
+
+                $postManager = new PostManager();
+                $commentManager = new CommentManager();
+
+                $posts = $postManager->getPosts();
+                $comments = $commentManager->getAllComments();
+
+                $myView = new View('dashboard');
+                $myView->render(compact('posts', 'comments'));
 
 
-        if ($_SESSION['user']['role'] === 'admin') {
-
-            $postManager = new PostManager();
-            $commentManager = new CommentManager();
-
-            $posts = $postManager->getPosts();
-            $comments = $commentManager->getAllComments();
-
-            $myView = new View('dashboard');
-            $myView->render(compact('posts', 'comments'));
+            }
 
 
         } else {
@@ -30,68 +32,74 @@ class Backcontroller
 
     public function addPost()
     {
-        if ($_SESSION['user']['role'] === 'admin') {
+        if(isset($_SESSION['user'])){
+            if ($_SESSION['user']['role'] === 'admin') {
 
 
-        $erreur = [];
+                $erreur = [];
 
-        if (!empty($_POST) && !empty($_FILES)) {
+                if (!empty($_POST) && !empty($_FILES)) {
 
 
-            if (isset($_FILES['img'])) {
-                $name_img = basename($_FILES['img']['name']);
-                $img = $_FILES['img'];
-                $extension = strtolower(substr($img['name'], -3));
-                $allow_ext = array("jpg", 'jpeg', 'png');
-                if (in_array($extension, $allow_ext)) {
-                    $chemin = "assets/images/" . $img['name'];
-                    move_uploaded_file($img['tmp_name'], $chemin);
+                    if (isset($_FILES['img'])) {
+                        $name_img = basename($_FILES['img']['name']);
+                        $img = $_FILES['img'];
+                        $extension = strtolower(substr($img['name'], -3));
+                        $allow_ext = array("jpg", 'jpeg', 'png');
+                        if (in_array($extension, $allow_ext)) {
+                            $chemin = "assets/images/" . $img['name'];
+                            move_uploaded_file($img['tmp_name'], $chemin);
 
-                } else {
+                        } else {
 
-                    $erreur = "Mauvais format de fichier";
+                            $erreur = $_SESSION['alertes']['submit_error'] = "Mauvais format de fichier jpg et png  uniquement";
+
+                            $myView = new View('add-post');
+                            $myView->render();
+                        }
+
+                    } else {
+                        $erreur['errorForm'] = 'Un élément manque pour publier';
+
+                    }
+
+                    if (isset($_FILES['img']) && isset($_POST['name']) && isset($_POST['title']) && isset($_POST['content']) && !empty($_FILES['img']) && !empty($_POST['name']) && !empty($_POST['title']) && !empty($_POST['content'])) {
+
+                        if (!empty($erreur)) {
+
+                            $_SESSION['alertes']['submit_error'] = 'problème on ne peut pas publier votre chapitre';
+
+                            $myView = new View();
+                            $myView->render('addPost');
+
+                        } else {
+
+
+                            $post = new Post();
+
+                            $post->setImg($_FILES['img']['name']);
+                            $post->setName($_POST['name']);
+                            $post->setTitle($_POST['title']);
+                            $post->setContent($_POST['content']);
+                            $post->setCreatedAt(new DateTime());
+
+                            $manager = new PostManager();
+                            $manager->addPostDb($post);
+
+                            $_SESSION['alertes']['submit_success'] = 'Super votre chapitre est en ligne';
+
+                            $myView = new View('dashboard');
+                            $myView->redirect('dashboard');
+
+                        }
+                    }
+
                 }
 
-            } else {
-                $erreur['errorForm'] = 'Un élément manque pour publier';
+                $myView = new View('add-post');
+                $myView->render();
 
             }
-
-            if (isset($_FILES['img']) && isset($_POST['name']) && isset($_POST['title']) && isset($_POST['content']) && !empty($_FILES['img']) && !empty($_POST['name']) && !empty($_POST['title']) && !empty($_POST['content'])) {
-
-                if (!empty($erreur)) {
-
-                    $_SESSION['alertes']['submit_error'] = 'problème on ne peut pas publier votre chapitre';
-
-                    $myView = new View();
-                    $myView->render('addPost');
-
-                } else {
-
-
-                    $post = new Post();
-
-                    $post->setImg($_FILES['img']['name']);
-                    $post->setName($_POST['name']);
-                    $post->setTitle($_POST['title']);
-                    $post->setContent($_POST['content']);
-                    $post->setCreatedAt(new DateTime());
-
-                    $manager = new PostManager();
-                    $manager->addPostDb($post);
-
-                    $_SESSION['alertes']['submit_success'] = 'Super votre chapitre est en ligne';
-
-                    $myView = new View('dashboard');
-                    $myView->redirect('dashboard');
-
-                }
-            }
-
-        }
-
-        $myView = new View('add-post');
-        $myView->render();
 
         } else {
 
@@ -104,77 +112,80 @@ class Backcontroller
 
 
     public function editPost()
-
     {
+        if(isset($_SESSION['user'])){
+            if ($_SESSION['user']['role'] === 'admin') {
 
-       if ($_SESSION['user']['role'] === 'admin') {
+
+                $erreur = [];
+
+                if (!empty($_POST)) {
+
+                    if (isset($_FILES['img']) && $_FILES['img']['error'] == 0) {
+
+                        $name_img = basename($_FILES['img']['name']);
+                        $img = $_FILES['img'];
+                        $extension = strtolower(substr($img['name'], -3));
+                        $allow_ext = array("jpg", 'jpeg', 'png');
+                        if (in_array($extension, $allow_ext)) {
+                            $chemin = "assets/images/" . $img['name'];
+                            move_uploaded_file($img['tmp_name'], $chemin);
+
+                        } else {
+
+                            $erreur = $_SESSION['alertes']['submit_error'] = "Mauvais format de fichier jpg et png  uniquement";
+
+                            $myView = new View('edit-post');
+                            $myView->render();                   }
+
+                    }
+
+                    if (isset($_POST['name']) && isset($_POST['title']) && isset($_POST['content']) && !empty($_POST['name']) && !empty($_POST['title']) && !empty($_POST['content'])) {
+
+                        $post = new Post();
+                        $post->setId($_GET['id']);
+
+                        if (isset($_FILES['img']) && $_FILES['img']['error'] == 0){
+                            $post->setImg($_FILES['img']['name']);
+
+                        }else {
+                            $post->setImg($_POST['img']);
+                        }
+
+                        $post->setName($_POST['name']);
+                        $post->setTitle($_POST['title']);
+                        $post->setContent($_POST['content']);
+                        $post->setCreatedAt(new DateTime());
+
+                        if (!empty($erreur)) {
+
+                            $_SESSION['alertes']['submit_error'] = 'problème on ne peut pas publier votre chapitre';
+
+                            $myView = new View();
+                            $myView->render('editPost');
+
+                        } else {
+
+                            $manager = new PostManager();
+                            $manager->updatePostDb($post);
+
+                            $_SESSION['alertes']['submit_success'] = 'Super votre chapitre est en ligne';
+
+                            $myView = new View('dashboard');
+                            $myView->redirect('dashboard');
+                        }
+                    }
+                } else {
+
+                    $PostManager = new PostManager();
+                    $post = $PostManager->getPost();
+
+                    $myView = new View('edit-post');
+                    $myView->render(compact('post'));
+                }
 
 
-           $erreur = [];
-
-           if (!empty($_POST)) {
-
-               if (isset($_FILES['img']) && $_FILES['img']['error'] == 0) {
-
-                   $name_img = basename($_FILES['img']['name']);
-                   $img = $_FILES['img'];
-                   $extension = strtolower(substr($img['name'], -3));
-                   $allow_ext = array("jpg", 'jpeg', 'png');
-                   if (in_array($extension, $allow_ext)) {
-                       $chemin = "assets/images/" . $img['name'];
-                       move_uploaded_file($img['tmp_name'], $chemin);
-
-                   } else {
-
-                       $erreur = "Mauvais format de fichier";
-                   }
-
-               }
-
-               if (isset($_POST['name']) && isset($_POST['title']) && isset($_POST['content']) && !empty($_POST['name']) && !empty($_POST['title']) && !empty($_POST['content'])) {
-
-                   $post = new Post();
-                   $post->setId($_GET['id']);
-
-                   if (isset($_FILES['img']) && $_FILES['img']['error'] == 0){
-                       $post->setImg($_FILES['img']['name']);
-
-                   }else {
-                       $post->setImg($_POST['img']);
-                   }
-
-                   $post->setName($_POST['name']);
-                   $post->setTitle($_POST['title']);
-                   $post->setContent($_POST['content']);
-                   $post->setCreatedAt(new DateTime());
-
-                  if (!empty($erreur)) {
-
-                       $_SESSION['alertes']['submit_error'] = 'problème on ne peut pas publier votre chapitre';
-
-                       $myView = new View();
-                       $myView->render('editPost');
-
-                   } else {
-
-                   $manager = new PostManager();
-                   $manager->updatePostDb($post);
-
-                   $_SESSION['alertes']['submit_success'] = 'Super votre chapitre est en ligne';
-
-                   $myView = new View('dashboard');
-                   $myView->redirect('dashboard');
-               }
-               }
-           } else {
-
-               $PostManager = new PostManager();
-               $post = $PostManager->getPost();
-
-               $myView = new View('edit-post');
-               $myView->render(compact('post'));
-           }
-
+            }
 
        } else {
 
@@ -191,28 +202,31 @@ class Backcontroller
 
     public function deletePost()
     {
-        if ($_SESSION['user']['role'] === 'admin') {
+        if(isset($_SESSION['user'])){
+            if ($_SESSION['user']['role'] === 'admin') {
 
-            if($_GET['id']){
+                if($_GET['id']){
 
-                $PostManager = new PostManager();
-                $affectedLines = $PostManager->deletePostDb();
+                    $PostManager = new PostManager();
+                    $affectedLines = $PostManager->deletePostDb();
 
-                if ($affectedLines === false) {
+                    if ($affectedLines === false) {
 
-                    $_SESSION['alertes']['submit_error'] = "le chapitre n'a pas pû être supprimé";
+                        $_SESSION['alertes']['submit_error'] = "le chapitre n'a pas pû être supprimé";
 
-                    $myView = new View('dashboard');
-                    $myView->redirect('dashboard&id=' . $_GET['id']);
+                        $myView = new View('dashboard');
+                        $myView->redirect('dashboard&id=' . $_GET['id']);
 
-                } else {
-
-
-                    $_SESSION['alertes']['submit_success'] = "Félicitation le chapitre a bien été supprimé";
+                    } else {
 
 
-                    $myView = new View('dashboard');
-                    $myView->redirect('dashboard');
+                        $_SESSION['alertes']['submit_success'] = "Félicitation le chapitre a bien été supprimé";
+
+
+                        $myView = new View('dashboard');
+                        $myView->redirect('dashboard');
+                    }
+
                 }
 
             }

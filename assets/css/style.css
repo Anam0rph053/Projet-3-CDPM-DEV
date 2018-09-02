@@ -226,9 +226,8 @@ li{
 .ml1 .line2 { bottom: 0; }
 
 /***** Derniers posts home***/
-.white-text{
-    color:white !important;
-}
+
+
 
 .title{
     padding-top: 80px;
@@ -245,23 +244,26 @@ li{
     font-family:fontastique;
     text-align: justify;
 
-
 }
 .card-title {
     font-family: fontastique;
+    text-align: center !important;
 }
 
 
 .card{
+
     display: flex!important;
     flex-direction: column!important;
     justify-content: space-around!important;
     margin-bottom: 20px!important;
     background-color: transparent!important;
 }
+
 .elegant-color{
-    background-color:#22a99a!important ;
+    background-color:#2bbbadd4!important ;
 }
+
 /****Formulaires****/
 
 form{
@@ -295,11 +297,14 @@ img.img-fluid{
     color : #22a99a;
 }
 p{
-    font-family: fontastique;
+    font-family: fontastique !important;
     line-height: 200%;
     color:#777676!important;
-
+    text-align: justify;
+    -moz-text-align-last: center;
+    text-align-last: center;
 }
+
 .h1-responsive{
     font-family: tahu !important;
     font-size: 3em!important;
@@ -338,6 +343,28 @@ h6{
     font-family: fontastique !important ;
     text-align :center;
     color :#2bbbad;
+}
+
+
+.pagination  a {
+    color: #2bbbad;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+}
+.justify-content-center {
+    justify-content: center !important;
+}
+.pagination a:hover:not(.active) {
+    background-color: #2bbbad;
+    color : white;
+    border-radius: 5px;
 }
 
 /*** Admin ***/
@@ -404,6 +431,7 @@ only screen and (max-width: 800px),
     tr { border: 1px solid #ccc; }
 
     td {
+
         border: none;
         border-bottom: 1px solid #eee;
         position: relative;
@@ -411,6 +439,7 @@ only screen and (max-width: 800px),
     }
 
     td:before {
+
         position: absolute;
         top: 6px;
         left: 6px;
@@ -418,12 +447,24 @@ only screen and (max-width: 800px),
         white-space: nowrap;
     }
 
-    td:nth-of-type(1):before { content: "Id"; }
-    td:nth-of-type(2):before { content: "Image"; }
-    td:nth-of-type(3):before { content: "Auteur"; }
-    td:nth-of-type(4):before { content: "Titre"; }
-    td:nth-of-type(5):before { content: "Extrait"; }
-    td:nth-of-type(6):before { content: "Actions"; }
+    #post-table td:nth-of-type(1):before { content: "Id"; }
+    #post-table td:nth-of-type(2):before { content: "Image"; }
+    #post-table td:nth-of-type(3):before { content: "Auteur"; }
+    #post-table td:nth-of-type(4):before { content: "Titre"; }
+    #post-table td:nth-of-type(5):before { content: "Extrait"; }
+    #post-table td:nth-of-type(6):before { content: "Actions"; }
+
+    #comment-table-validated td:nth-of-type(1):before { content: "Id"; }
+    #comment-table-validated td:nth-of-type(2):before { content: "pseudo"; }
+    #comment-table-validated td:nth-of-type(3):before { content: "commentaires"; }
+    #comment-table-validated td:nth-of-type(4):before { content: "Actions"; }
+
+    #comment-table td:nth-of-type(1):before { content: "Id"; }
+    #comment-table td:nth-of-type(2):before { content: "pseudo"; }
+    #comment-table td:nth-of-type(3):before { content: "commentaires"; }
+    #comment-table td:nth-of-type(4):before { content: "Actions"; }
+
+
 }
 
 

@@ -21,7 +21,7 @@
                     <!-- Subtitle -->
                     <h6 class="font-weight-bold  py-2"><?=htmlspecialchars($post->getName());?> le <?=htmlspecialchars($post->getCreatedAt());?></h6>
                     <!-- Text -->
-                    <p class="card-text"><?=htmlspecialchars($post->getContent());?>
+                    <p class="card-text"><?=$post->getContent();?>
                     </p>
 
                 </div>

@@ -87,7 +87,6 @@ class PostManager extends Manager
     {
         $db = $this->db;
 
-
         $query = "INSERT INTO posts( img, name, title, content, created_at)  
                       VALUES( :img , :name, :title, :content, NOW())";
 
@@ -148,7 +147,7 @@ class PostManager extends Manager
     public function getPostsLimitPaginate($min)
     {
         $db = $this->db;
-        $query = "SELECT * FROM posts ORDER BY created_at DESC LIMIT {$min}, 3 ";
+        $query = "SELECT * FROM posts ORDER BY created_at ASC LIMIT {$min}, 3 ";
         $req = $db->prepare($query);
         $req->execute();
 

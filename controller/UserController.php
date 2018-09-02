@@ -95,8 +95,6 @@ class UserController
         if(!empty($_POST)) {
 
             //traitement recaptcha
-
-
                     // Ma clé privée
                 $secret = "6Ld9MGsUAAAAAHBuwy48P7feK736syVc-hHy25Mw";
                 // Paramètre renvoyé par le recaptcha
@@ -120,7 +118,7 @@ class UserController
 
                 }
 
-            if(isset($_POST['pseudo']) && isset($_POST['pass']) && isset($decode['success'])) {
+            if(isset($_POST['pseudo']) && isset($_POST['pass'])) {
 
                 $pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
 
@@ -130,9 +128,9 @@ class UserController
                 $isPasswordCorrect = password_verify($_POST['pass'], $user->getPass());
 
             }
-                    if($user == null ) {
+                    if($user->getId() === null ) {
 
-                        $_SESSION['alertes']['submit_error'] = 'Mauvais identifiant ou mauvais mot de passe';
+                        $_SESSION['alertes']['submit_error'] = 'Les champs pseudo et mot de passe sont obligatoires';
 
                         $myView = new View('login');
                         $myView->redirect('login');
@@ -243,7 +241,7 @@ class UserController
 
     public function userLogOut(){
 
-        //session_start();
+
         // Réinitialisation du tableau de session
         // On le vide intégralement
         $_SESSION = array();

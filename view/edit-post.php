@@ -44,7 +44,7 @@ if(isset($post)){
         <br/>
         <div class="md-form">
             <i class="fas fa-pencil-alt prefix grey-text"></i>
-            <textarea type="text" id="content" name="content" class="form-control md-textarea tiny" rows="3"><?=htmlspecialchars($post->getContent())?></textarea>
+            <textarea type="text" id="post" name="content" class="form-control md-textarea tiny" rows="3"><?=$post->getContent()?></textarea>
             <label for="content"</label>
         </div>
 
