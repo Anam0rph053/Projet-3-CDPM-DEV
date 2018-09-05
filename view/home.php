@@ -1,92 +1,91 @@
 
 
     <!-- Navigation -->
-
-
+    <?php
+    if (isset($_SESSION['alertes']['submit_success']) && !empty($_SESSION['alertes']['submit_success']))
+    {
+        ?>
+        <div class="alert alert-success" role="alert">
+            <p style="color:green;"><?= $_SESSION['alertes']['submit_success'] ?></p></div>
+        <?php
+        $_SESSION['alertes'] = [];
+    }
+    elseif (isset($_SESSION['alertes']['submit_error']) && !empty($_SESSION['alertes']['submit_error']))
+    {
+        ?>
+        <div class="alert alert-danger" role="alert">
+            <p style="color:darkred;"><?= $_SESSION['alertes']['submit_error'] ?></p></div>
+        <?php
+        $_SESSION['alertes'] = [];
+    }
+    ?>
 <div class="landing">
 
     <div class="inner">
-        <p class="title-start">Billet Simple Pour</p>
-        <p class="title-end">l'Alaska</p>
-
+        <div class="col-sm-12">
+            <h1 class="ml1">
+              <span class="text-wrapper">
+                <span class="title-start">Billet Simple Pour</span>
+                  <br/>
+                  <span class="title-end">L'Alaska</span>
+              </span>
+            </h1>
+    </div>
     </div>
 
+    <div class="fleche"><a href="#accueil"</a>
+        <i class="fas fa-angle-down fa-5x white-text"></i>
+    </div>
 </div>
-
-
 
 
 <div class="padding">
     <div class="container">
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-12">
                 <div class="card-title ">
-                    <img class="card-img" src="assets/images/miniature-accueil-5.jpg" alt="Card image">
-                    <div class="card-img-overlay">
-                        <h3 class="title">Dernières Lectures</h3><hr>
+                        <h3 class="title" id="accueil">Dernières Lectures</h3><hr>
                         <br/>
                         <p class="card-text">Jamais Matthew Pike, gardien taciturne des Eaux et Forêts de l'Alaska, n'aurait imaginé que porter secours au rescapé d'un crash aérien le précipiterait dans un tel imbroglio.</p>
-                        <button type="button" class="btn btn-outline-info">Accèder aux Lectures</button>
+                        <a  href="<?=HOST;?>posts" class ="btn btn-default" style="color:white!important;" >Accèder aux Lectures</a><hr>
 
                     </div>
+                </div>
 
+        <!-- Grid column -->
+            <?php foreach ($variables as $post):?>
+                <div class="col-lg-4">
+            <!--Card-->
+            <div class="card">
+
+                <!--Card image-->
+                <div class="view">
+                    <img src="<?=ASSETS;?>images/<?=$post->getImg()?>" class="card-img-top" alt="photo">
+                    <a href="#">
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+
+                <!--Card content-->
+                <div class="card-body elegant-color white-text">
+
+                    <!--Title-->
+                    <h4 class="card-title"><?=htmlspecialchars($post->getTitle());?></h4>
+
+                    <!--Text-->
+                    <?php
+                    $extract = substr($post->getContent(), 0, 150);
+                    $espace = strrpos($extract, ' ');
+                    $text = substr($post->getContent(), 0, $espace).'...' ;?>
+
+                    <p><?=$text; ?>...</p>
+                    <a href="<?=HOST;?>post&id=<?=$post->getId();?>" class="btn btn-outline-white btn-md waves-effect">Lire la suite</a>
                 </div>
             </div>
-            <div class="col-sm-6 text-center">
-                <div class="card">
-                    <div class="face front">
-                        <img class="card-img" src="assets/images/miniature-accueil-2.jpg"  alt="Card image">
-                        <div class="card-img-overlay">
-                            <h4>Chapitre 1<br/>Appât sanglant</h4>
-
-                        </div>
-                    </div>
-                    <div class=" face back">
-                        <p> Chapitre 1</p>
-                        <p>skfnskdfbsdkfhskfhslkfdhslkdfhskldfhslkfhslkfhqsifhqlksfhqosifhqoifhqoisfhqoishfoqihfqoifhqoisfhqoihfqoifh</p>
-                        <button type="button" class="btn btn-outline-info">Lire la suite</button>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="face front">
-                        <img class="card-img" src="assets/images/miniature-accueil-4.jpg " alt="Card image">
-                        <div class="card-img-overlay">
-                            <h4>Chapitre 2<br/>La chat et la souris</h4>
-                        </div>
-                    </div>
-                    <div class=" face back">
-                        <p> Chapitre 1</p>
-                        <p>skfnskdfbsdkfhskfhslkfdhslkdfhskldfhslkfhslkfhqsifhqlksfhqosifhqoifhqoisfhqoishfoqihfqoifhqoisfhqoihfqoifh</p>
-                        <button type="button" class="btn btn-outline-info">Lire la suite</button>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="face front">
-                        <img class="card-img" src="assets/images/miniature-accueil-9.jpg" alt="Card image">
-                        <div class="card-img-overlay">
-                            <h4>Chapitre 3<br/>Lignes de piègeade</h4>
-                        </div>
-                    </div>
-                    <div class=" face back">
-                        <p> Chapitre 1</p>
-                        <p>skfnskdfbsdkfhskfhslkfdhslkdfhskldfhslkfhslkfhqsifhqlksfhqosifhqoifhqoisfhqoishfoqihfqoifhqoisfhqoihfqoifh</p>
-                        <button type="button" class="btn btn-outline-info">Lire la suite</button>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="face front">
-                        <img class="card-img" src="assets/images/miniature-accueil-6.jpg" alt="Card image">
-                        <div class="card-img-overlay">
-                            <h4>Chapitre 4<br/>La voie des airs</h4>
-                        </div>
-                    </div>
-                    <div class="face back">
-                        <p> Chapitre 4 </p>
-                        <p>skfnskdfbsdkfhskfhslkfdhslkdfhskldfhslkfhslkfhqsifhqlksfhqosifhqoifhqoisfhqoishfoqihfqoifhqoisfhqoihfqoifh</p>
-                        <button type="button" class="btn btn-outline-info">Lire la suite</button>
-                    </div>
-                </div>
-            </div>
+            <!--/.Card-->
+        </div>
+        <!-- Grid column -->
+            <?php endforeach;?>
         </div>
     </div>
 </div>

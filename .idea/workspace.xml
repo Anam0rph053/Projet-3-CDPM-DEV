@@ -1,31 +1,658 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="489b49ed-413a-44a7-8b0e-f4e73f470c2c" name="Default" comment="" />
+    <list default="true" id="489b49ed-413a-44a7-8b0e-f4e73f470c2c" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_config.php" beforeDir="false" afterPath="$PROJECT_DIR$/_config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/.babelrc.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/.eslintignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/.eslintrc.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/.github/CONTRIBUTING.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/.github/ISSUE_TEMPLATE/bug.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/.github/ISSUE_TEMPLATE/feature.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/.github/SUPPORT.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/.stylelintignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/.stylelintrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/CNAME" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/CODE_OF_CONDUCT.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/Gemfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/Gemfile.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/_config.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/_data/breakpoints.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/_data/browser-bugs.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/_data/browser-features.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/_data/colors.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/_data/examples.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/_data/grays.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/_data/nav.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/_data/theme-colors.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/_data/translations.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/_includes/ads.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/_includes/bugify.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/_includes/callout-danger-async-methods.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/_includes/callout-info-mediaqueries-breakpoints.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/_includes/callout-warning-color-assistive-technologies.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/_includes/callout.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/_includes/docs-navbar.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/_includes/docs-sidebar.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/_includes/example.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/_includes/favicons.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/_includes/footer.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/_includes/header.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/_includes/icons/bootstrap.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/_includes/icons/download.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/_includes/icons/github.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/_includes/icons/import.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/_includes/icons/lightning.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/_includes/icons/menu.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/_includes/icons/slack.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/_includes/icons/twitter.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/_includes/scripts.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/_includes/skippy.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/_includes/social.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/_layouts/default.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/_layouts/docs.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/_layouts/examples.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/_layouts/home.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/_layouts/redirect.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/_layouts/simple.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/brand/bootstrap-outline.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/brand/bootstrap-punchout.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/brand/bootstrap-social-logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/brand/bootstrap-social.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/brand/bootstrap-solid.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/css/docs.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/css/docs.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/img/bootstrap-stack.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/img/bootstrap-themes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/img/favicons/android-chrome-192x192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/img/favicons/android-chrome-512x512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/img/favicons/apple-touch-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/img/favicons/browserconfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/img/favicons/favicon-16x16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/img/favicons/favicon-32x32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/img/favicons/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/img/favicons/mstile-144x144.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/img/favicons/mstile-150x150.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/img/favicons/mstile-310x150.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/img/favicons/mstile-310x310.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/img/favicons/mstile-70x70.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/img/favicons/safari-pinned-tab.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/js/.eslintrc.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/js/docs.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/js/src/application.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/js/src/ie-emulation-modes-warning.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/js/src/pwa.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/js/src/search.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/js/vendor/anchor.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/js/vendor/clipboard.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/js/vendor/holder.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/js/vendor/jquery-slim.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/js/vendor/popper.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/scss/_ads.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/scss/_algolia.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/scss/_anchor.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/scss/_brand.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/scss/_browser-bugs.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/scss/_buttons.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/scss/_callouts.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/scss/_clipboard-js.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/scss/_colors.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/scss/_component-examples.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/scss/_content.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/scss/_examples.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/scss/_footer.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/scss/_masthead.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/scss/_nav.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/scss/_sidebar.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/scss/_skiplink.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/scss/_syntax.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/scss/_variables.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/assets/scss/docs.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/build/.eslintrc.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/build/.htmllintrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/build/change-version.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/build/gcp-key.json.enc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/build/generate-sri.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/build/lint-vars.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/build/postcss.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/build/rollup.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/build/sauce_browsers.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/build/saucelabs-unit-test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/build/ship.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/build/upload-preview.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/build/vnu-jar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/build/workbox.config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/build/workbox.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/dist/css/bootstrap-grid.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/dist/css/bootstrap-grid.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/dist/css/bootstrap-grid.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/dist/css/bootstrap-grid.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/dist/css/bootstrap-reboot.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/dist/css/bootstrap-reboot.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/dist/css/bootstrap-reboot.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/dist/css/bootstrap-reboot.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/dist/css/bootstrap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/dist/css/bootstrap.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/dist/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/dist/css/bootstrap.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/dist/js/bootstrap.bundle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/dist/js/bootstrap.bundle.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/dist/js/bootstrap.bundle.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/dist/js/bootstrap.bundle.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/dist/js/bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/dist/js/bootstrap.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/dist/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/dist/js/bootstrap.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/about/brand.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/about/license.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/about/overview.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/about/translations.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/browser-bugs.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/components/alerts.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/components/badge.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/components/breadcrumb.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/components/button-group.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/components/buttons.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/components/card.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/components/carousel.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/components/collapse.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/components/dropdowns.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/components/forms.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/components/input-group.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/components/jumbotron.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/components/list-group.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/components/modal.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/components/navbar.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/components/navs.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/components/pagination.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/components/popovers.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/components/progress.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/components/scrollspy.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/components/tooltips.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/content/code.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/content/figures.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/content/images.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/content/reboot.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/content/tables.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/content/typography.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/.eslintrc.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/.stylelintrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/album/album.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/album/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/blog/blog.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/blog/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/carousel/carousel.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/carousel/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/checkout/form-validation.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/checkout/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/cover/cover.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/cover/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/dashboard/dashboard.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/dashboard/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/floating-labels/floating-labels.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/floating-labels/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/grid/grid.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/grid/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/jumbotron/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/jumbotron/jumbotron.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/navbar-bottom/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/navbar-fixed/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/navbar-fixed/navbar-top-fixed.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/navbar-static/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/navbar-static/navbar-top.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/navbars/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/navbars/navbar.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/offcanvas/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/offcanvas/offcanvas.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/offcanvas/offcanvas.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/pricing/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/pricing/pricing.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/product/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/product/product.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/screenshots/album.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/screenshots/blog.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/screenshots/carousel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/screenshots/checkout.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/screenshots/cover.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/screenshots/dashboard.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/screenshots/floating-labels.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/screenshots/grid.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/screenshots/jumbotron.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/screenshots/navbar-bottom.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/screenshots/navbar-fixed.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/screenshots/navbar-static.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/screenshots/navbars.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/screenshots/offcanvas.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/screenshots/pricing.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/screenshots/product.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/screenshots/sign-in.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/screenshots/starter-template.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/screenshots/sticky-footer-navbar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/screenshots/sticky-footer.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/sign-in/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/sign-in/signin.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/starter-template/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/starter-template/starter-template.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/sticky-footer-navbar/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/sticky-footer-navbar/sticky-footer-navbar.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/sticky-footer/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/sticky-footer/sticky-footer.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/tooltip-viewport/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/tooltip-viewport/tooltip-viewport.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/examples/tooltip-viewport/tooltip-viewport.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/extend/approach.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/extend/icons.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/extend/index.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/getting-started/accessibility.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/getting-started/best-practices.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/getting-started/browsers-devices.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/getting-started/build-tools.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/getting-started/contents.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/getting-started/download.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/getting-started/introduction.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/getting-started/javascript.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/getting-started/theming.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/getting-started/webpack.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/layout/grid.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/layout/media-object.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/layout/overview.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/layout/utilities-for-layout.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/migration.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/utilities/borders.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/utilities/clearfix.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/utilities/close-icon.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/utilities/colors.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/utilities/display.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/utilities/embed.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/utilities/flex.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/utilities/float.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/utilities/image-replacement.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/utilities/position.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/utilities/screenreaders.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/utilities/shadows.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/utilities/sizing.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/utilities/spacing.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/utilities/text.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/utilities/vertical-align.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/docs/4.1/utilities/visibility.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/dist/alert.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/dist/alert.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/dist/button.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/dist/button.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/dist/carousel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/dist/carousel.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/dist/collapse.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/dist/collapse.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/dist/dropdown.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/dist/dropdown.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/dist/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/dist/index.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/dist/modal.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/dist/modal.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/dist/popover.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/dist/popover.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/dist/scrollspy.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/dist/scrollspy.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/dist/tab.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/dist/tab.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/dist/tooltip.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/dist/tooltip.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/dist/util.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/dist/util.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/src/alert.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/src/button.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/src/carousel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/src/collapse.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/src/dropdown.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/src/modal.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/src/popover.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/src/scrollspy.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/src/tab.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/src/tooltip.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/src/util.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/tests/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/tests/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/tests/karma-bundle.conf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/tests/karma.conf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/tests/unit/.eslintrc.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/tests/unit/alert.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/tests/unit/button.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/tests/unit/carousel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/tests/unit/collapse.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/tests/unit/dropdown.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/tests/unit/modal.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/tests/unit/popover.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/tests/unit/scrollspy.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/tests/unit/tab.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/tests/unit/tooltip.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/tests/unit/util.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/tests/visual/alert.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/tests/visual/button.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/tests/visual/carousel.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/tests/visual/collapse.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/tests/visual/dropdown.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/tests/visual/modal.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/tests/visual/popover.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/tests/visual/scrollspy.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/tests/visual/tab.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/js/tests/visual/tooltip.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/nuget/MyGet.ps1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/nuget/bootstrap.nuspec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/nuget/bootstrap.sass.nuspec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/package.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/sache.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/_alert.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/_badge.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/_breadcrumb.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/_button-group.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/_buttons.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/_card.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/_carousel.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/_close.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/_code.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/_custom-forms.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/_dropdown.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/_forms.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/_functions.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/_grid.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/_images.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/_input-group.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/_jumbotron.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/_list-group.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/_media.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/_mixins.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/_modal.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/_nav.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/_navbar.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/_pagination.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/_popover.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/_print.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/_progress.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/_reboot.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/_root.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/_tables.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/_tooltip.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/_transitions.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/_type.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/_utilities.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/_variables.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/bootstrap-grid.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/bootstrap-reboot.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/bootstrap.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/mixins/_alert.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/mixins/_background-variant.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/mixins/_badge.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/mixins/_border-radius.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/mixins/_box-shadow.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/mixins/_breakpoints.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/mixins/_buttons.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/mixins/_caret.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/mixins/_clearfix.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/mixins/_float.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/mixins/_forms.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/mixins/_gradients.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/mixins/_grid-framework.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/mixins/_grid.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/mixins/_hover.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/mixins/_image.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/mixins/_list-group.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/mixins/_lists.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/mixins/_nav-divider.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/mixins/_pagination.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/mixins/_reset-text.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/mixins/_resize.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/mixins/_screen-reader.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/mixins/_size.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/mixins/_table-row.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/mixins/_text-emphasis.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/mixins/_text-hide.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/mixins/_text-truncate.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/mixins/_transition.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/mixins/_visibility.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/utilities/_align.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/utilities/_background.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/utilities/_borders.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/utilities/_clearfix.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/utilities/_display.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/utilities/_embed.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/utilities/_flex.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/utilities/_float.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/utilities/_position.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/utilities/_screenreaders.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/utilities/_shadows.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/utilities/_sizing.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/utilities/_spacing.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/utilities/_text.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/scss/utilities/_visibility.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/bootstrap-4.1.1/sw.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/Asgalt-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/Tahu.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/cookies&amp;milk-Italic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/cookies&amp;milk-regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/glyphicons-halflings-regular.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/glyphicons-halflings-regular.svg" beforeDir="false" afterPath="$PROJECT_DIR$/assets/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/glyphicons-halflings-regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/assets/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/glyphicons-halflings-regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/glyphicons-halflings-regular.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/assets/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/Sans titre-1.psd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/miniature-accueil-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/miniature-accueil-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/miniature-accueil-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/miniature-accueil-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/miniature-accueil-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/miniature-accueil-6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/miniature-accueil-7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/miniature-accueil-8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/miniature-accueil-9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/Routeur.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Routeur.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/View.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/View.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/Frontend.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/CommentManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/CommentManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Manager.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/Manager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/Post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/PostManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/PostManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/_footer.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/_gabarit.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/_gabarit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/_header.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/about.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/about.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/contact.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/edit.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/posts.php" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-501756983">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="31" />
+          <entry key="project.open.time.1" value="2" />
+          <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.110" value="1" />
+          <entry key="project.open.time.115" value="1" />
+          <entry key="project.open.time.116" value="1" />
+          <entry key="project.open.time.117" value="1" />
+          <entry key="project.open.time.15" value="1" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.238" value="1" />
+          <entry key="project.open.time.24" value="1" />
+          <entry key="project.open.time.25" value="1" />
+          <entry key="project.open.time.26" value="1" />
+          <entry key="project.open.time.28" value="3" />
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.326" value="1" />
+          <entry key="project.open.time.33" value="1" />
+          <entry key="project.open.time.34" value="1" />
+          <entry key="project.open.time.35" value="1" />
+          <entry key="project.open.time.38" value="1" />
+          <entry key="project.open.time.39" value="1" />
+          <entry key="project.open.time.4" value="2" />
+          <entry key="project.open.time.41" value="1" />
+          <entry key="project.open.time.44" value="1" />
+          <entry key="project.open.time.58" value="1" />
+          <entry key="project.open.time.59" value="1" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.opened" value="31" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="css" value="2294" />
+          <entry key="dummy" value="6" />
+          <entry key="js" value="274" />
+          <entry key="php" value="18784" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="CSS" value="2294" />
+          <entry key="JavaScript" value="274" />
+          <entry key="PHP" value="18784" />
+          <entry key="PLAIN_TEXT" value="6" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="css" value="20" />
+          <entry key="gitignore" value="2" />
+          <entry key="htaccess" value="5" />
+          <entry key="jpg" value="1" />
+          <entry key="js" value="5" />
+          <entry key="md" value="1" />
+          <entry key="php" value="404" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CSS" value="20" />
+          <entry key="Image" value="1" />
+          <entry key="JavaScript" value="5" />
+          <entry key="Markdown" value="1" />
+          <entry key="PHP" value="404" />
+          <entry key="PLAIN_TEXT" value="2" />
+          <entry key="htaccess" value="5" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.php.new.class">
+        <counts>
+          <entry key="PHP Class.type" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.php">
-          <provider selected="true" editor-type-id="text-editor" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/about.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="645">
+              <caret line="43" column="13" lean-forward="true" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+            </state>
+          </provider>
         </entry>
       </file>
-      <file leaf-file-name="_config.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/_config.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/classes/Routeur.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+            <state relative-caret-position="375">
+              <caret line="25" column="94" lean-forward="true" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="94" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/model/Manager.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/_gabarit.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="50" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/login.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="59" selection-start-line="59" selection-end-line="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/home.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1230">
+              <caret line="82" selection-start-line="82" selection-end-line="82" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>count</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -33,7 +660,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/assets/js/jsCode" />
+        <option value="$PROJECT_DIR$/model/comment.php" />
+        <option value="$PROJECT_DIR$/controller/userController.php" />
+        <option value="$PROJECT_DIR$/view/logOut.php" />
+        <option value="$PROJECT_DIR$/model/comments.php" />
+        <option value="$PROJECT_DIR$/controller/AdminControlleur.php" />
+        <option value="$PROJECT_DIR$/controller/BackControlleur.php" />
+        <option value="$PROJECT_DIR$/view/adminCo.php" />
+        <option value="$PROJECT_DIR$/../Gestion d'un espace membre (refactorisation) (1)/class/Database.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/view/admin.php" />
+        <option value="$PROJECT_DIR$/assets/css/mdb.min.css" />
+        <option value="$PROJECT_DIR$/view/newPost.php" />
+        <option value="$PROJECT_DIR$/classes/imgClass.php" />
+        <option value="$PROJECT_DIR$/controller/img.php" />
+        <option value="$PROJECT_DIR$/view/listPosts.php" />
+        <option value="$PROJECT_DIR$/view/commentEditView.php" />
+        <option value="$PROJECT_DIR$/view/addPost.php" />
+        <option value="$PROJECT_DIR$/model/Membres.php" />
+        <option value="$PROJECT_DIR$/view/editPost.php" />
+        <option value="$PROJECT_DIR$/assets/css/compiled.min.css" />
+        <option value="$PROJECT_DIR$/model/CommentManager.php" />
+        <option value="$PROJECT_DIR$/model/Manager.php" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/classes/Routeur.php" />
+        <option value="$PROJECT_DIR$/model/Comment.php" />
+        <option value="$PROJECT_DIR$/assets/js/app.js" />
+        <option value="$PROJECT_DIR$/view/register.php" />
+        <option value="$PROJECT_DIR$/view/login.php" />
+        <option value="$PROJECT_DIR$/model/Post.php" />
         <option value="$PROJECT_DIR$/_config.php" />
+        <option value="$PROJECT_DIR$/view/contact.php" />
+        <option value="$PROJECT_DIR$/view/comment-edit-view.php" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/view/add-post.php" />
+        <option value="$PROJECT_DIR$/view/edit-post.php" />
+        <option value="$PROJECT_DIR$/view/post.php" />
+        <option value="$PROJECT_DIR$/controller/Frontcontroller.php" />
+        <option value="$PROJECT_DIR$/model/PostManager.php" />
+        <option value="$PROJECT_DIR$/model/UserManager.php" />
+        <option value="$PROJECT_DIR$/controller/BackController.php" />
+        <option value="$PROJECT_DIR$/.htaccess" />
+        <option value="$PROJECT_DIR$/view/_gabarit.php" />
+        <option value="$PROJECT_DIR$/view/profil.php" />
+        <option value="$PROJECT_DIR$/controller/UserController.php" />
+        <option value="$PROJECT_DIR$/classes/View.php" />
+        <option value="$PROJECT_DIR$/view/list-posts.php" />
+        <option value="$PROJECT_DIR$/view/home.php" />
+        <option value="$PROJECT_DIR$/view/dashboard.php" />
+        <option value="$PROJECT_DIR$/assets/css/style.css" />
+        <option value="$PROJECT_DIR$/view/about.php" />
       </list>
     </option>
   </component>
@@ -43,16 +720,10 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="NodePackageJsonFileManager">
-    <packageJsonPaths>
-      <path value="$PROJECT_DIR$/assets/bootstrap-4.1.1/package.json" />
-    </packageJsonPaths>
-  </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2049" />
-    <option name="y" value="95" />
+    <option name="y" value="23" />
     <option name="width" value="2048" />
-    <option name="height" value="1057" />
+    <option name="height" value="1129" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -66,6 +737,37 @@
               <item name="Projet-3-CDPM-DEV" type="b2602c69:ProjectViewProjectNode" />
               <item name="Projet-3-CDPM-DEV" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Projet-3-CDPM-DEV" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projet-3-CDPM-DEV" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projet-3-CDPM-DEV" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projet-3-CDPM-DEV" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projet-3-CDPM-DEV" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projet-3-CDPM-DEV" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projet-3-CDPM-DEV" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projet-3-CDPM-DEV" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projet-3-CDPM-DEV" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projet-3-CDPM-DEV" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Projet-3-CDPM-DEV" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Projet-3-CDPM-DEV" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -74,10 +776,26 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="white-text&#9;null&#9;null&#10;.dropdown-menu a&#9;null&#9;null&#10;.elegant&#9;null&#9;null&#10;.elegant-color&#9;null&#9;null&#10;elegant&#9;null&#9;null&#10;.btn-primary&#9;null&#9;null&#10;.btn-default&#9;null&#9;null&#10;.dropdown-menu &#9;null&#9;null&#10;.dropdown-menu&#9;null&#9;null&#10;.navbar .dropdown-menu a&#9;null&#9;null&#10;.btn-outline-info&#9;null&#9;null&#10; waves-effect&#9;null&#9;null&#10;.btn-outline-default&#9;null&#9;null&#10;.bg-dar&#9;null&#9;null&#10;.bg-dark&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/controller" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/controller" />
+      <recent name="$PROJECT_DIR$/assets/fonts" />
+      <recent name="$PROJECT_DIR$/assets/images" />
+      <recent name="$PROJECT_DIR$/assets/css" />
+      <recent name="$PROJECT_DIR$/classes" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -91,6 +809,16 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="UserManager.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/model/UserManager.php">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHP Script.UserManager.php" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -101,37 +829,117 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1530734359199</updated>
-      <workItem from="1530734360447" duration="32000" />
+      <workItem from="1530734360447" duration="574000" />
+      <workItem from="1530781502548" duration="9571000" />
+      <workItem from="1530860614772" duration="26576000" />
+      <workItem from="1531122098431" duration="37782000" />
+      <workItem from="1531292101203" duration="24996000" />
+      <workItem from="1531383240424" duration="4195000" />
+      <workItem from="1531739058156" duration="13192000" />
+      <workItem from="1531813966046" duration="18268000" />
+      <workItem from="1531855878467" duration="680000" />
+      <workItem from="1531898151031" duration="26263000" />
+      <workItem from="1531990516220" duration="23730000" />
+      <workItem from="1532071557792" duration="20972000" />
+      <workItem from="1532105238576" duration="123000" />
+      <workItem from="1532158638707" duration="9975000" />
+      <workItem from="1532325662391" duration="6628000" />
+      <workItem from="1532420370811" duration="15449000" />
+      <workItem from="1532516611806" duration="5961000" />
+      <workItem from="1532585959516" duration="293000" />
+      <workItem from="1532587083976" duration="14153000" />
+      <workItem from="1532757683172" duration="13217000" />
+      <workItem from="1532867303074" duration="11272000" />
+      <workItem from="1532935977877" duration="11876000" />
+      <workItem from="1533022512739" duration="16462000" />
+      <workItem from="1533107596424" duration="22625000" />
+      <workItem from="1533206294597" duration="11530000" />
+      <workItem from="1533284202147" duration="8362000" />
+      <workItem from="1533385115477" duration="2846000" />
+      <workItem from="1533389732616" duration="6837000" />
+      <workItem from="1533456453310" duration="9284000" />
+      <workItem from="1533547921870" duration="6451000" />
+      <workItem from="1533573627636" duration="1853000" />
+      <workItem from="1533576413247" duration="1000" />
+      <workItem from="1533627689849" duration="18053000" />
+      <workItem from="1533701653360" duration="26145000" />
+      <workItem from="1533799447028" duration="4999000" />
+      <workItem from="1534165614973" duration="11593000" />
+      <workItem from="1534239642546" duration="11870000" />
+      <workItem from="1534259525948" duration="3640000" />
+      <workItem from="1534345544786" duration="3880000" />
+      <workItem from="1534402628305" duration="12713000" />
+      <workItem from="1534689054264" duration="7010000" />
+      <workItem from="1534754199496" duration="27488000" />
+      <workItem from="1534927060777" duration="20433000" />
+      <workItem from="1535009237323" duration="17341000" />
+      <workItem from="1535370900358" duration="7324000" />
+      <workItem from="1535396098004" duration="2080000" />
+      <workItem from="1535442782950" duration="10688000" />
+      <workItem from="1535471503121" duration="2629000" />
+      <workItem from="1535527212539" duration="15364000" />
+      <workItem from="1535633170508" duration="7153000" />
+      <workItem from="1535702771567" duration="9719000" />
+      <workItem from="1535791105006" duration="3861000" />
+      <workItem from="1535800170382" duration="465000" />
+      <workItem from="1535822742476" duration="826000" />
+      <workItem from="1535823770776" duration="211000" />
+      <workItem from="1535889797375" duration="1336000" />
+      <workItem from="1535892303667" duration="388000" />
+      <workItem from="1536137170890" duration="75000" />
+      <workItem from="1536137520844" duration="32000" />
+      <workItem from="1536137711553" duration="246000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32000" />
+    <option name="totallyTimeSpent" value="609559000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2048" y="95" width="1920" height="1057" extended-state="6" />
+    <frame x="0" y="23" width="2048" height="1129" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24973376" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="right" id="Database" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Version Control" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21535394" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.018652849" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.16104147" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" weight="0.31975868" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.11022364" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.019286403" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.16237624" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" weight="0.31975868" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -140,13 +948,203 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/view/adminCo.php" />
+    <entry file="file://$USER_HOME$/Downloads/MDB-Free (1)/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="62">
+          <caret line="10" column="92" lean-forward="true" selection-start-line="10" selection-start-column="92" selection-end-line="10" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/FORMATION/EXO donné par mon mentor/exercice 2/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="61" column="54" lean-forward="true" selection-start-line="61" selection-start-column="54" selection-end-line="61" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/FORMATION/EXO donné par mon mentor/exercice 2/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="766">
+          <caret line="158" column="25" lean-forward="true" selection-start-line="156" selection-end-line="158" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/24-news/blog.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2982" />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/capsuula-fontfacekit/web fonts/capsuula_regular_macroman/specimen_files/specimen_stylesheet.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1690" />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/capsuula-fontfacekit/web fonts/capsuula_regular_macroman/stylesheet.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="11" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/capsuula-fontfacekit-1/How_to_use_webfonts.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="172" lean-forward="true" selection-start-line="172" selection-end-line="172" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/fonts/capsuula-fontfacekit/web fonts/capsuula_regular_macroman/specimen_files/grid_12-825-55-15.css" />
+    <entry file="file://$PROJECT_DIR$/view/newPost.php" />
+    <entry file="file://$USER_HOME$/Downloads/imgClass.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="5" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="28" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/images/miniature-accueil-1.jpg" />
+    <entry file="file://$PROJECT_DIR$/controller/img.php" />
+    <entry file="file://$PROJECT_DIR$/assets/css/animate.css" />
+    <entry file="file://$PROJECT_DIR$/assets/css/bootstrap.min.css" />
+    <entry file="file://$PROJECT_DIR$/assets/css/waypoints.css" />
+    <entry file="file://$PROJECT_DIR$/assets/css/mdb.min.css" />
+    <entry file="file://$USER_HOME$/Downloads/Projet-3-CDPM-DEV/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="2" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/app.js" />
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="615">
+            <caret line="41" column="32" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="32" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/compiled.min.css" />
     <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+        <state relative-caret-position="105">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore" />
+    <entry file="file://$PROJECT_DIR$/classes/View.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="1" lean-forward="true" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/BackController.php" />
+    <entry file="file://$PROJECT_DIR$/controller/Frontcontroller.php" />
+    <entry file="file://$PROJECT_DIR$/controller/UserController.php" />
+    <entry file="file://$PROJECT_DIR$/model/Comment.php" />
+    <entry file="file://$PROJECT_DIR$/model/CommentManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1800">
+          <caret line="120" column="5" lean-forward="true" selection-start-line="120" selection-start-column="5" selection-end-line="120" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/Membres.php" />
+    <entry file="file://$PROJECT_DIR$/model/Post.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="55" column="5" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/PostManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1335">
+          <caret line="89" column="35" selection-start-line="89" selection-start-column="35" selection-end-line="89" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/UserManager.php" />
+    <entry file="file://$PROJECT_DIR$/view/register.php" />
+    <entry file="file://$PROJECT_DIR$/view/profil.php" />
+    <entry file="file://$PROJECT_DIR$/view/contact.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/dashboard.php" />
+    <entry file="file://$PROJECT_DIR$/view/add-post.php" />
+    <entry file="file://$PROJECT_DIR$/view/comment-edit-view.php" />
+    <entry file="file://$PROJECT_DIR$/view/post.php" />
+    <entry file="file://$PROJECT_DIR$/view/edit-post.php" />
+    <entry file="file://$PROJECT_DIR$/view/list-posts.php" />
+    <entry file="file://$PROJECT_DIR$/view/about.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="43" column="13" lean-forward="true" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/_gabarit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="50" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="59" selection-start-line="59" selection-end-line="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/home.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1230">
+          <caret line="82" selection-start-line="82" selection-end-line="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Routeur.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="94" lean-forward="true" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/Manager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
