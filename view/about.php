@@ -16,7 +16,7 @@
     <div class="card-body card-body-cascade text-center">
 
         <!-- Title -->
-        <h4 class="card-title" style="font-family:cookies\&milk-regular; font-size: 4em;"><strong>Mon Aventure </strong></h4>
+        <h4 class="card-title" style="font-family:cookiesmilkregular; font-size: 4em;"><strong>Mon Aventure </strong></h4>
         <!-- Subtitle -->
         <h6 class="font-weight-bold indigo-text py-2"style="font-family:tahu\!; font-size: 2.3em";>Jean Forteroche</h6>
         <!-- Text -->

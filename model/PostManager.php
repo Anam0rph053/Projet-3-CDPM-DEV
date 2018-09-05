@@ -87,6 +87,7 @@ class PostManager extends Manager
     {
         $db = $this->db;
 
+
         $query = "INSERT INTO posts( img, name, title, content, created_at)  
                       VALUES( :img , :name, :title, :content, NOW())";
 
